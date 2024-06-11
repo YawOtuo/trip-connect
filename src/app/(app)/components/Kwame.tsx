@@ -23,10 +23,10 @@ function Kwame() {
                 <div className="flex flex-col items-start">
                     {/* Text content */}
                     <div className="text-left mb-8">
-                        <h1 className='text-2xl text-black font-semibold'>
+                        <h1 className='text-7xl text-black font-semibold'>
                             Choose Your <br />Perfect Travel Mode
                         </h1>
-                        <h3 className='text-sm text-black'>
+                        <h3 className='text-xl text-black'>
                             Travel the way you want with a variety of transport options to<br />suit your needs. Whether you're looking for convenience,<br />speed or affordability, we've got you covered.
                         </h3>
                     </div>
