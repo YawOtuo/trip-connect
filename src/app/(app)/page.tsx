@@ -12,7 +12,7 @@ import Enam from "./components/Enam";
 export default function Home() {
   return (
     <main>
-      {/* <HeroSection /> */}
+      <HeroSection />
       <QuarteiKwei />
       <Julius />
       <Kwame />

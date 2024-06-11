@@ -23,7 +23,7 @@ function Kwame() {
                 <div className="flex flex-col items-start">
                     {/* Text content */}
                     <div className="text-left mb-8">
-                        <h1 className='text-7xl text-black font-semibold'>
+                        <h1 className='text-7xl text-fuchsia-800  font-semibold'>
                             Choose Your <br />Perfect Travel Mode
                         </h1>
                         <h3 className='text-xl text-black'>
@@ -36,24 +36,24 @@ function Kwame() {
                         {/* Button component with hover effect */}
                         <button className="relative group border border-black text-black py-2 px-4 rounded-full overflow-hidden">
                             <span className="relative z-10 group-hover:text-white transition-all duration-500">VIP BUSES</span>
-                            <div className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-500"></div>
+                            <div className="absolute inset-0 bg-fuchsia-800 w-0 group-hover:w-full transition-all duration-500"></div>
                         </button>
                         {/* Repeat the button component for additional buttons */}
                         <button className="relative group border border-black text-black py-2 px-4 rounded-full overflow-hidden">
                             <span className="relative z-10 group-hover:text-white transition-all duration-500">VIP BUSES</span>
-                            <div className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-500"></div>
+                            <div className="absolute inset-0 bg-fuchsia-800 w-0 group-hover:w-full transition-all duration-500"></div>
                         </button>
                         <button className="relative group border border-black text-black py-2 px-4 rounded-full overflow-hidden">
                             <span className="relative z-10 group-hover:text-white transition-all duration-500">VIP BUSES</span>
-                            <div className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-500"></div>
+                            <div className="absolute inset-0 bg-fuchsia-800 w-0 group-hover:w-full transition-all duration-500"></div>
                         </button>
                         <button className="relative group border border-black text-black py-2 px-4 rounded-full overflow-hidden">
                             <span className="relative z-10 group-hover:text-white transition-all duration-500">VIP BUSES</span>
-                            <div className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-500"></div>
+                            <div className="absolute inset-0 bg-fuchsia-800 w-0 group-hover:w-full transition-all duration-500"></div>
                         </button>
                         <button className="relative group border border-black text-black py-2 px-4 rounded-full overflow-hidden">
                             <span className="relative z-10 group-hover:text-white transition-all duration-500">VIP BUSES</span>
-                            <div className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-500"></div>
+                            <div className="absolute inset-0 bg-fuchsia-800 w-0 group-hover:w-full transition-all duration-500"></div>
                         </button>
                     </div>
                 </div>
