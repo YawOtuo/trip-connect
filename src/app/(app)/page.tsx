@@ -8,19 +8,21 @@ import BismarkOwiredu from "./components/BismarkOwiredu";
 import BismarkAgyei from "./components/BismarkAgyei";
 import Enam from "./components/Enam";
 
-
 export default function Home() {
   return (
     <main>
-      {/* <HeroSection /> */}
-      <QuarteiKwei />
-      <Julius />
-      <Kwame />
-      <Jesse />
-      <BismarkOwiredu />
-      <Enam />
-      <BismarkAgyei />
-
+      <HeroSection />
+      <div className="flex flex-col gap-5 px-5 ">
+        <QuarteiKwei />
+        <Julius />
+        <div className="mt-5 lg:mt-14 ">
+          <Kwame />
+        </div>{" "}
+        <Jesse />
+        <BismarkOwiredu />
+        <Enam />
+        <BismarkAgyei />
+      </div>
     </main>
   );
 }

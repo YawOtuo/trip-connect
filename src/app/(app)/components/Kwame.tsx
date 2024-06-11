@@ -1,65 +1,68 @@
-import '../../globals.css'; // Import the global CSS file for styling
-import Image from 'next/image'; // Import the Image component from Next.js
+import "../../globals.css"; // Import the global CSS file for styling
+import Image from "next/image"; // Import the Image component from Next.js
 
+const Pill = ({ label }: { label: string }) => {
+  return (
+    <button className="relative group border border-primary text-primary py-1 px-4 rounded-full overflow-hidden">
+      <span className="relative z-10 group-hover:text-white transition-all duration-500">
+        {label}
+      </span>
+      <div className="absolute inset-0 bg-primary w-0 group-hover:w-full transition-all duration-500"></div>
+    </button>
+  );
+};
 function Kwame() {
-    return (
-
-        // Main container with flexbox to center its content
-        <div className="flex items-center justify-left min-h-screen bg-white p-8">
-            {/* Container for the image and content, arranged horizontally with flex */}
-            <div className="flex items-center space-x-8">
-                {/* Image container */}
-                <div className="flex-shrink-0">
-                    <Image
-                        src="/buses1.jpg" 
-                        alt="Buses"
-                        width={900} // Adjust the width as needed
-                        height={800} // Adjust the height as needed
-                        className="rounded-lg"
-                    />
-                </div>
-                
-                {/* Container for the text content and buttons */}
-                <div className="flex flex-col items-start">
-                    {/* Text content */}
-                    <div className="text-left mb-8">
-                        <h1 className='text-7xl text-black font-semibold'>
-                            Choose Your <br />Perfect Travel Mode
-                        </h1>
-                        <h3 className='text-xl text-black'>
-                            Travel the way you want with a variety of transport options to<br />suit your needs. Whether you're looking for convenience,<br />speed or affordability, we've got you covered.
-                        </h3>
-                    </div>
-
-                    {/* Container for the buttons arranged in a grid with 3 columns */}
-                    <div className="grid grid-cols-3 gap-4">
-                        {/* Button component with hover effect */}
-                        <button className="relative group border border-black text-black py-2 px-4 rounded-full overflow-hidden">
-                            <span className="relative z-10 group-hover:text-white transition-all duration-500">VIP BUSES</span>
-                            <div className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-500"></div>
-                        </button>
-                        {/* Repeat the button component for additional buttons */}
-                        <button className="relative group border border-black text-black py-2 px-4 rounded-full overflow-hidden">
-                            <span className="relative z-10 group-hover:text-white transition-all duration-500">VIP BUSES</span>
-                            <div className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-500"></div>
-                        </button>
-                        <button className="relative group border border-black text-black py-2 px-4 rounded-full overflow-hidden">
-                            <span className="relative z-10 group-hover:text-white transition-all duration-500">VIP BUSES</span>
-                            <div className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-500"></div>
-                        </button>
-                        <button className="relative group border border-black text-black py-2 px-4 rounded-full overflow-hidden">
-                            <span className="relative z-10 group-hover:text-white transition-all duration-500">VIP BUSES</span>
-                            <div className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-500"></div>
-                        </button>
-                        <button className="relative group border border-black text-black py-2 px-4 rounded-full overflow-hidden">
-                            <span className="relative z-10 group-hover:text-white transition-all duration-500">VIP BUSES</span>
-                            <div className="absolute inset-0 bg-black w-0 group-hover:w-full transition-all duration-500"></div>
-                        </button>
-                    </div>
-                </div>
-            </div>
+  const pillOptions = [
+    "VIP BUSES",
+    "2M EXPRESS",
+    "SALOON VEHICLES",
+    "MOTORCYCLES",
+  ];
+  return (
+    // Main container with flexbox to center its content
+      <div className="min-h-screen flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+        {/* Image container */}
+        <div className="order-2 lg:order-1 w-full flex-shrink-0 lg:basis-[50%] h-full">
+         <div className="relative w-full aspect-[9/8] h-full "
+         >
+              <Image
+                src="/buses1.jpg"
+                alt="Buses"
+                fill // Adjust the height as needed
+                className="rounded-lg"
+              />
+         </div>
         </div>
-    );
+
+        {/* Container for the text content and buttons */}
+        <div className="order-1 lg:order-2 flex flex-col gap-5 lg:gap-8">
+          {/* Text content */}
+          <div className="text-left  flex flex-col gap-4">
+            <h1 className="text-3xl lg:text-5xl text-primary font-semibold">
+              Choose Your <br />
+              Perfect Travel Mode
+            </h1>
+            <h3 className="text-black">
+              Travel the way you want with a variety of transport options to
+              <br className="hidden lg:block"/>
+              suit your needs. Whether you&apos;re looking for convenience,
+              <br className="hidden lg:block" />
+              speed or affordability, we&apos;ve got you covered.
+            </h3>
+          </div>
+
+          {/* Container for the buttons arranged in a grid with 3 columns */}
+          <div className="flex items-center flex-wrap gap-2 lg:gap-4 lg:w-[90%]">
+            {/* Button component with hover effect */}
+
+            {/* Repeat the button component for additional buttons */}
+            {pillOptions?.map((r) => (
+              <Pill label={r} key={r} />
+            ))}
+          </div>
+        </div>
+      </div>
+  );
 }
 
 export default Kwame; // Export the component as default
