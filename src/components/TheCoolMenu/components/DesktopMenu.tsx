@@ -30,7 +30,7 @@ export const DesktopMenu = (props: any) => {
       
       <div
         className={
-          "flex w-max flex-col gap-10 border-r-[3px] border-r-white pr-10"
+          "flex w-max flex-col gap-7 border-r-[3px] border-r-white pr-10"
         }>
 
 

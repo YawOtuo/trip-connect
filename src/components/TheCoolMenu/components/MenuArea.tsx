@@ -8,8 +8,8 @@ const MenuArea = (props: any) => {
   const { setMobileMenuStore } = useMobileNavStore();
   0;
   return (
-    <div className={"flex flex-col pt-10"}>
-      <div className="flex flex-col lg:gap-10">
+    <div className={"flex flex-col pt-10 lg:pt-8"}>
+      <div className="flex flex-col lg:gap-14">
         <div className={"flex-flex-col px-8"}>
           <div
             className={"flex w-full flex-row items-center justify-between  "}>

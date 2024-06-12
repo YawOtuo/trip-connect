@@ -40,6 +40,7 @@ export const ExpandCircle = {
     transition: {
       type: "spring",
       stiffness: 13,
+      damping: 20,
       restDelta: 2,
       duration: 0.2,
     },
