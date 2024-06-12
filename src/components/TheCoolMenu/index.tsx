@@ -51,7 +51,9 @@ export default function MobileNavBar(props: any) {
           opacity: 0,
         },
       }}>
-      <MenuArea />
-    </motion.aside>
+<div className="mt-10">
+        <MenuArea />
+  
+</div>    </motion.aside>
   );
 }

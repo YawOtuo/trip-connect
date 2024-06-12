@@ -36,7 +36,7 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center justify-center gap-14">
-        <Link href={"/store"}>
+        <Link href={"/"} className="hidden lg:flex">
           {" "}
           <button className="w-fit font-semibold px-8
            bg-primary text-white rounded-3xl capitalize whitespace-nowrap py-2">
