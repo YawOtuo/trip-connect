@@ -1,0 +1,39 @@
+import { useMobileNavStore } from "@/lib/store/useMobileNavStore";
+import React from "react";
+import { AiFillCloseCircle } from "react-icons/ai";
+import { MobileMenu } from "./MobileMenu";
+import { DesktopMenu } from "./DesktopMenu";
+
+const MenuArea = (props: any) => {
+  const { setMobileMenuStore } = useMobileNavStore();
+  0;
+  return (
+    <div className={"flex flex-col pt-10"}>
+      <div className="flex flex-col lg:gap-10">
+        <div className={"flex-flex-col px-8"}>
+          <div
+            className={"flex w-full flex-row items-center justify-between  "}>
+            <div
+              className="relative 
+          ">
+                <p className="text-3xl font-bold text-white">tripconnect</p>
+            </div>
+            <button className="relative transition-transform duration-300 hover:rotate-[360deg] lg:right-10">
+              <AiFillCloseCircle
+                onClick={() => setMobileMenuStore(false)}
+                color="white"
+                size={30}
+              />
+            </button>
+          </div>
+        </div>
+        <div className={""}>
+          <MobileMenu />
+          <DesktopMenu />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MenuArea;

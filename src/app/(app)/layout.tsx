@@ -1,3 +1,4 @@
+import NavMenuWrapper from "@/components/NavMenuWrapper";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 
@@ -9,8 +10,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="">
-        <Navbar />
-        {children}
+      <NavMenuWrapper>
+          <Navbar />
+          {children}
+      </NavMenuWrapper>
       </body>
     </html>
   );
