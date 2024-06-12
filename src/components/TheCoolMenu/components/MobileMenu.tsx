@@ -33,11 +33,11 @@ export const MobileMenu = (props: any) => {
   const { setMobileMenuStore } = useMobileNavStore();
 
   return (
-    <div className={`lg:hidden flex flex-col justify-center h-[60vh] gap-10 px-5  ${props?.className}`}>
+    <div className={`lg:hidden flex flex-col justify-center h-[55vh] gap-10 px-5  ${props?.className}`}>
       <Link href={"/store"}>
         {" "}
         <button
-          className="w-fit font-semibold px-8 bg-transparent text-white rounded-sm border-primary border-2">
+          className="w-fit text-xl font-bold px-8 bg-primary py-2 text-white rounded-sm border-primary border-2">
           Book a ride
         </button>
       </Link>
