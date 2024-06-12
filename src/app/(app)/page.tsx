@@ -17,8 +17,10 @@ export default function Home() {
         <Julius />
         <div className="mt-5 lg:mt-14 ">
           <Kwame />
-        </div>{" "}
-        <Jesse />
+        </div >{" "}
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+          <Jesse />
+        </div>
         <BismarkOwiredu />
         <Enam />
         <BismarkAgyei />
