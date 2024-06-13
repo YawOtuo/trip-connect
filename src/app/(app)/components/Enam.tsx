@@ -3,7 +3,7 @@ import { FaArrowRight } from "react-icons/fa6";
 
 function Enam() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 relative w-full items-center justify-center gap-10 lg:gap-[150px]">
+    <div className="grid grid-cols-1 lg:grid-cols-2 relative w-full items-center justify-center gap-10 lg:gap-[70px]">
 
       <div className="flex flex-col gap-3  lg:px-14">
         <h1 className="text-primary font-semibold text-3xl lg:text-5xl">
@@ -20,8 +20,8 @@ function Enam() {
           <FaArrowRight color="white" />
         </button>
       </div>
-      <div className="flex justify-center lg:border-solid lg:border-[4px] border-primary py-2 rounded-3xl w-full px-2">
-        <div className="relative w-full aspect-[9/8] h-full overflow-hidden rounded-md lg:rounded-2xl">
+      <div className="flex justify-center  py-2  w-full px-2">
+        <div className="relative w-full aspect-[9/8] h-full overflow-hidden rounded-md lg:rounded-xl">
           <Image
             src="/myimage.jpeg"
             alt="Buses"
