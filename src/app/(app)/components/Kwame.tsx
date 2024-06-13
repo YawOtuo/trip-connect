@@ -20,7 +20,7 @@ function Kwame() {
   ];
   return (
     // Main container with flexbox to center its content
-      <div className="min-h-screen flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+      <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
         {/* Image container */}
         <div className="order-2 lg:order-1 w-full flex-shrink-0 lg:basis-[50%] h-full">
          <div className="relative w-full aspect-[9/8] h-full "

@@ -7,24 +7,28 @@ import Jesse from "./components/Jesse";
 import BismarkOwiredu from "./components/BismarkOwiredu";
 import BismarkAgyei from "./components/BismarkAgyei";
 import Enam from "./components/Enam";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
     <main>
+      <Navbar />
       <HeroSection />
       <div className="flex flex-col gap-5 px-5 ">
         <QuarteiKwei />
         <Julius />
-        <div className="mt-5 lg:mt-14 ">
+        <div className="lg:mt-14 ">
           <Kwame />
-        </div >{" "}
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        </div>{" "}
+        {/* <div className="min-h-screen flex items-center justify-center bg-gray-100">
           <Jesse />
-        </div>
+        </div> */}
         <BismarkOwiredu />
         <Enam />
-        <BismarkAgyei />
       </div>
+      <div className="mt-5">
+        <BismarkAgyei />
+      </div>{" "}
     </main>
   );
 }
