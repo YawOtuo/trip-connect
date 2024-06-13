@@ -14,7 +14,7 @@ export default function Home() {
     <main>
       <Navbar />
       <HeroSection />
-      <div className="flex flex-col gap-5 px-5 ">
+      <div className="flex flex-col gap-10 px-5 ">
         <QuarteiKwei />
         <Julius />
         <div className="lg:mt-14 ">
