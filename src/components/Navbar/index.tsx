@@ -1,6 +1,10 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { IoMdSearch } from "react-icons/io";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useMobileNavStore } from "@/lib/store/useMobileNavStore";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const links = [
   {
@@ -18,8 +22,9 @@ const links = [
   },
 ];
 export default function Navbar() {
+  const { setMobileMenuStore } = useMobileNavStore();
   return (
-    <div className="w-full bg-white border-b-2 flex justify-between px-10 py-4">
+    <div className="sticky top-0 z-[2200] w-full bg-white border-b-2 flex justify-between px-10 py-3">
       <div className="flex gap-5 items-center w-full">
         {/* <div
           className="relative w-full max-w-[76px] aspect-square
@@ -30,16 +35,17 @@ export default function Navbar() {
         <p className="font-bold lowercase text-brand-100">tripconnect</p>
       </div>
 
-      <div className="hidden lg:flex items-center justify-center gap-5">
-
-        {links?.map((r, index) => (
-          <Link
-            key={index}
-            href={r?.url}
-            className="capitalize hover:text-yellow1 whitespace-nowrap">
-            {r?.name}
-          </Link>
-        ))}
+      <div className="flex items-center justify-center gap-14">
+        <Link href={"/"} className="hidden lg:flex">
+          {" "}
+          <button className="w-fit font-semibold px-8
+           bg-primary text-white rounded-3xl capitalize whitespace-nowrap py-2">
+            Book a ride
+          </button>
+        </Link>
+        <button onClick={() => setMobileMenuStore(true)}>
+          <GiHamburgerMenu size={30} />
+        </button>{" "}
       </div>
     </div>
   );
