@@ -49,7 +49,7 @@ const Julius = () => {
   // Render the component
   return (
     <div className="container mx-auto px-4 ml-8">
-      <h1 className="text-5xl font-semibold my-8 mb-20">
+      <h1 className="text-6xl font-semibold my-8 mb-20">
         The journey of a thousand miles begins with a single <span className="text-primary">step</span>
       </h1>
       
