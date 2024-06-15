@@ -14,10 +14,10 @@ export default function Home() {
     <main>
       <Navbar />
       <HeroSection />
-      <div className="flex flex-col gap-10 px-5 ">
+      <div className="flex flex-col gap-10 px-5 items-center">
         <QuarteiKwei />
         <Julius />
-        <div className="lg:mt-14 ">
+        <div className="w-full lg:mt-14 ">
           <Kwame />
         </div>{" "}
         {/* <div className="min-h-screen flex items-center justify-center bg-gray-100">
