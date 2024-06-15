@@ -24,11 +24,11 @@ export default function Home() {
         <FramerWrapper {...fadeUp} className="w-full lg:mt-14 ">
           <Kwame />
         </FramerWrapper>{" "}
-        {/* <div className="w-full flex items-center justify-center ">
-          <FramerWrapper {...fadeUp}>
-            <Jesse />
-          </FramerWrapper>
-        </div> */}
+        <FramerWrapper
+          {...fadeUp}
+          className="w-full flex items-center justify-center ">
+          <Jesse />
+        </FramerWrapper>
         <FramerWrapper {...fadeUp}>
           <BismarkOwiredu />
         </FramerWrapper>
