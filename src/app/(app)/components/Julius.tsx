@@ -61,7 +61,7 @@ const Julius = () => {
 
   // Render the component
   return (
-    <FramerWrapper {...fadeInRight} className="w-full lg:max-w-[80%] my-10 flex justify-center flex-col items-start">
+    <FramerWrapper {...fadeInRight} className="w-full lg:max-w-[80%] lg:my-10 flex justify-center flex-col items-start">
       <h1 className="text-3xl lg:text-5xl font-semibold my-8 mb-14 lg:mb-20">
         The journey of a thousand miles begins with a single{" "}
         <span className="text-primary">step</span>

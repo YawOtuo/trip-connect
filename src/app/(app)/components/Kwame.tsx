@@ -22,12 +22,12 @@ function Kwame() {
   ];
   return (
     // Main container with flexbox to center its content
-    <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 lg:px-10">
+    <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 ">
       {/* Image container */}
       <FramerWrapper
         {...fadeInRight}
         className="order-2 lg:order-1 w-full flex-shrink-0 lg:basis-[50%] h-full">
-        <div className="relative w-full aspect-[9/7] h-full ">
+        <div className="relative w-full aspect-[9/7] md:aspect-[4/2] lg:aspect-[9/7] h-full ">
           <Image
             src="/buses1.jpg"
             alt="Buses"

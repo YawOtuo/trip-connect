@@ -13,28 +13,24 @@ import { SlideInFromLeft, fadeInLeft, fadeUp } from "@/lib/animations";
 
 export default function Home() {
   return (
-    <main>
+    <main className="flex items-center flex-col justify-center">
       <Navbar />
       <HeroSection />
-      <div className="flex flex-col gap-10 px-5 items-center">
-        <FramerWrapper {...fadeUp}>
-          <QuarteiKwei />
-        </FramerWrapper>
+      <div className="flex flex-col gap-10 px-5 items-center lg:w-[90%]">
+        <QuarteiKwei />
         <Julius />
         <FramerWrapper {...fadeUp} className="w-full lg:mt-14 ">
           <Kwame />
         </FramerWrapper>{" "}
-        <FramerWrapper
+        {/* <FramerWrapper
           {...fadeUp}
           className="w-full flex items-center justify-center ">
           <Jesse />
-        </FramerWrapper>
+        </FramerWrapper> */}
         <FramerWrapper {...fadeUp}>
           <BismarkOwiredu />
         </FramerWrapper>
-        <FramerWrapper {...fadeUp}>
-          <Enam />
-        </FramerWrapper>
+        <Enam />
       </div>
       <div className="mt-5">
         <BismarkAgyei />
