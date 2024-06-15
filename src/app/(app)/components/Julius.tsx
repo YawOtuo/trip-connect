@@ -1,6 +1,6 @@
 // Import necessary modules
 import FramerWrapper from "@/components/FramerWrapper";
-import { fadeInLeft, fadeInRight, fadeUp } from "@/lib/animations";
+import { fadeIn, fadeInLeft, fadeInRight, fadeUp } from "@/lib/animations";
 import Image from "next/image";
 import React from "react";
 
@@ -17,7 +17,7 @@ const Section = ({
   header: string;
 }) => (
   <FramerWrapper
-    {...fadeUp}
+    {...fadeIn}
     key={id}
     className="flex flex-col lg:flex-row gap-2 items-start  hover:scale-[1.01] transition-all duration-500">
     <div className="w-24 h-24 relative mr-4 flex-shrink-0 hover:scale-[1.05] transition-all duration-500">
