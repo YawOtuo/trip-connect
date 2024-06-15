@@ -1,5 +1,5 @@
 import FramerWrapper from "@/components/FramerWrapper";
-import { fadeInLeft } from "@/lib/animations";
+import { fadeInLeft, fadeUp } from "@/lib/animations";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 
@@ -23,7 +23,7 @@ function Enam() {
         </button>
       </div>
       <div className="flex justify-center  py-2  w-full px-2">
-        <FramerWrapper {...fadeInLeft} className="relative w-full aspect-[9/7] h-full overflow-hidden rounded-md lg:rounded-xl">
+        <FramerWrapper {...fadeUp} className="relative w-full aspect-[9/7] h-full overflow-hidden rounded-md lg:rounded-xl">
           <Image
             src="/enam3.png"
             alt="Buses"
