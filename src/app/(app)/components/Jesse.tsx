@@ -1,40 +1,54 @@
-import Image from 'next/image';
+import Image from "next/image";
 import "../../globals.css";
-import { useState } from 'react';
+import { useState } from "react";
+import { FaArrowRight } from "react-icons/fa";
+import { RiImageCircleLine } from "react-icons/ri";
+
 
 function Jesse() {
-    const width = 1000;
-    const height = 2000;
-    return ( 
-    <div className="relative min-h-screen flex items-center justify-center bg-gray-100">
+  const width = 1000;
+  const height = 2000;
+  return (
+    <div className="px-10 my-24 w-full relative flex flex-col lg:flex-row lg:items-end justify-start ">
       {/* Image Container */}
-         <div className="relative w-80 h-80">
+      <div className="hidden lg:block relative lg:w-[50vw] min-h-[500px] aspect-[3/2]">
         <Image
-          src="/cheddar_image.jpg"
+          src="/jesse2.png"
           alt="Example"
           className="w-full h-full object-cover rounded-lg shadow-lg"
           width={width}
           height={height}
         />
-
-        </div>
+      </div>
 
       {/* Card Container */}
-      <div className="absolute top-1/2 left-0 transform -translate-y-[35%] -translate-x-[-90%] w-72 bg-white p-6 rounded-lg shadow-lg">
-        <div className="flex items-center mb-2">
-            <svg className="w-6 h-6 text-purple-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" fill="currentColor" />
-                <path d="M8 12h8M12 8v8" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <h2 className="text-2xl font-semibold mb-4">Lorem ipsum dolor sit amet</h2>
+      <div className="relative lg:bottom-0 lg:right-[200px]   bg-white p-6 =shadow-lg border-primary border-4 max-w-[600px] rounded-2xl flex flex-col gap-5">
+        <div className="flex items-center w-fit gap-5">
+          <RiImageCircleLine color="#6B184E" size={80}/>
+          <h2 className="text-2xl 2xl:text-3xl font-semibold ">
+            Flexible Bookings
+          </h2>
         </div>
-        <p className="text-gray-700">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna.
+        <p className="text-sm lg:text-base text-slate-600">
+          Lorem ipsum dolor sit amet consectetur. Quam lacus purus pharetra
+          habitasse. Pulvinar et nunc arcu venenatis sed porttitor sed
+          vestibulum. Odio lobortis cras amet est malesuada dictum. Facilisis at
+          aliquam a nec semper neque donec massa consectetur. Tellus aenean
+          porta quis parturient iaculis odio euismod dolor. Lorem proin
+          malesuada fermentum lorem duis eget vel. Convallis tempor orci lectus
+          tincidunt malesuada. Leo arcu fusce sed pulvinar eleifend. Sed nec vel
+          cursus consequat.
         </p>
 
+        <div className="w-full flex justify-end">
+          <button className="border-2 border-primary rounded-3xl px-10 py-2 flex items-center justify-center gap-5">
+            Book Now
+            <FaArrowRight color="#6B184E" />
+          </button>
         </div>
       </div>
-    );
+    </div>
+  );
 }
 
 export default Jesse;

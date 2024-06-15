@@ -1,4 +1,6 @@
 // Import necessary modules
+import FramerWrapper from "@/components/FramerWrapper";
+import { fadeInLeft, fadeInRight } from "@/lib/animations";
 import Image from "next/image";
 import React from "react";
 
@@ -14,7 +16,8 @@ const Section = ({
   text: string;
   header: string;
 }) => (
-  <div
+  <FramerWrapper
+    {...fadeInLeft}
     key={id}
     className="flex flex-col lg:flex-row gap-2 items-start  hover:scale-[1.01] transition-all duration-500">
     <div className="w-24 h-24 relative mr-4 flex-shrink-0 hover:scale-[1.05] transition-all duration-500">
@@ -29,7 +32,7 @@ const Section = ({
       <h2 className="text-xl font-bold mb-2 text-primary">{header}</h2>
       <p className="text-base">{text}</p>
     </div>
-  </div>
+  </FramerWrapper>
 );
 
 // Define the Julius component
@@ -58,18 +61,18 @@ const Julius = () => {
 
   // Render the component
   return (
-    <div className="w-full lg:max-w-[80%] my-10 flex justify-center flex-col items-start">
+    <FramerWrapper {...fadeInRight} className="w-full lg:max-w-[80%] my-10 flex justify-center flex-col items-start">
       <h1 className="text-3xl lg:text-5xl font-semibold my-8 mb-14 lg:mb-20">
         The journey of a thousand miles begins with a single{" "}
         <span className="text-primary">step</span>
       </h1>
 
-      <div className="w-full lg:max-w-[80%] flex flex-col gap-14">
+      <div className="w-full lg:max-w-[80%] flex flex-col gap-14 lg:pl-10">
         {sections.map((section) => (
           <Section key={section.id} {...section} />
         ))}
       </div>
-    </div>
+    </FramerWrapper>
   );
 };
 

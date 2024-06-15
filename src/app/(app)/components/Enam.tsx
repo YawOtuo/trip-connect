@@ -1,3 +1,5 @@
+import FramerWrapper from "@/components/FramerWrapper";
+import { fadeInLeft } from "@/lib/animations";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
 
@@ -9,7 +11,7 @@ function Enam() {
         <h1 className="text-primary font-semibold text-3xl lg:text-5xl">
           Lorem <br /> ipsum dolor sit amet consectetur.
         </h1>
-        <p>
+        <p>z
           {" "}
           Lorem ipsum dolor sit amet consectetur. Etiam ullamcorper sed id
           pharetra felis lacus at. Malesuada in. Id maecenas neque diam suscipit
@@ -21,15 +23,15 @@ function Enam() {
         </button>
       </div>
       <div className="flex justify-center  py-2  w-full px-2">
-        <div className="relative w-full aspect-[9/8] h-full overflow-hidden rounded-md lg:rounded-xl">
+        <FramerWrapper {...fadeInLeft} className="relative w-full aspect-[9/7] h-full overflow-hidden rounded-md lg:rounded-xl">
           <Image
-            src="/myimage.jpeg"
+            src="/enam3.png"
             alt="Buses"
             objectFit="cover"
             fill // Adjust the height as needed
             className="rounded-lg"
           />
-        </div>
+        </FramerWrapper>
       </div>
     </div>
   );
