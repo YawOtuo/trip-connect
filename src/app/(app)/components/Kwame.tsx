@@ -1,7 +1,7 @@
 import FramerWrapper from "@/components/FramerWrapper";
 import "../../globals.css"; // Import the global CSS file for styling
 import Image from "next/image"; // Import the Image component from Next.js
-import { fadeInRight } from "@/lib/animations";
+import { fadeInRight, fadeUp } from "@/lib/animations";
 
 const Pill = ({ label }: { label: string }) => {
   return (
@@ -25,7 +25,7 @@ function Kwame() {
     <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 ">
       {/* Image container */}
       <FramerWrapper
-        {...fadeInRight}
+        {...fadeUp}
         className="order-2 lg:order-1 w-full flex-shrink-0 lg:basis-[50%] h-full">
         <div className="relative w-full aspect-[9/7] md:aspect-[4/2] lg:aspect-[9/7] h-full ">
           <Image
