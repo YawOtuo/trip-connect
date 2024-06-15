@@ -17,7 +17,7 @@ const Section = ({
   header: string;
 }) => (
   <FramerWrapper
-    {...fadeInLeft}
+    {...fadeInRight}
     key={id}
     className="flex flex-col lg:flex-row gap-2 items-start  hover:scale-[1.01] transition-all duration-500">
     <div className="w-24 h-24 relative mr-4 flex-shrink-0 hover:scale-[1.05] transition-all duration-500">
