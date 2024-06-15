@@ -10,10 +10,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="">
-      <NavMenuWrapper>
+        <NavMenuWrapper>
           <Navbar />
           {children}
-      </NavMenuWrapper>
+        </NavMenuWrapper>
       </body>
     </html>
   );

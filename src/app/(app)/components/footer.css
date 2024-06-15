@@ -1,0 +1,31 @@
+.flex-center-gap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Adjust the gap as needed */
+}
+
+.icon-container {
+    display: flex;
+    gap: 1rem; /* Adjust the gap as needed */
+}
+
+.icon {
+    font-size: 2rem;
+    color: white;
+}
+
+.icon-copyright {
+    font-size: 2rem; /* Adjust the size as needed */
+}
+
+.flex-center-gap.justify-content-center {
+    justify-content: left;
+}
+
+/* Ensure responsive behavior */
+@media (max-width: 768px) {
+    .flex-center-gap {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

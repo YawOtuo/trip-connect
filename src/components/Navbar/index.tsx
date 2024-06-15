@@ -24,7 +24,7 @@ const links = [
 export default function Navbar() {
   const { setMobileMenuStore } = useMobileNavStore();
   return (
-    <div className="sticky top-0 z-[2200] w-full bg-white border-b-2 flex justify-between px-10 py-3">
+    <div className="sticky top-0 z-[2200] w-full bg-white border-b-2 flex justify-between px-5 lg:px-10 py-3">
       <div className="flex gap-5 items-center w-full">
         {/* <div
           className="relative w-full max-w-[76px] aspect-square

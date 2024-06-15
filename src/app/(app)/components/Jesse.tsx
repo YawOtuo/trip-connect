@@ -16,6 +16,7 @@ function Jesse() {
           width={width}
           height={height}
         />
+
         </div>
 
       {/* Card Container */}
@@ -30,6 +31,7 @@ function Jesse() {
         <p className="text-gray-700">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna.
         </p>
+
         </div>
       </div>
     );
