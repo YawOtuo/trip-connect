@@ -9,7 +9,7 @@ function Jesse() {
   const width = 1000;
   const height = 2000;
   return (
-    <div className="px-10 my-24 w-full relative flex flex-col lg:flex-row lg:items-end justify-start ">
+    <div className="my-24 w-full relative flex flex-col lg:flex-row lg:items-end justify-start ">
       {/* Image Container */}
       <div className="hidden lg:block relative lg:w-[50vw] min-h-[500px] aspect-[3/2]">
         <Image
@@ -22,22 +22,18 @@ function Jesse() {
       </div>
 
       {/* Card Container */}
-      <div className="relative lg:bottom-0 lg:right-[200px]   bg-white p-6 =shadow-lg border-primary border-4 max-w-[600px] rounded-2xl flex flex-col gap-5">
+      <div className="relative lg:bottom-0 lg:right-[200px]   bg-white px-6 py-3 shadow-lg border-primary border-4 min-w-[400px] max-w-[500px] rounded-2xl flex flex-col gap-2 2xl:gap-5">
         <div className="flex items-center w-fit gap-5">
-          <RiImageCircleLine color="#6B184E" size={80}/>
-          <h2 className="text-2xl 2xl:text-3xl font-semibold ">
+          <RiImageCircleLine color="#6B184E" size={40}/>
+          <h2 className="text-xl 2xl:text-3xl font-semibold ">
             Flexible Bookings
           </h2>
         </div>
-        <p className="text-sm lg:text-base text-slate-600">
+        <p className="text-sm 2xl:text-base text-slate-600">
           Lorem ipsum dolor sit amet consectetur. Quam lacus purus pharetra
           habitasse. Pulvinar et nunc arcu venenatis sed porttitor sed
           vestibulum. Odio lobortis cras amet est malesuada dictum. Facilisis at
-          aliquam a nec semper neque donec massa consectetur. Tellus aenean
-          porta quis parturient iaculis odio euismod dolor. Lorem proin
-          malesuada fermentum lorem duis eget vel. Convallis tempor orci lectus
-          tincidunt malesuada. Leo arcu fusce sed pulvinar eleifend. Sed nec vel
-          cursus consequat.
+          aliquam a nec semper neque donec massa consectetur.
         </p>
 
         <div className="w-full flex justify-end">

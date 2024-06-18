@@ -10,6 +10,7 @@ import Enam from "./components/Enam";
 import Navbar from "@/components/Navbar";
 import FramerWrapper from "@/components/FramerWrapper";
 import { SlideInFromLeft, fadeInLeft, fadeUp } from "@/lib/animations";
+import ScheduleARideToday from "./components/ScheduleARideToday";
 
 export default function Home() {
   return (
@@ -22,14 +23,11 @@ export default function Home() {
         <FramerWrapper {...fadeUp} className="w-full lg:mt-14 ">
           <Kwame />
         </FramerWrapper>{" "}
-        {/* <FramerWrapper
-          {...fadeUp}
-          className="w-full flex items-center justify-center ">
-          <Jesse />
-        </FramerWrapper> */}
-        <FramerWrapper {...fadeUp}>
-          <BismarkOwiredu />
-        </FramerWrapper>
+      </div>
+      <FramerWrapper {...fadeUp}>
+        <ScheduleARideToday />
+      </FramerWrapper>
+      <div className="flex flex-col gap-10 px-5 items-center lg:w-[90%]">
         <Enam />
       </div>
       <div className="mt-5">
