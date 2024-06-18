@@ -3,6 +3,8 @@ import React from "react";
 import { LuLocateFixed } from "react-icons/lu";
 import { GiFlexibleStar } from "react-icons/gi";
 import { FaArrowRight } from "react-icons/fa";
+import FramerWrapper from "@/components/FramerWrapper";
+import { fadeUp } from "@/lib/animations";
 
 type RideTypeProps = {
   label: string;
@@ -13,7 +15,7 @@ type RideTypeProps = {
 
 const RideType = ({ label, text, link, icon }: RideTypeProps) => {
   return (
-    <div className="flex flex-col gap-5 ">
+    <FramerWrapper {...fadeUp} className="flex flex-col gap-5 ">
       {icon}
 
       <div className="flex flex-col gap-10 ">
@@ -34,7 +36,7 @@ const RideType = ({ label, text, link, icon }: RideTypeProps) => {
           </button>
         </Link>
       </div>
-    </div>
+    </FramerWrapper>
   );
 };
 
