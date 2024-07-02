@@ -2,7 +2,7 @@
 import { usePathname } from "next/navigation";
 
 function Layout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
+  const pathname = usePathname()
   return (
     <div>
       <div className="flex flex-col lg:flex-row justify-center bg-primary-100">

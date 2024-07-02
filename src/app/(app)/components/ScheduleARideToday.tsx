@@ -51,13 +51,13 @@ function ScheduleARideToday() {
         <RideType
           label="Flexible Booking"
           text="Lorem ipsum dolor sit amet consectetur. Pharetra elementum at quis orci id morbi facilisis facilisi. Sed et dictum id nisl purus odio. Tellus diam nulla risus elementum sapien imperdiet. Et mattis tincidunt tempor at in ridiculus."
-          link="/flexible-booking"
+          link="/flexible-bookings"
           icon={<LuLocateFixed size={60} />}
         />
         <RideType
           label="Fixed Booking"
           text="Lorem ipsum dolor sit amet consectetur. Pharetra elementum at quis orci id morbi facilisis facilisi. Sed et dictum id nisl purus odio. Tellus diam nulla risus elementum sapien imperdiet. Et mattis tincidunt tempor at in ridiculus."
-          link="/fixed-booking"
+          link="/fixed-bookings"
           icon={<GiFlexibleStar size={60} />}
         />
       </div>
