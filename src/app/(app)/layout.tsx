@@ -1,4 +1,5 @@
 import NavMenuWrapper from "@/components/NavMenuWrapper";
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 const mont = Montserrat({ subsets: ["latin"] });
@@ -16,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={mont.className}>
-        <NavMenuWrapper>{children}</NavMenuWrapper>
+        <NavMenuWrapper>
+          <Navbar />
+          <div> {children}</div>
+        </NavMenuWrapper>
       </body>
     </html>
   );

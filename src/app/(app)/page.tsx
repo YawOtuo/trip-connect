@@ -15,7 +15,6 @@ import ScheduleARideToday from "./components/ScheduleARideToday";
 export default function Home() {
   return (
     <main className="flex items-center flex-col justify-center">
-      <Navbar />
       <HeroSection />
       <div className="flex flex-col gap-10 px-5 items-center lg:w-[90%]">
         <QuarteiKwei />
