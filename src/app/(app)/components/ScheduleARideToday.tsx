@@ -24,9 +24,7 @@ const RideType = ({ label, text, link, icon }: RideTypeProps) => {
           <p>{text}</p>
         </div>
 
-        <Link
-         
-          href={link}>
+        <Link href={link}>
           <button className=" items-center relative group border-2 border-white hover:border-primary-100 py-2 px-6 rounded-3xl overflow-hidden">
             <span className="flex items-center gap-3 relative z-10 group-hover:text-white  transition-all duration-500">
               Start here
@@ -57,6 +55,7 @@ function ScheduleARideToday() {
         <RideType
           label="Fixed Booking"
           text="Lorem ipsum dolor sit amet consectetur. Pharetra elementum at quis orci id morbi facilisis facilisi. Sed et dictum id nisl purus odio. Tellus diam nulla risus elementum sapien imperdiet. Et mattis tincidunt tempor at in ridiculus."
+          // link="/fixed-bookings"
           link="/fixed-bookings"
           icon={<GiFlexibleStar size={60} />}
         />
