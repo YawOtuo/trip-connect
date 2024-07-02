@@ -8,7 +8,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       <div className="flex flex-col lg:flex-row justify-center bg-primary-100">
         <div
           className={` ${
-            pathname == "/flexible-booking"
+            pathname == "/flexible-bookings"
               ? "bg-[url('/flexible1.jpg')]"
               : "bg-[url('/fixed1.png')]"
           }  bg-no-repeat bg-cover h-[30vh] lg:h-fit lg:min-h-[90vh] bg-center w-full lg:w-[40%]`}></div>
