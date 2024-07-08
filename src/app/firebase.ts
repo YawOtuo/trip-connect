@@ -1,31 +1,23 @@
-// // Import the functions you need from the SDKs you need
-// import { getApp, getApps, initializeApp } from "firebase/app";
+// Import the functions you need from the SDKs you need
+import { getApp, getApps, initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
-// import { getAuth } from "firebase/auth";
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// // Your web app's Firebase configuration
-// // const firebaseConfig = {
-// //     apiKey: "AIzaSyDjC671J7lxzjV4JBjbpBGUzsDpKKH6DVA",
-// //     authDomain: "foreman-cbd1a.firebaseapp.com",
-// //     projectId: "foreman-cbd1a",
-// //     storageBucket: "foreman-cbd1a.appspot.com",
-// //     messagingSenderId: "197439938160",
-// //     appId: "1:197439938160:web:04848d891008f80b9a5eb5"
-// // };
-// const firebaseConfig = {
-//   apiKey: "AIzaSyAx4UwWnB3Fb4v5Pl_zW1LQlk-Sh6XrWJc",
-//   authDomain: "an-inventory.firebaseapp.com",
-//   projectId: "an-inventory",
-//   storageBucket: "an-inventory.appspot.com",
-//   messagingSenderId: "1010216538288",
-//   appId: "1:1010216538288:web:e2b56237af605cd26aeb75",
-//   measurementId: "G-YNNE3JY74S",
-// };
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBF-11mCYjGMTFqgJKD0GwTPS4-TvAdALI",
+  authDomain: "trip-connect-68028.firebaseapp.com",
+  projectId: "trip-connect-68028",
+  storageBucket: "trip-connect-68028.appspot.com",
+  messagingSenderId: "655397102361",
+  appId: "1:655397102361:web:fbf5ab2bb0f9f23d3a5b88"
+};
 
-// // Initialize Firebase
-// const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-// const auth = getAuth(app);
+// Initialize Firebase
 
-// export { app, auth };
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+export { app, auth };

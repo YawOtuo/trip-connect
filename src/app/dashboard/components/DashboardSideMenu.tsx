@@ -55,7 +55,7 @@ function DashboardSideMenu() {
               setActiveTab(r?.name)
             )}
 
-            className={` transition-all  ease-in border-[1px] rounded-md px-7 duration-[250ms]  py-2 flex items-center gap-3
+            className={` transition-all  ease-in border-[2px] rounded-md px-7 duration-[250ms]  py-2 flex items-center gap-3
             ${activeTab==r?.name ?  "bg-white border-white" :"border-primary-100 text-white hover:border-white"}
             `}
             href={r?.url}

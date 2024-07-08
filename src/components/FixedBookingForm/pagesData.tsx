@@ -12,12 +12,12 @@ export const pages: any = [
     component: <StartHere />,
     number: 1,
   },
-//   {
-//     name: "start-here",
-//     label: "start-here",
-//     component: <TellUsMore />,
-//     number: 1,
-//   },
+  {
+    name: "start-here",
+    label: "start-here",
+    component: <TellUsMore />,
+    number: 1,
+  },
   {
     name: "start-here",
     label: "start-here",
@@ -30,12 +30,12 @@ export const pages: any = [
     component: <BusDetails />,
     number: 1,
   },
-//   {
-//     name: "start-here",
-//     label: "start-here",
-//     component: <SelectASeat />,
-//     number: 1,
-//   },
+  {
+    name: "start-here",
+    label: "start-here",
+    component: <SelectASeat />,
+    number: 1,
+  },
   {
     name: "start-here",
     label: "start-here",
