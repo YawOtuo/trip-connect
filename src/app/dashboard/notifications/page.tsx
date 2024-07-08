@@ -55,7 +55,7 @@ function Page() {
                 <FaRegStar className="text-[#6B184E]" />
                 <div className="flex flex-col">
                     <p className="text-black font-bold">Rate your last trip to Kumasi with VIP</p>
-                    <p className="text-black">Let's hear from you</p>
+                    <p className="text-black">Let&apos;s hear from you</p>
                 </div>
             </div>
 
