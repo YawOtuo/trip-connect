@@ -1,6 +1,6 @@
  export const linksBeforeLogin = [
     { id: "#", url: "/login", name: "LOGIN" },
-    { id: "#", url: "/LOREM", name: "LOREM" },
+    { id: "#", url: "/flexible-bookings", name: "FLEXIBLE BOOKINGS" },
     // {
     //   id: "#",
     //   url: "",
@@ -11,7 +11,7 @@
     //     { url: "#", name: "Artisan" },
     //   ],
     // },
-    { id: "#", url: "/", name: "LOREM" },
+    { id: "#", url: "/fixed-bookings", name: "FIXED BOOKINGS" },
     {
       id: "#",
       url: "#",
@@ -38,8 +38,8 @@
         // },
       ],
     },
-    { id: "#", url: "/", name: "MY TRIPS" },
-    { id: "#", url: "/", name: "DASHBOARD" },
+    { id: "#", url: "/dashboard/trips", name: "MY TRIPS" },
+    { id: "#", url: "/dashboard", name: "DASHBOARD" },
  
   ];
 

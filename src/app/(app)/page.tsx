@@ -8,22 +8,25 @@ import BismarkOwiredu from "./components/BismarkOwiredu";
 import BismarkAgyei from "./components/BismarkAgyei";
 import Enam from "./components/Enam";
 import Navbar from "@/components/Navbar";
+import FramerWrapper from "@/components/FramerWrapper";
+import { SlideInFromLeft, fadeInLeft, fadeUp } from "@/lib/animations";
+import ScheduleARideToday from "./components/ScheduleARideToday";
 
 export default function Home() {
   return (
-    <main>
-      <Navbar />
+    <main className="flex items-center flex-col justify-center">
       <HeroSection />
-      <div className="flex flex-col gap-10 px-5 ">
+      <div className="flex flex-col gap-10 px-5 items-center lg:w-[90%]">
         <QuarteiKwei />
         <Julius />
-        <div className="lg:mt-14 ">
+        <FramerWrapper {...fadeUp} className="w-full lg:mt-14 ">
           <Kwame />
-        </div>{" "}
-        {/* <div className="min-h-screen flex items-center justify-center bg-gray-100">
-          <Jesse />
-        </div> */}
-        <BismarkOwiredu />
+        </FramerWrapper>{" "}
+      </div>
+      <FramerWrapper {...fadeUp}>
+        <ScheduleARideToday />
+      </FramerWrapper>
+      <div className="flex flex-col gap-10 px-5 items-center lg:w-[90%]">
         <Enam />
       </div>
       <div className="mt-5">

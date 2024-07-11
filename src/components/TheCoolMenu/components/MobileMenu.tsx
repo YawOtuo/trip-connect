@@ -12,29 +12,29 @@ export const MobileMenu = (props: any) => {
       url: "/login",
     },
     {
-      name: "lorem",
-      url: "/lorem",
+      name: "flexible bookings",
+      url: "/flexible-bookings",
     },
     {
-      name: "lorem",
-      url: "/lorem",
+      name: "fixed bookings",
+      url: "/fixed-bookings",
     },
     {
-      name: "lorem",
-      url: "/lorem",
+      name: "dashboard",
+      url: "/dashboard",
     },
 
-    {
-      name: "lorem",
-      url: "/lorem",
-    },
+    // {
+    //   name: "lorem",
+    //   url: "/lorem",
+    // },
   ];
   // const { setToggle } = useMenuStore();
   const { setMobileMenuStore } = useMobileNavStore();
 
   return (
     <div className={`lg:hidden flex flex-col justify-center h-[55vh] gap-10 px-5  ${props?.className}`}>
-      <Link href={"/store"}>
+      <Link href={"/fixed-bookings"}>
         {" "}
         <button
           className="w-fit text-xl font-bold px-8 bg-primary py-2 text-white rounded-sm border-primary border-2">
