@@ -1,4 +1,5 @@
 import BusDetails from "./components/BusDetails";
+import BusResults from "./components/BusResults";
 import Congrutalations from "./components/Congratulations";
 import Searching from "./components/Searching";
 import SelectASeat from "./components/SelectASeat";
@@ -22,6 +23,12 @@ export const pages: any = [
     name: "start-here",
     label: "start-here",
     component: <Searching />,
+    number: 1,
+  },
+  {
+    name: "bus-results",
+    label: "bus-results",
+    component: <BusResults />,
     number: 1,
   },
   {
