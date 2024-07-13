@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { TransportSchedule } from "@/lib/types/transportschedule";
 
 type Props = {
   index: number;

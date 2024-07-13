@@ -1,5 +1,5 @@
 import { url } from "../../../weburl";
-import { TransportSchedule, TransportSchedules } from "../types/transportschedule";
+import { TransportSchedule } from "../types/transportschedule";
 import { Vehicle } from "../types/vehicles";
 
 export const FetchVehicles = async (filter?: {

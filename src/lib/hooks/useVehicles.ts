@@ -5,7 +5,7 @@ import { url } from "../../../weburl"; // Adjust according to your project struc
 import { useToast } from "@/components/ui/use-toast";
 import { Vehicle } from "../types/vehicles";
 import { FetchVehicles, SearchVehicles } from "../api/vehicles";
-import { TransportSchedule, TransportSchedules } from "../types/transportschedule";
+import { TransportSchedule } from "../types/transportschedule";
 
 const useVehicles = (filter?: { [key: string]: any }) => {
   const queryClient = useQueryClient();
