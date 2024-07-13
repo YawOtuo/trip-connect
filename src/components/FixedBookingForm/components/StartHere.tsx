@@ -2,9 +2,14 @@
 import FramerWrapper from "@/components/FramerWrapper";
 import { fadeIn, fadeInLeft, fadeInRight } from "@/lib/animations";
 import { motion } from "framer-motion";
+import useTransportSchedules from "@/lib/hooks/useTransportSchedules";
 
 function StartHere() {
+        const { schedulesFromAndTo, isSchedulesFromAndToLoading } =
+    useTransportSchedules();
   return (
+  
+  <FramerWrapper {...fadeIn}>Start here ( Jesse)
     <div className="flex flex-col items-center p-20">
       <h1 className="text-2xl font-bold mb-4">Select a bus</h1>
       <div className="flex space-x-4">
@@ -52,7 +57,8 @@ function StartHere() {
         />
       </div>
     </div>
+      </FramerWrapper>
   );
-}
+
 
 export default StartHere;

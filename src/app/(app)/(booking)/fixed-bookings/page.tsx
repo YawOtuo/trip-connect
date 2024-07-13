@@ -5,6 +5,7 @@ import { Modal } from "@/components/ui/dialog";
 import { fadeIn } from "@/lib/animations";
 import { LuLocateFixed } from "react-icons/lu";
 import BookNowButton from "../components/BookNowButton";
+import useTransportSchedules from "@/lib/hooks/useTransportSchedules";
 
 const Pill = ({ label }: { label: string }) => {
   return (
@@ -22,6 +23,8 @@ const Pill = ({ label }: { label: string }) => {
 const pillOptions = ["VIP BUSES", "2M EXPRESS", "STC BUSES"];
 
 function Page() {
+  // const { schedulesFromAndTo, isSchedulesFromAndToLoading } =
+  // useTransportSchedules();
   return (
     <div className="w-full">
       <div className="text-white  w-full flex flex-col gap-5">

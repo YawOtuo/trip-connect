@@ -1,8 +1,7 @@
-// Transportrix/pages/notifications/page-preview.tsx
-import Page from '../../../src/app/dashboard/notifications/page';
+// // Transportrix/pages/notifications/page-preview.tsx
 
-const PagePreview = () => {
-  return <Page />;
-};
+// const PagePreview = () => {
+//   return <Page />;
+// };
 
-export default PagePreview;
+// export default PagePreview;
