@@ -6,6 +6,7 @@ import { fadeIn } from "@/lib/animations";
 import { GiFlexibleStar } from "react-icons/gi";
 import { LuLocateFixed } from "react-icons/lu";
 import BookNowButton from "../components/BookNowButton";
+import FlexibleBookingForm from "@/components/FlexibleBookingForm";
 
 const Pill = ({ label }: { label: string }) => {
   return (
@@ -54,7 +55,7 @@ function Page() {
           <Modal
             size={"5xl"}
             trigger={<BookNowButton />}
-            body={<div>{/* <FixedBookingForm /> */}</div>}
+            body={<div> <FlexibleBookingForm /> </div>}
             header={<div></div>}
           />
         </div>

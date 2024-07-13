@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import useTransportSchedules from "@/lib/hooks/useTransportSchedules";
 
 function StartHere() {
-        const { schedulesFromAndTo, isSchedulesFromAndToLoading } =
+    const { schedulesFromAndTo, isSchedulesFromAndToLoading } =
     useTransportSchedules();
   return (
   
@@ -59,6 +59,6 @@ function StartHere() {
     </div>
       </FramerWrapper>
   );
-
+}
 
 export default StartHere;

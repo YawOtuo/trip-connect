@@ -13,15 +13,13 @@ function BusResults() {
     });
   return (
     <FramerWrapper {...fadeIn} className="py-10">
-     {/* <p className=""> <span className="font-bold text-3xl text-primary">{searchVehicles?.[0]?.transportbusesandschedules_set?.length}</span> buses found p</p> */}
-
-     <div className="flex flex-col gap-5">
-       {
-        searchVehicles?.map((schedule) => (
-          <BusResultsCard key={schedule.id} schedule={schedule}/>
-        ))
-       }
-     </div>
+      {/* <p className=""> <span className="font-bold text-3xl text-primary">{searchVehicles?.[0]?.transportbusesandschedules_set?.length}</span> buses found p</p> */}
+      <p>Search Results</p>
+      <div className="flex flex-col gap-5">
+        {searchVehicles?.map((schedule) => (
+          <BusResultsCard key={schedule.id} schedule={schedule} />
+        ))}
+      </div>
     </FramerWrapper>
   );
 }
