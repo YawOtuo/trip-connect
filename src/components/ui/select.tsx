@@ -183,10 +183,10 @@ const CustomSelect = <T extends { [key: string]: any }>({
   };
 
   return (
-    <div className="flex items-center gap-3">
-      {label && <p className="text-xs whitespace-nowrap">{label}</p>}
+    <div className="w-full flex flex-col items-start gap-3">
+      {label && <p className="text-base whitespace-nowrap">{label}</p>}
       <Select onValueChange={handleValueChange}>
-        <SelectTrigger className={`${className} w-[180px]`}>
+        <SelectTrigger className={`${className} w-full`}>
           <SelectValue placeholder={placeholder} className="!capitalize">
             {selectedValue
               ? data.find((item) => item[valueField] === selectedValue)?.[

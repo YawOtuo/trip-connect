@@ -1,4 +1,5 @@
 import BusDetails from "./components/BusDetails";
+import BusResults from "./components/BusResults";
 import Congrutalations from "./components/Congratulations";
 import Searching from "./components/Searching";
 import SelectASeat from "./components/SelectASeat";
@@ -12,16 +13,22 @@ export const pages: any = [
     component: <StartHere />,
     number: 1,
   },
-//   {
-//     name: "start-here",
-//     label: "start-here",
-//     component: <TellUsMore />,
-//     number: 1,
-//   },
+  {
+    name: "start-here",
+    label: "start-here",
+    component: <TellUsMore />,
+    number: 1,
+  },
   {
     name: "start-here",
     label: "start-here",
     component: <Searching />,
+    number: 1,
+  },
+  {
+    name: "bus-results",
+    label: "bus-results",
+    component: <BusResults />,
     number: 1,
   },
   {
@@ -30,12 +37,12 @@ export const pages: any = [
     component: <BusDetails />,
     number: 1,
   },
-//   {
-//     name: "start-here",
-//     label: "start-here",
-//     component: <SelectASeat />,
-//     number: 1,
-//   },
+  {
+    name: "start-here",
+    label: "start-here",
+    component: <SelectASeat />,
+    number: 1,
+  },
   {
     name: "start-here",
     label: "start-here",

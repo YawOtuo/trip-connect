@@ -7,17 +7,31 @@ type Props = {
   value?: string;
   onChange?: any;
   placeholder?: string;
+  type?: string;
+  required?: boolean;
+  labelClassName? : string
 };
 
-function TextInput({ label, name, value, onChange, placeholder }: Props) {
+function TextInput({
+  label,
+  name,
+  value,
+  onChange,
+  placeholder,
+  type,
+  required,
+  labelClassName
+}: Props) {
   return (
     <div className="flex flex-col gap-2 w-full focus:border-primary">
-      <Label htmlFor={name}>{label}</Label>
+      <Label htmlFor={name} className={labelClassName}>{label}</Label>
       <Input
         name={name}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        type={type}
+        required={required}
       />
     </div>
   );
