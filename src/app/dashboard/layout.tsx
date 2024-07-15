@@ -7,7 +7,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         <DashboardSideMenu />
       </div>
 
-      <div className="col-span-5 lg:col-span-4 bg-white rounded-tl-3xl px-10  py-10">{children}</div>
+      <div className="col-span-5 lg:col-span-4 bg-white rounded-tl-3xl px-5 lg:px-10  py-10">{children}</div>
     </div>
   );
 }
