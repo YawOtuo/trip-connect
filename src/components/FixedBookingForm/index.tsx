@@ -7,6 +7,7 @@ import { useFixedBookingFormStore } from "./FixedBookingStore";
 import { pages } from "./pagesData";
 import useFBooking from "./useFBooking";
 import { useTellUsMoreStore } from "./components/TellUsMore/useTellUsMoreStore";
+import { useAppStore } from "@/lib/store/useAppStore";
 
 function FixedBookingForm() {
   const { progressValue, setProgressValue, activePage } =
@@ -16,6 +17,7 @@ function FixedBookingForm() {
   const { setScheduleSelected, selectedBus, setSelectedBus } =
     useTellUsMoreStore();
 
+  const { DBDetails } = useAppStore();
   return (
     <div className=" px-5">
       <div className="px-1">
@@ -40,7 +42,7 @@ function FixedBookingForm() {
             size={"sm"}
             className="px-14"
             onClick={() => handleCreateFixedBooking()}>
-           Book
+            {DBDetails?.id && "Book"}
           </Button>
         )}
       </div>{" "}

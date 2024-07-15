@@ -10,7 +10,7 @@ import { useAppStore } from "../store/useAppStore";
 
 const useFixedBooking = () => {
   const queryClient = useQueryClient();
-  const {DBDetails} = useAppStore()
+  const { DBDetails } = useAppStore();
 
   const {
     data: fixedBookings,
@@ -19,7 +19,7 @@ const useFixedBooking = () => {
   } = useQuery<FixedBooking[]>({
     queryKey: ["fixedBookings"],
     queryFn: () => FetchAllFixedBookings(DBDetails?.id),
-    enabled: !!DBDetails?.id
+    enabled: !!DBDetails?.id,
   });
 
   const fetchFixedBookingById = async (id: number) => {
@@ -44,7 +44,8 @@ const useFixedBooking = () => {
   // );
 
   const createFixedBooking = useMutation({
-    mutationFn: (data: NewFixedBooking) => CreateFixedBooking(data),
+    mutationFn: (data: NewFixedBooking) =>
+      CreateFixedBooking(DBDetails?.id, data),
     onSuccess: (data) => {
       // toast({
       //   title: "Success",

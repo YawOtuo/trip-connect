@@ -37,9 +37,10 @@ export const FetchOneFixedBooking = async (
 };
 
 export const CreateFixedBooking = async (
+  user_id: number,
   newFixedBooking: NewFixedBooking
 ): Promise<FixedBooking> => {
-  const response = await fetch(`${url}api/fixed-bookings/`, {
+  const response = await fetch(`${url}api/fixed-bookings/users/${user_id}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
