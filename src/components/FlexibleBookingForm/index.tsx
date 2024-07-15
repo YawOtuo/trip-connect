@@ -11,7 +11,7 @@ function FlexibleBookingForm() {
   
 
   return (
-    <div className=" px-5 h-max lg:h-[80vh] overflow-y-scroll">
+    <div className=" px-5 h-max lg:h-[73vh] overflow-y-scroll">
       <div className="px-1">
       <Progress value={progressValue} className="w-full" />
       </div>
