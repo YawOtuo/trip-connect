@@ -21,7 +21,7 @@ function FixedBookingForm() {
       <div className="px-1">
         <Progress value={progressValue} className="w-full" />
       </div>
-      <div className="min-h-[70vh]">{pages[activePage].component}</div>
+      <div className="h-[70vh]">{pages[activePage].component}</div>
       <div className="w-full flex gap-5 items-center justify-end">
         <Button
           size={"sm"}
