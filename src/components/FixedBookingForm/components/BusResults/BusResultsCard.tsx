@@ -14,7 +14,7 @@ function BusResultsCard({ schedule }: Props) {
   const formattedDepartureTime = moment(schedule.departure_time).format(
     "dddd, MMMM Do YYYY, h:mm:ss a"
   );
-  const { setScheduleSelected, setSelectedBus } = useTellUsMoreStore();
+  const { setScheduleSelected, setSelectedBus, selectedBus, scheduleSelected } = useTellUsMoreStore();
   return (
     <div className="border-2 rounded-md px-5 py-2 flex items-center gap-5 ">
       <div className="flex flex-col gap-5">
@@ -33,7 +33,7 @@ function BusResultsCard({ schedule }: Props) {
                   setScheduleSelected(schedule.id);
                   setSelectedBus(r?.transportbus)
                 }}
-                variant={"outline"}
+                variant={`${selectedBus?.id === r?.transportbus?.id  && scheduleSelected == schedule.id ? "default" : "outline"}`}
                 size={"sm"}>
                 Select
               </Button>

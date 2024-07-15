@@ -8,13 +8,18 @@ export interface NewFixedBooking {
   seat_numbers?: Number[];
 }
 
-export const FetchAllFixedBookings = async (filter?: {
-  [key: string]: any;
-}): Promise<FixedBooking[]> => {
+export const FetchAllFixedBookings = async (
+  user_id: number,
+  filter?: {
+    [key: string]: any;
+  }
+): Promise<FixedBooking[]> => {
   const queryString = filter
     ? `?${new URLSearchParams(filter).toString()}`
     : "";
-  const response = await fetch(`${url}api/fixed-bookings/${queryString}`);
+  const response = await fetch(
+    `${url}api/fixed-bookings/users/${user_id}/${queryString}`
+  );
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }

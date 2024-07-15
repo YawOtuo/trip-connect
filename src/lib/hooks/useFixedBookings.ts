@@ -6,9 +6,11 @@ import {
   NewFixedBooking,
 } from "../api/fixedbookings";
 import { FixedBooking } from "../types/booking";
+import { useAppStore } from "../store/useAppStore";
 
 const useFixedBooking = () => {
   const queryClient = useQueryClient();
+  const {DBDetails} = useAppStore()
 
   const {
     data: fixedBookings,
@@ -16,7 +18,8 @@ const useFixedBooking = () => {
     error: fixedBookingsError,
   } = useQuery<FixedBooking[]>({
     queryKey: ["fixedBookings"],
-    queryFn: FetchAllFixedBookings,
+    queryFn: () => FetchAllFixedBookings(DBDetails?.id),
+    enabled: !!DBDetails?.id
   });
 
   const fetchFixedBookingById = async (id: number) => {
