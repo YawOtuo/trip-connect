@@ -1,8 +1,15 @@
+import useFixedBooking from "@/lib/hooks/useFixedBookings";
 import { useFixedBookingFormStore } from "./FixedBookingStore";
 import { pages } from "./pagesData";
+import { useAppStore } from "@/lib/store/useAppStore";
+import { useTellUsMoreStore } from "./components/TellUsMore/useTellUsMoreStore";
 
 function useFBooking() {
   const { setProgressValue, activePage, setActivePage } = useFixedBookingFormStore();
+  const { createFixedBooking } = useFixedBooking();
+  const {DBDetails} = useAppStore()
+  const { setScheduleSelected, scheduleSelected, selectedBus, setSelectedBus } =
+  useTellUsMoreStore();
 
   const handleBack = () => {
     setActivePage((prev) => {
@@ -20,9 +27,18 @@ function useFBooking() {
     });
   };
 
+  const handleCreateFixedBooking = () => {
+    createFixedBooking({
+      user_id : DBDetails?.id,
+      bus_schedule_id: scheduleSelected,
+      bus_id: selectedBus?.id ?? null
+    })
+  }
+
   return {
     handleBack,
     handleContinue,
+    handleCreateFixedBooking
   };
 }
 
