@@ -27,7 +27,7 @@ function SelectVehicles() {
   });
   return (
     <div className="grid grid-cols-2 gap-5 lg:gap-10 h-full items-center justify-center">
-      <div className="col-span-2 lg:col-span-1 h-[40vh] lg:h-full ">
+      <div className="col-span-2 lg:col-span-1 h-[35vh] lg:h-full ">
         {selectedVehicle && selectedVehicle?.images?.length > 0 && (
         <div className="overflow-hidden rounded-md relative h-full">
             <Image
