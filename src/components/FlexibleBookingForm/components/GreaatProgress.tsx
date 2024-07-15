@@ -2,6 +2,7 @@ function GreatProgress() {
     return ( 
         <div>
             @kwartet
+            DGDGGD
         </div>
      );
 }

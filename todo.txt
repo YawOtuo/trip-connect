@@ -4,3 +4,5 @@ signing up with email
 
 
 make every schedule unique
+
+react query names
