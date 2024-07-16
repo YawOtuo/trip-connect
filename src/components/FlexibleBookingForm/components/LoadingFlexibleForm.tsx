@@ -10,7 +10,7 @@ function LoadingFlexibleForm() {
     <FramerWrapper
       {...fadeIn}
       className="bg-primary-100 h-[100dvh] flex flex-col gap-5 justify-center items-center">
-      <Link href={"/flexible-booking"}>
+      <Link href={"/flexible-bookings"}>
         <p className="text-2xl text-white font-bold">Loading....</p>
       </Link>{" "}
       <div className="w-full max-w-[30%]">

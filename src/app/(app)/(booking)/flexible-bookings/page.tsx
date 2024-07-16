@@ -56,7 +56,7 @@ function Page() {
           </FramerWrapper>
 
           <div className="w-full flex justify-end mt-5">
-            <Link href={"/flexible-bookings/form"}>
+            <Link href={"/flexible-bookings/form"} className="w-full md:w-fit">
               <BookNowButton />
             </Link>{" "}
             {/* <Modal
