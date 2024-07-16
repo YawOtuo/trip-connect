@@ -2,9 +2,16 @@ import CompleteYourDetails from "./components/CompleteYourDetails";
 import FlexiCongratulations from "./components/FlexiCongratulations";
 import FlexiTellUsMore from "./components/FlexiTellUsMore";
 import GreatProgress from "./components/GreaatProgress";
+import LoadingFlexibleForm from "./components/LoadingFlexibleForm";
 import SelectVehicles from "./components/SelectVehicles";
 
 export const pages: any = [
+  {
+    name: "start-here",
+    label: "start-here",
+    component: <LoadingFlexibleForm />,
+    number: 1,
+  },
   {
     name: "start-here",
     label: "start-here",

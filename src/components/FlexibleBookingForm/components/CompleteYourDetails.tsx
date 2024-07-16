@@ -1,4 +1,5 @@
 import TextInput from "@/components/ui/textinput";
+import BackAndContinueControls from "./BackAndContinueControls";
 
 function CompleteYourDetails() {
     return (  
@@ -11,6 +12,8 @@ function CompleteYourDetails() {
                 type="text" name="first-name"
                 />
             </div>
+
+            <BackAndContinueControls />
         </div>
     );
 }
