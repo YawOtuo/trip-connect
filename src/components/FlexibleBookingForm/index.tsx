@@ -17,7 +17,7 @@ function FlexibleBookingForm() {
 
 
 
-      <div className=" h-full min-h-[90vh]">{pages[activePage].component}</div>
+      <div className=" h-full min-h-[90vh] ">{pages[activePage].component}</div>
 
 
     </div>

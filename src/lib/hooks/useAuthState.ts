@@ -1,38 +1,37 @@
 import { useEffect, useState } from "react";
-import { onAuthStateChanged, Auth, User } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { useAppStore } from "../store/useAppStore";
 import { useToast } from "@/components/ui/use-toast";
 import { fetchOrCreateUserByUid } from "../api/users";
 
-export default function useAuthState(auth: Auth) {
+export default function useAuthState(auth: any) {
   const { toast } = useToast();
-  const { setDBDetails, setFBaseDetails, error, setError, setIsLoading } = useAppStore();
-  
+  const { setDBDetails, setFBaseDetails, error, setError, setIsLoading } =
+    useAppStore();
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(
       auth,
-      async (userAuth: User | null) => {
-        if (userAuth) {
-          console.log('userAuth', userAuth.providerData?.[0]?.email);
-          try {
+      async (userAuth: any) => {
+        console.log('userAuth', userAuth.providerData?.[0]?.email)
+        try {
+          if (userAuth) {
             // Set Firebase details
             setFBaseDetails(userAuth);
 
             // Fetch or create user by UID
-            const userData = await fetchOrCreateUserByUid({
-              username: userAuth.displayName || "User",
-              email: userAuth.email || userAuth.providerData?.[0]?.email || "",
-              uid: userAuth.uid,
+            const userData :any = await fetchOrCreateUserByUid({
+              username: userAuth?.displayName || "User",
+              email: userAuth?.email || userAuth?.providerData?.[0]?.email,
+              uid: userAuth?.uid,
             });
 
             // Set database details
             setDBDetails(userData?.user);
-          } catch (error: any) {
-            setError(error);
-          } finally {
-            setIsLoading(false);
           }
-        } else {
+          setIsLoading(false);
+        } catch (error) {
+          setError(error);
           setIsLoading(false);
         }
       },
@@ -43,7 +42,7 @@ export default function useAuthState(auth: Auth) {
     );
 
     return () => unsubscribe();
-  }, [auth, setFBaseDetails, setDBDetails, setError, setIsLoading]);
+  }, [auth, setFBaseDetails, setDBDetails]);
 
   // Display authentication error toast
   useEffect(() => {
@@ -57,4 +56,5 @@ export default function useAuthState(auth: Auth) {
       });
     }
   }, [error, toast]);
+
 }
