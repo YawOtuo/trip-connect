@@ -35,7 +35,7 @@ const InfoOutlinedIcon = () => (
 
 function FlexiTellUsMore() {
   return (
-    <div className="flex flex-col md:flex-row justify-center py-5 relative px-5 lg:px-10 md:min-h-[90vh] items-center">
+    <div className="flex flex-col md:flex-row justify-center gap-5 md:gap-0 py-5 relative px-5 lg:px-10 md:min-h-[90vh] items-center">
       {" "}
       {/* Main container */}
       <div className="flex w-full shrink-0 basis-[40%] flex-col gap-5 md:gap-10 items-start justify-center ">
