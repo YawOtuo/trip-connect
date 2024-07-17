@@ -39,7 +39,7 @@ function SelectVehicles() {
               objectFit="cover"
               fill
               src={`https://res.cloudinary.com/daurieb51/${selectedVehicle.images[0]?.image}`}
-              alt={`${selectedVehicle.model} ${selectedVehicle.model}`}
+              alt={`${selectedVehicle.model.name} ${selectedVehicle.model.name}`}
             />
           </div>
         ) : (

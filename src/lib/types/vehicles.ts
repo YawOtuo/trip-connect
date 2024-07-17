@@ -8,7 +8,12 @@ export interface Vehicle {
   name: string
   vehicle_number: string;
   capacity: number;
-  model: string | null;
+  model: {
+    name: string
+  }
+  type:{
+    name: string
+  }
   images: VehicleImage[]
   driver: number; // Assuming driver is represented by their ID
   created_at: string; // Date string representation
