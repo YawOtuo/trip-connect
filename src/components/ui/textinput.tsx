@@ -1,15 +1,16 @@
 import { Input } from "./input";
 import { Label } from "./label";
+import React from "react";
 
 type Props = {
   label?: string;
   name: string;
-  value?: string;
-  onChange?: any;
+  value?: any
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
-  type?: string;
+  type?: React.HTMLInputTypeAttribute;
   required?: boolean;
-  labelClassName? : string
+  labelClassName?: string;
 };
 
 function TextInput({
@@ -18,14 +19,19 @@ function TextInput({
   value,
   onChange,
   placeholder,
-  type,
+  type = "text",
   required,
-  labelClassName
+  labelClassName,
 }: Props) {
   return (
     <div className="flex flex-col gap-2 w-full focus:border-primary">
-      <Label htmlFor={name} className={labelClassName}>{label}</Label>
+      {label && (
+        <Label htmlFor={name} className={labelClassName}>
+          {label}
+        </Label>
+      )}
       <Input
+        id={name}
         name={name}
         value={value}
         onChange={onChange}

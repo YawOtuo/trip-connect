@@ -1,41 +1,13 @@
-import { IoDocumentTextOutline } from "react-icons/io5";
 import BackAndContinueControls from "./BackAndContinueControls";
-
-// Custom SVG icon component
-const InfoOutlinedIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    className="h-5 w-5">
-    <circle
-      cx="12"
-      cy="12"
-      r="10"
-      stroke="#6B184E"
-      strokeWidth="2"
-      fill="white"
-    />
-    <path
-      d="M12 8h.01"
-      stroke="#6B184E"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M11 12h1v4h1"
-      stroke="#6B184E"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+import TextInput from "@/components/ui/textinput";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { useFlexibleBookingFormStore } from "../useFlexibleBookingFormStore";
 
 function FlexiTellUsMore() {
+  const { setStartDate, setEndDate, setPurposeOfOrder } =
+    useFlexibleBookingFormStore();
   return (
-    <div className="flex flex-col md:flex-row justify-center gap-5 md:gap-0 py-5 relative px-5 lg:px-10 md:min-h-[90vh] items-center">
+    <div className="flex flex-col md:flex-row justify-center gap-5 md:gap-10 py-5 relative px-5 lg:px-10 md:min-h-[90vh] items-center">
       {" "}
       {/* Main container */}
       <div className="flex w-full shrink-0 basis-[40%] flex-col gap-5 md:gap-10 items-start justify-center ">
@@ -55,30 +27,30 @@ function FlexiTellUsMore() {
           {/* Frame with width 636px, vertical gap of 40px, and negative left margin */}
           <div className="flex flex-col space-y-2">
             {" "}
-            {/* Container for the first question */}
-            <label className="">
-              How long will you be using this vehicle?
-            </label>
-            <input type="text" className="border rounded-full p-0.2 w-[40%]" />{" "}
-            {/* Input box with rounded edges and 1/3 width */}
+            <TextInput
+              required
+              type="date"
+              label="When will you like to start using the vehicle"
+              name="startData"
+              onChange={(e) => setStartDate(e.target.value)}
+            />
           </div>
           <div className="flex flex-col space-y-2">
-            {" "}
-            {/* Container for the second question */}
-            <label className="">
-              Where will you be using it?
-            </label>
-            <input type="text" className="border rounded-full p-0.2 w-[40%]" />{" "}
-            {/* Input box with rounded edges and 1/3 width */}
+            <TextInput
+              required
+              type="date"
+              label="When will you return the vehicle?"
+              name="duration"
+              onChange={(e) => setEndDate(e.target.value)}
+            />
           </div>
           <div className="flex flex-col space-y-2">
-            {" "}
-            {/* Container for the third question */}
-            <label className="">
-              Where are you traveling from?
-            </label>
-            <input type="text" className="border rounded-full p-0.2 w-[40%]" />{" "}
-            {/* Input box with rounded edges and 1/3 width */}
+            <TextInput
+              type="text"
+              label="What are you usinng the vehicle for? (optional)"
+              name="duration"
+              onChange={(e) => setPurposeOfOrder(e.target.value)}
+            />
           </div>
         </div>
       </div>
@@ -91,8 +63,7 @@ function FlexiTellUsMore() {
           <div className="bg-[#D9D9D94C] h-8 flex items-center px-4 rounded-lg mt-4 ml-3 mr-3">
             {" "}
             {/* Circular rectangle at the top */}
-            <InfoOutlinedIcon  />{" "}
-            {/* Custom Info icon */}
+            <IoDocumentTextOutline />
             <span className="text-primary ml-2 font-bold mt-0.5">
               Notice
             </span>{" "}

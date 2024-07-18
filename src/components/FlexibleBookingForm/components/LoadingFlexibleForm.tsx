@@ -3,19 +3,37 @@ import BackAndContinueControls from "./BackAndContinueControls";
 import FramerWrapper from "@/components/FramerWrapper";
 import { fadeIn } from "@/lib/animations";
 import Link from "next/link";
+import { useFlexibleBookingFormStore } from "../useFlexibleBookingFormStore";
+import useVehicles from "@/lib/hooks/useVehicles";
+import { useFlexibleBookingStore } from "../FlexibleBookingStore";
 
 function LoadingFlexibleForm() {
-  useEffect(() => {}, []);
+  const {
+    vehicleModels,
+    isvehicleModelsLoading,
+    vehicleTypes,
+    isvehicleTypesLoading,
+    vehicles,
+    isvehiclesLoading,
+  } = useVehicles();
+  const { progressValue, setProgressValue, activePage, setActivePage } =
+    useFlexibleBookingStore();
+
+  useEffect(() => {
+    if (vehicleTypes) {
+      setActivePage(1);
+    }
+  }, [isvehicleTypesLoading, setActivePage, vehicleTypes]);
   return (
     <FramerWrapper
       {...fadeIn}
       className="bg-primary-100 h-[100dvh] flex flex-col gap-5 justify-center items-center">
-      <Link href={"/flexible-bookings"}>
+      {isvehicleTypesLoading && (
         <p className="text-2xl text-white font-bold">Loading....</p>
-      </Link>{" "}
-      <div className="w-full max-w-[30%]">
+      )}{" "}
+      {/* <div className="w-full max-w-[30%]">
         <BackAndContinueControls />
-      </div>{" "}
+      </div>{" "} */}
     </FramerWrapper>
   );
 }

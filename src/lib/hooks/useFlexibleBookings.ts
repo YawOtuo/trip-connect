@@ -2,22 +2,27 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { FixedBooking } from "../types/booking";
 import { useAppStore } from "../store/useAppStore";
-import { CreateFlexibleBooking, FetchAllFlexibleBookings, FetchOneFlexibleBooking, NewFlexibleBooking } from "../api/flexiblebookings";
+import {
+  CreateFlexibleBooking,
+  FetchAllFlexibleBookings,
+  FetchOneFlexibleBooking,
+  NewFlexibleBooking,
+} from "../api/flexiblebookings";
 import { FlexibleBooking } from "../types/flexiblebooking";
 
 const useFlexibleBookings = () => {
   const queryClient = useQueryClient();
   const { DBDetails } = useAppStore();
 
-  const {
-    data: flexibleBookings,
-    isLoading: isflexibleBookingsLoading,
-    error: flexibleBookingsError,
-  } = useQuery<FlexibleBooking[]>({
-    queryKey: ["flexibleBookings"],
-    queryFn: () => FetchAllFlexibleBookings(DBDetails?.id),
-    enabled: !!DBDetails?.id,
-  });
+  // const {
+  //   data: flexibleBookings,
+  //   isLoading: isflexibleBookingsLoading,
+  //   error: flexibleBookingsError,
+  // } = useQuery<FlexibleBooking[]>({
+  //   queryKey: ["flexibleBookings"],
+  //   queryFn: () => FetchAllFlexibleBookings(Number(DBDetails?.id)),
+  //   enabled: !!DBDetails?.id,
+  // });
 
   const fetchFixedBookingById = async (id: number) => {
     try {
@@ -28,10 +33,9 @@ const useFlexibleBookings = () => {
     }
   };
 
-
-  const createFixedBooking = useMutation({
+  const createFlexibleBooking = useMutation({
     mutationFn: (data: NewFlexibleBooking) =>
-      CreateFlexibleBooking(DBDetails?.id, data),
+      CreateFlexibleBooking(Number(DBDetails?.id), data),
     onSuccess: (data) => {
       // toast({
       //   title: "Success",
@@ -46,11 +50,11 @@ const useFlexibleBookings = () => {
   });
 
   return {
-    flexibleBookings,
-    isflexibleBookingsLoading,
-    flexibleBookingsError,
+    // flexibleBookings,
+    // isflexibleBookingsLoading,
+    // flexibleBookingsError,
     fetchFixedBookingById,
-    createFixedBooking: createFixedBooking.mutate,
+    createFlexibleBooking: createFlexibleBooking.mutate,
   };
 };
 

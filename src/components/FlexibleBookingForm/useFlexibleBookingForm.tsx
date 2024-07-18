@@ -1,9 +1,16 @@
+import useFlexibleBookings from "@/lib/hooks/useFlexibleBookings";
 import { useFlexibleBookingStore } from "./FlexibleBookingStore";
 import { pages } from "./pagesData";
+import { useFlexibleBookingFormStore } from "./useFlexibleBookingFormStore";
+import { useAppStore } from "@/lib/store/useAppStore";
 
-function useFBooking() {
-  const { setProgressValue, activePage, setActivePage } = useFlexibleBookingStore();
-
+function useFlexibleBookingForm() {
+  const { setProgressValue, activePage, setActivePage } =
+    useFlexibleBookingStore();
+  const { user, startDate, endDate, purposeOfOrder, selectedVehicle } =
+    useFlexibleBookingFormStore();
+  const { createFlexibleBooking } = useFlexibleBookings();
+  const { DBDetails } = useAppStore();
   const handleBack = () => {
     setActivePage((prev) => {
       const newPage = Math.max(prev - 1, 0);
@@ -20,10 +27,21 @@ function useFBooking() {
     });
   };
 
+  const handleCreateFlexibleBooking = () => {
+    createFlexibleBooking({
+      purpose: purposeOfOrder,
+      start_date: startDate,
+      end_date: endDate,
+      vehicle: selectedVehicle?.id,
+      user: Number(DBDetails?.id),
+    });
+  };
+
   return {
     handleBack,
     handleContinue,
+    handleCreateFlexibleBooking,
   };
 }
 
-export default useFBooking;
+export default useFlexibleBookingForm;

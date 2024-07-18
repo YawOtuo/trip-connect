@@ -1,10 +1,11 @@
 import { url } from "../../../weburl";
 import { FlexibleBooking } from "../types/flexiblebooking";
 export interface NewFlexibleBooking {
-  user_id: number;
-  bus_schedule_id: number | null;
-  bus_id: number | null;
-  seat_numbers?: Number[];
+  purpose: string | null;
+  start_date: string | null;
+  end_date?: string | null;
+  vehicle?: number | null
+  user: number | null
 }
 
 export const FetchAllFlexibleBookings = async (
@@ -30,7 +31,7 @@ export const FetchAllFlexibleBookings = async (
 export const FetchOneFlexibleBooking = async (
   id: number
 ): Promise<FlexibleBooking> => {
-  const response = await fetch(`${url}api/flexible-bookings/${id}/`);
+  const response = await fetch(`${url}api/flexible-bookings/users/${id}/`);
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
@@ -42,7 +43,7 @@ export const CreateFlexibleBooking = async (
   newFlexibleBooking: NewFlexibleBooking
 ): Promise<FlexibleBooking> => {
   const response = await fetch(
-    `${url}api/flexible-bookings/users/${user_id}/`,
+    `${url}api/flexible-bookings/`,
     {
       method: "POST",
       headers: {
