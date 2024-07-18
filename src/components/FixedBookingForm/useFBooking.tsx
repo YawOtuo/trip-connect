@@ -29,7 +29,7 @@ function useFBooking() {
 
   const handleCreateFixedBooking = () => {
     createFixedBooking({
-      user_id : DBDetails?.id,
+      user_id : Number(DBDetails?.id),
       bus_schedule_id: scheduleSelected,
       bus_id: selectedBus?.id ?? null
     })

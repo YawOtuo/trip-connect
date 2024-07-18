@@ -18,7 +18,7 @@ const useFixedBooking = () => {
     error: fixedBookingsError,
   } = useQuery<FixedBooking[]>({
     queryKey: ["fixedBookings"],
-    queryFn: () => FetchAllFixedBookings(DBDetails?.id),
+    queryFn: () => FetchAllFixedBookings(Number(DBDetails?.id)),
     enabled: !!DBDetails?.id,
   });
 
@@ -45,7 +45,7 @@ const useFixedBooking = () => {
 
   const createFixedBooking = useMutation({
     mutationFn: (data: NewFixedBooking) =>
-      CreateFixedBooking(DBDetails?.id, data),
+      CreateFixedBooking(Number(DBDetails?.id), data),
     onSuccess: (data) => {
       // toast({
       //   title: "Success",
