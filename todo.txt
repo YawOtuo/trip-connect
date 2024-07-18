@@ -8,3 +8,5 @@ make every schedule unique
 react query names
 
 get only types of vehicles with actual vehicles
+
+make sure every schedule returned has a transportbusesandschedules_set

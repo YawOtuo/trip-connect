@@ -28,7 +28,7 @@ export const FetchOneSchedule = async (
 
 export const FetchSchedulesFromAndTos = async (filter?: {
   [key: string]: any;
-}): Promise<TransportSchedule[]> => {
+}): Promise<FromAndTos[]> => {
   const queryString = filter
     ? `?${new URLSearchParams(filter).toString()}`
     : "";

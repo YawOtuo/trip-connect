@@ -6,6 +6,7 @@ import { auth } from "./firebase";
 import Providers from "../lib/provider";
 import { Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
+import LoadingIndicator from "@/components/LoadingIndicator";
 
 const mont = Nunito({ subsets: ["cyrillic"] });
 
@@ -27,6 +28,8 @@ export default function RootLayout({
             <div>
               {children}
               <Toaster />
+              <LoadingIndicator />
+
             </div>
           </Suspense>
         </Providers>

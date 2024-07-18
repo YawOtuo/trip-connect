@@ -132,6 +132,8 @@ interface ModalProps extends VariantProps<typeof modalVariants> {
   header?: React.ReactNode;
   footer?: React.ReactNode;
   className?: string;
+  open: boolean;
+  onOpenChange: (value?: boolean) => void;
 }
 const Modal: React.FC<ModalProps> = ({
   trigger,
@@ -140,11 +142,13 @@ const Modal: React.FC<ModalProps> = ({
   footer,
   size,
   className,
+  open,
+  onOpenChange,
 }: ModalProps) => {
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild className="cursor-pointer">
-        {trigger}
+        <button> {trigger}</button>
       </DialogTrigger>
       <DialogContent className={`${cn(modalVariants({ size }))} ${className} `}>
         {header && <DialogHeader>{header}</DialogHeader>}

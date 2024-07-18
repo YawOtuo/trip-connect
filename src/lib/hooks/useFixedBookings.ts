@@ -53,18 +53,32 @@ const useFixedBooking = () => {
       //   variant: "success",
       // });
       queryClient.invalidateQueries({ queryKey: ["orders"] });
+      return data;
     },
     onError: (error: Error) => {
       // toast({ title: "Error", description: error.message, variant: "destructive" });
     },
   });
 
+  const createFixedBookingWithStatus = async (bookingData: NewFixedBooking) => {
+    try {
+      const data = await createFixedBooking.mutateAsync(bookingData);
+      return { success: true, data }; // Return success status and data
+    } catch (error: unknown) {
+      let errorMessage = "An unknown error occurred";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      return { success: false, error: errorMessage }; // Return error status and message
+    }
+  };
+
   return {
     fixedBookings,
     isFixedBookingsLoading,
     fixedBookingsError,
     fetchFixedBookingById,
-    createFixedBooking: createFixedBooking.mutate,
+    createFixedBooking: createFixedBookingWithStatus, // Return the wrapped function
   };
 };
 

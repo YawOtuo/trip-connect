@@ -1,3 +1,4 @@
+"use client"
 import FixedBookingForm from "@/components/FixedBookingForm";
 import FramerWrapper from "@/components/FramerWrapper";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { LuLocateFixed } from "react-icons/lu";
 import BookNowButton from "../components/BookNowButton";
 import useTransportSchedules from "@/lib/hooks/useTransportSchedules";
 import BookingsLayout from "../BookingsLayout";
+import { useTellUsMoreStore } from "@/components/FixedBookingForm/components/TellUsMore/useTellUsMoreStore";
 
 const Pill = ({ label }: { label: string }) => {
   return (
@@ -26,6 +28,7 @@ const pillOptions = ["VIP BUSES", "2M EXPRESS", "STC BUSES"];
 function Page() {
   // const { schedulesFromAndTo, isSchedulesFromAndToLoading } =
   // useTransportSchedules();
+  const { isModalOpen, setIsModalOpen } = useTellUsMoreStore();
   return (
     <BookingsLayout>
       <div className="w-full">
@@ -57,6 +60,8 @@ function Page() {
 
           <div className="w-full flex justify-end mt-5">
             <Modal
+              open={isModalOpen}
+              onOpenChange={setIsModalOpen}
               size={"5xl"}
               trigger={<BookNowButton />}
               body={

@@ -5,11 +5,19 @@ import { useAppStore } from "@/lib/store/useAppStore";
 import { useTellUsMoreStore } from "./components/TellUsMore/useTellUsMoreStore";
 
 function useFBooking() {
-  const { setProgressValue, activePage, setActivePage } = useFixedBookingFormStore();
+  const { setProgressValue, activePage, setActivePage } =
+    useFixedBookingFormStore();
   const { createFixedBooking } = useFixedBooking();
-  const {DBDetails} = useAppStore()
-  const { setScheduleSelected, scheduleSelected, selectedBus, setSelectedBus } =
-  useTellUsMoreStore();
+  const { DBDetails } = useAppStore();
+  const {
+    setScheduleSelected,
+    scheduleSelected,
+    selectedBus,
+    setSelectedBus,
+    setSubmissionResult,
+    setIsSubmitting,
+    setIsModalOpen,
+  } = useTellUsMoreStore();
 
   const handleBack = () => {
     setActivePage((prev) => {
@@ -22,23 +30,33 @@ function useFBooking() {
   const handleContinue = () => {
     setActivePage((prev) => {
       const newPage = Math.min(prev + 1, pages.length - 1);
+
+      // if (newPage === pages.length - 1 && prev !== newPage) {
+      //   // Replace `closeModal` with your actual function to close the modal
+      //   setIsModalOpen(false);
+      //   return newPage;
+      // }
       setProgressValue((newPage / (pages.length - 1)) * 100);
       return newPage;
     });
   };
 
-  const handleCreateFixedBooking = () => {
-    createFixedBooking({
-      user_id : Number(DBDetails?.id),
+  const handleCreateFixedBooking = async () => {
+    setIsSubmitting(true);
+    handleContinue();
+    const result = await createFixedBooking({
+      user_id: Number(DBDetails?.id),
       bus_schedule_id: scheduleSelected,
-      bus_id: selectedBus?.id ?? null
-    })
-  }
+      bus_id: selectedBus?.id ?? null,
+    });
+    if (result) setIsSubmitting(false);
+    setSubmissionResult(result);
+  };
 
   return {
     handleBack,
     handleContinue,
-    handleCreateFixedBooking
+    handleCreateFixedBooking,
   };
 }
 

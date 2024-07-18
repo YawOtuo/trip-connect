@@ -23,29 +23,8 @@ function FixedBookingForm() {
       <div className="px-1">
         <Progress value={progressValue} className="w-full" />
       </div>
-      <div className="h-[70vh]">{pages[activePage].component}</div>
-      <div className="w-full flex gap-5 items-center justify-end">
-        <Button
-          size={"sm"}
-          variant={"outline"}
-          className="px-14"
-          onClick={handleBack}>
-          Back
-        </Button>
-        {activePage !== pages.length - 1 && (
-          <Button size={"sm"} className="px-14" onClick={handleContinue}>
-            Continue
-          </Button>
-        )}
-        {activePage == pages.length - 1 && (
-          <Button
-            size={"sm"}
-            className="px-14"
-            onClick={() => handleCreateFixedBooking()}>
-            {DBDetails?.id && "Book"}
-          </Button>
-        )}
-      </div>{" "}
+      <div className="h-[70vh] ">{pages[activePage].component}</div>
+ 
     </div>
   );
 }
