@@ -31,8 +31,8 @@ function CompleteYourDetails() {
           Complete Your Details{" "}
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10  justify-between w-full  mb-10 ">
-        <div className="flex flex-col  rounded-lg gap-5 md:gap-14">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10  justify-between w-full  mb-10 ">
+        <div className="flex flex-col w-full md:w-[60%]  rounded-lg gap-5 md:gap-14">
           <TextInput
             name="username"
             type="text"
@@ -58,9 +58,6 @@ function CompleteYourDetails() {
             value={DBDetails?.email}
             onChange={handleChange}
           />
-        </div>
-
-        <div className="flex flex-col gap-5 md:gap-14">
           <TextInput
             name="phone_number"
             type="number"
@@ -69,6 +66,9 @@ function CompleteYourDetails() {
             value={DBDetails?.phone_number}
             onChange={handleChange}
           />
+        </div>
+
+        <div className="flex flex-col gap-5 w-full md:w-[60%] md:gap-14">
           <TextInput
             name="country_of_origin"
             type="text"
@@ -85,8 +85,6 @@ function CompleteYourDetails() {
             value={DBDetails?.contact_address}
             onChange={handleChange}
           />
-        </div>
-        <div className="flex flex-col gap-5 md:gap-14">
           <TextInput
             name="drivers_license_number"
             type="number"
@@ -107,7 +105,7 @@ function CompleteYourDetails() {
       </div>
 
       <div className="w-full flex justify-end">
-        <div className=" w-[30%] ">
+        <div className=" w-full md:w-[30%] pb-10">
           <BackAndContinueControls />
         </div>
       </div>
