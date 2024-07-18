@@ -9,4 +9,5 @@ react query names
 
 get only types of vehicles with actual vehicles
 
-make sure every schedule returned has a transportbusesandschedules_set
+make sure every schedule returned has a transportbusesandschedules_set 
+let the animation last at leat a sec

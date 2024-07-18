@@ -31,17 +31,17 @@ function FixedBookingControls({
         <Button
           size={"sm"}
           variant={"outline"}
-          className="px-14"
+          className="md:px-14 w-full md:w-fit"
           onClick={handleBack}>
           Back
         </Button>
       )}
       {showForwardButton && (
-        <div>
+        <div className="w-full md:w-fit">
           {!ready && (
             <Button
               size={"sm"}
-              className="px-14"
+              className="md:px-14 w-full md:w-fit"
               onClick={() => {
                 handleContinue()
                 close && setIsModalOpen(false)
@@ -52,7 +52,7 @@ function FixedBookingControls({
           {ready && (
             <Button
               size={"sm"}
-              className="px-14"
+              className="md:px-14 w-full md:w-fit"
               onClick={() => handleCreateFixedBooking()}>
               {DBDetails?.id && "Book"}
             </Button>
