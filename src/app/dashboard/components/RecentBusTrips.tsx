@@ -12,7 +12,7 @@ function RecentBusTrips() {
   const { fixedBookings } = useFixedBooking();
 
   return (
-    <div>
+    <div className="w-full">
       {fixedBookings && fixedBookings?.length > 1 && (
         <div className="flex flex-col items-start gap-5">
           <p className="text-primary font-bold">My Recent Bus Trips</p>
@@ -25,18 +25,18 @@ function RecentBusTrips() {
             <div>Date Created</div>
             <div>Status</div>
           </div>
-          <div className="flex flex-col gap-5">
+          <div className="w-full flex flex-col gap-5">
             {fixedBookings?.slice(0, 3).map((r) => (
               <TripSheet key={r?.id} fixedbooking={r} />
             ))}
           </div>
           <Link href={"/dashboard/trips"}>
-            <Button variant={"link"}>View All</Button>
+            <Button variant={"link"}>View All Recent Trips</Button>
           </Link>
         </div>
       )}
       {(!fixedBookings || fixedBookings?.length < 1) && (
-        <div className="flex flex-col gap-5 items-start">
+        <div className="flex flex-col gap-5 items-start w-full">
           <p>My Recent Trips</p>
 
           <NoValueComponent text="No Trips yet" />

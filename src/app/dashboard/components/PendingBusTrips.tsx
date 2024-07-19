@@ -10,18 +10,18 @@ import Link from "next/link";
 function PendingBusTrips() {
   const { fixedBookings } = useFixedBooking();
   return (
-    <div>
+    <div className="w-full">
       {fixedBookings && fixedBookings?.length > 1 && (
         <div className="flex flex-col items-start gap-5">
           <p className="text-primary font-bold">My Pending Bus Trips</p>
-          <div className="grid grid-cols-1 md:grid-cols-3  2xl:grid-cols-4 gap-5">
+          <div className="w-full grid grid-cols-1 md:grid-cols-3  2xl:grid-cols-4 gap-5">
             {fixedBookings?.slice(0, 3).map((r) => (
               <ActiveTripCardSheet key={r?.id} fixedbooking={r} />
             ))}
           </div>
           <Link href={"/dashboard/trips"}>
             {" "}
-            <Button variant={"link"}>View All</Button>
+            <Button variant={"link"}>View All Pending Trips</Button>
           </Link>
         </div>
       )}
