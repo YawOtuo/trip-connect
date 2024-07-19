@@ -11,10 +11,10 @@ function DashboardSideMenu() {
   const { setDashboardMobileMenu } = useDashboardMobileStore();
 
   return (
-    <div>
-      <div className="w-full flex justify-end  lg:hidden items-center px-5 py-1">
+    <div className="fixed z-10 lg:sticky top-2 right-5">
+      <div className="w-full flex justify-end  lg:hidden items-center ">
         <button onClick={() => setDashboardMobileMenu(true)}>
-          <GiHamburgerMenu size={30} color="white" />
+          <GiHamburgerMenu size={20} className="text-primary" />
         </button>
       </div>
       <div className="hidden lg:block">

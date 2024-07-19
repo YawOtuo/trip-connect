@@ -29,11 +29,12 @@ function LoadingFlexibleForm() {
       {...fadeIn}
       className="bg-primary-100 h-[100dvh] flex flex-col gap-5 justify-center items-center">
       {isvehicleTypesLoading && (
-        <p className="text-2xl text-white font-bold">Loading....</p>
+        <p className="text-2xl text-white font-bold">Setting things up for you....</p>
       )}{" "}
       {/* <div className="w-full max-w-[30%]">
         <BackAndContinueControls />
       </div>{" "} */}
+      {!isvehicleTypesLoading && !vehicleTypes && <p className="text-white">Could not load vehicles</p>}
     </FramerWrapper>
   );
 }

@@ -10,9 +10,8 @@ function Summary() {
       @Project -55
       <div>
         Everything is set
-        <Button onClick={() => handleCreateFlexibleBooking()}>Go</Button>
       </div>
-      <BackAndContinueControls />
+      <BackAndContinueControls  ready />
     </div>
   );
 }

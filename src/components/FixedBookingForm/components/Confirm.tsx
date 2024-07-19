@@ -7,6 +7,7 @@ function Confirm() {
       <p>All is set</p>
 
       <div className="flex w-full gap-5">
+        
         <FixedBookingControls ready={true} />
         
       </div>

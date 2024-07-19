@@ -1,5 +1,7 @@
+"use client"
 import NavMenuWrapper from "@/components/NavMenuWrapper";
 import Navbar from "@/components/Navbar";
+import useIsLoggedInReRoute from "@/lib/hooks/useIsLoggedInReRoute";
 import type { Metadata } from "next";
 
 export default function RootLayout({
@@ -7,6 +9,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useIsLoggedInReRoute(true, '/dashboard')
   return (
       <div className="">
           <div className=" flex flex-col lg:flex-row items-center justify-center lg:min-h-screen gap-7 lg:gap-10">

@@ -3,10 +3,10 @@ import { useFlexibleBookingStore } from "../FlexibleBookingStore";
 import { useFlexibleBookingFormStore } from "../useFlexibleBookingFormStore";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import BackAndContinueControls from "./BackAndContinueControls";
 import FramerWrapper from "@/components/FramerWrapper";
 import { fadeIn } from "@/lib/animations";
 import { useState, useEffect } from "react";
+import FlexibleBookingBackAndContinueControls from "./BackAndContinueControls";
 
 function SelectVehicles() {
   const {
@@ -44,7 +44,9 @@ function SelectVehicles() {
       className="flex flex-col lg:flex-row gap-10 lg:gap-10 h-full items-center justify-center px-5 py-5">
       <div className="order-2 h-full w-full">
         {selectedVehicle && selectedVehicle?.images?.length > 0 ? (
-          <FramerWrapper {...fadeIn} className="overflow-hidden rounded-md relative w-full h-full min-h-[50vh] lg:min-h-[90vh]">
+          <FramerWrapper
+            {...fadeIn}
+            className="overflow-hidden rounded-md relative w-full h-full min-h-[50vh] lg:min-h-[90vh]">
             {imageLoading && (
               <div className="absolute inset-0 flex items-center justify-center">
                 <p>Loading image...</p>
@@ -65,7 +67,7 @@ function SelectVehicles() {
           </div>
         )}
         <div className="lg:hidden mt-20">
-          <BackAndContinueControls />
+          <FlexibleBookingBackAndContinueControls />
         </div>
       </div>
       <div className="w-full order-1 col-span-1 flex flex-col gap-5 basis-[45%]">
@@ -115,7 +117,7 @@ function SelectVehicles() {
                 key={r.id}
                 onClick={() => setSelectedVehicle(r)}
                 variant={`${
-                  selectedVehicle?.id === r.id ? "default" : "outline"
+                  selectedVehicle?.id === r.id ? "primary_100" : "outline"
                 }`}>
                 {r.name}
               </Button>
@@ -124,8 +126,10 @@ function SelectVehicles() {
             {isvehiclesLoading && <p>Hold on! Getting you a vehicle</p>}
           </div>
         </div>
-        <div className="hidden lg:block mt-20">
-          <BackAndContinueControls />
+        <div className="w-full hidden lg:block mt-20">
+          <FlexibleBookingBackAndContinueControls
+            showForwardButton={Boolean(selectedVehicle?.id)}
+          />
         </div>
       </div>
     </FramerWrapper>

@@ -1,9 +1,12 @@
+"use client"
 import { GiHamburgerMenu } from "react-icons/gi";
 import DashboardSideMenu from "./components/DashboardSideMenu";
 import { useDashboardMobileStore } from "./components/DashboardMobileNavbar/components/useDashboardMobileNavStore";
 import DashboardMobileMenuWrapper from "./components/DashboardMobileNavbar/DashboardMobileMenuWrapper";
+import useIsLoggedInReRoute from "@/lib/hooks/useIsLoggedInReRoute";
 
 function Layout({ children }: { children: React.ReactNode }) {
+  useIsLoggedInReRoute(false, '/login')
   return (
     <DashboardMobileMenuWrapper>
       <div className="grid grid-cols-5 bg-primary-100">

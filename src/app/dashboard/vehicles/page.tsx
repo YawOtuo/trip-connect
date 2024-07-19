@@ -6,7 +6,8 @@ function Vehicles() {
   const { flexibleBookings, isflexibleBookingsLoading } =
     useGetFlexibleBookings();
   return (
-    <div>
+    <div className="flex flex-col gap-5 px-5">
+      <p className="text-2xl text-primary font-bold">My Vehicles</p>
       <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-5">
         {flexibleBookings?.map((r) => (
           <FlexibleBookingsCard key={r?.id} booking={r} />

@@ -11,6 +11,8 @@ function useFlexibleBookingForm() {
     useFlexibleBookingFormStore();
   const { createFlexibleBooking } = useFlexibleBookings();
   const { DBDetails } = useAppStore();
+  const { setIsSubmitting, setSubmissionResult } =
+    useFlexibleBookingFormStore();
   const handleBack = () => {
     setActivePage((prev) => {
       const newPage = Math.max(prev - 1, 0);
@@ -27,14 +29,18 @@ function useFlexibleBookingForm() {
     });
   };
 
-  const handleCreateFlexibleBooking = () => {
-    createFlexibleBooking({
+  const handleCreateFlexibleBooking = async () => {
+    setIsSubmitting(true);
+    handleContinue();
+    const result = await createFlexibleBooking({
       purpose: purposeOfOrder,
       start_date: startDate,
       end_date: endDate,
       vehicle: selectedVehicle?.id,
       user: Number(DBDetails?.id),
     });
+    if (result) setIsSubmitting(false);
+    setSubmissionResult(result);
   };
 
   return {

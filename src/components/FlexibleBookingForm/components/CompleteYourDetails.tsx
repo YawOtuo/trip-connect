@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 function CompleteYourDetails() {
   const { DBDetails } = useAppStore();
-  const { setUser } = useFlexibleBookingFormStore();
+  const { setUser, user } = useFlexibleBookingFormStore();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -87,7 +87,7 @@ function CompleteYourDetails() {
           />
           <TextInput
             name="drivers_license_number"
-            type="number"
+            type="text"
             placeholder="Enter Your Drivers License Number"
             label="Drivers License Number"
             value={DBDetails?.drivers_license_number}
@@ -95,7 +95,7 @@ function CompleteYourDetails() {
           />
           <TextInput
             name="ghana_card_number"
-            type="number"
+            type="text"
             placeholder="Enter Your Ghana Card"
             label="Ghana Card"
             value={DBDetails?.ghana_card_number}
@@ -106,7 +106,19 @@ function CompleteYourDetails() {
 
       <div className="w-full flex justify-end">
         <div className=" w-full md:w-[30%] pb-10">
-          <BackAndContinueControls />
+          <BackAndContinueControls
+            showForwardButton={Boolean(
+              user?.username &&
+                user?.contact_address &&
+                user?.country_of_origin &&
+                user?.date_of_birth &&
+                user?.drivers_license_number &&
+                user?.email &&
+                user?.email &&
+                user?.ghana_card_number &&
+                user?.phone_number
+            )}
+          />
         </div>
       </div>
     </div>

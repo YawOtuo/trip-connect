@@ -4,7 +4,7 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import { useFlexibleBookingFormStore } from "../useFlexibleBookingFormStore";
 
 function FlexiTellUsMore() {
-  const { setStartDate, setEndDate, setPurposeOfOrder } =
+  const { setStartDate, endDate, startDate, setEndDate, setPurposeOfOrder } =
     useFlexibleBookingFormStore();
   return (
     <div className="flex flex-col md:flex-row justify-center gap-5 md:gap-10 py-5 relative px-5 lg:px-10 md:min-h-[90vh] items-center">
@@ -87,7 +87,9 @@ function FlexiTellUsMore() {
             </p>
           </div>
         </div>
-        <BackAndContinueControls />
+        <BackAndContinueControls
+          showForwardButton={Boolean(endDate && startDate)}
+        />
       </div>
     </div>
   );

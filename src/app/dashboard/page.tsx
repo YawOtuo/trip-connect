@@ -5,10 +5,11 @@ import Welcome from "./components/Welcome";
 
 function Page() {
   return (
-    <div>
+    <div className="flex flex-col gap-5">
       <ActiveVehicleHires />
-      <PendingBusTrips />
       <Welcome />
+
+      <PendingBusTrips />
       <RecentBusTrips />
     </div>
   );

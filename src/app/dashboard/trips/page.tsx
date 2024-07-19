@@ -7,22 +7,26 @@ function Page() {
   const { fixedBookings, isFixedBookingsLoading } = useFixedBooking();
   return (
     <div className="flex flex-col gap-3">
-      My Trips
-      <div className="hidden lg:grid grid-cols-6 gap-3 text-primary font-semibold px-5">
-        <div>Vehicle Number</div>
+      <p className="text-2xl font-bold text-primary"> My Trips</p>
+      {fixedBookings && (
+        <div className="flex flex-col gap-4">
+          <div className="hidden lg:grid grid-cols-6 gap-3 text-primary font-semibold px-5">
+            <div>Vehicle Number</div>
 
-        <div>Bus Type</div>
-        <div>Departure Time</div>
+            <div>Bus Type</div>
+            <div>Departure Time</div>
 
-        <div>Date Created</div>
-        <div>Status</div>
-      </div>
-      <div className="flex flex-col gap-5">
-        {fixedBookings?.map((r) => (
-          <TripSheet key={r?.id} fixedbooking={r} />
-        ))}
-      </div>
-      {isFixedBookingsLoading && <p>Loading fixed bookingss</p>}
+            <div>Date Created</div>
+            <div>Status</div>
+          </div>
+          <div className="flex flex-col gap-5">
+            {fixedBookings?.map((r) => (
+              <TripSheet key={r?.id} fixedbooking={r} />
+            ))}
+          </div>
+        </div>
+      )}
+      {isFixedBookingsLoading && <p>Loading your bus trips</p>}
     </div>
   );
 }

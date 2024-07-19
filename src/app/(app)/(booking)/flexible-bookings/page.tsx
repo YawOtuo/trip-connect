@@ -59,17 +59,7 @@ function Page() {
             <Link href={"/flexible-bookings/form"} className="w-full md:w-fit">
               <BookNowButton />
             </Link>{" "}
-            {/* <Modal
-              size={"5xl"}
-              trigger={<BookNowButton />}
-              body={
-                <div>
-                  {" "}
-                  <FlexibleBookingForm />{" "}
-                </div>
-              }
-              header={<div></div>}
-            /> */}
+      
           </div>
         </div>
       </div>

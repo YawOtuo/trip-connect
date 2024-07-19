@@ -43,16 +43,14 @@ function TripCard({ fixedbooking }: Props) {
             {fixedbooking.bus_and_schedule.transportbus.bus_type}
           </span>
         </p>
-        {/* <p>
-              {fixedbooking.bus_and_schedule.transportbus.booked_seats_count}
-            </p> */}
-        <p>
+      
+        <p className="text-left md:text-center">
           Departure Time:{" "}
           {moment(fixedbooking.bus_and_schedule.schedule.departure_time).format(
             "Do MMMM YYYY hh:mm"
           )}
         </p>
-        <p>
+        <p className="text-left md:text-center">
           Date Booked:{" "}
           {moment(fixedbooking.created_at).format("Do MMMM YYYY hh:mm")}
         </p>

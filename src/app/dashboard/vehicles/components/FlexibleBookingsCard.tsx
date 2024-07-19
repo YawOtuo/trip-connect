@@ -10,7 +10,7 @@ type Props = {
 function FlexibleBookingsCard({ booking }: Props) {
   return (
     <div
-      className="flex flex-col gap-3 md:gap-5 border-2 rounded-md w-full hover:scale-[1.02] transition-all
+      className="flex flex-col gap-3 md:gap-5 border-2 rounded-2xl w-full hover:scale-[1.02] transition-all
     duration-300 cursor-pointer">
       <div className="relative aspect-[3/2] w-full overflow-hidden rounded-md">
         <Image
