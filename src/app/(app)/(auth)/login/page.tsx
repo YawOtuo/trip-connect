@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import TextInput from "@/components/ui/textinput";
 import useFirebase from "../useFirebase";
 import { Formik, Form } from "formik";
+import Link from "next/link";
 
 function Page() {
   const { loginWithEmailAndPassword, GoogleSignIn } = useFirebase();
@@ -14,7 +15,7 @@ function Page() {
           email: "",
           password: "",
         }}
-        onSubmit={(values, {resetForm}) => {
+        onSubmit={(values, { resetForm }) => {
           loginWithEmailAndPassword(values.email, values.password);
           resetForm();
         }}>
@@ -53,6 +54,15 @@ function Page() {
         <Button variant={"outline"} onClick={GoogleSignIn}>
           Login with Google
         </Button>
+      </div>
+
+      <div>
+        <p className="text-slate-900">
+          Don&apos;t have an account?{" "}
+          <Link className="text-primary" href={"/sign-up"}>
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   );

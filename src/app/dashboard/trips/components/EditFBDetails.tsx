@@ -1,13 +1,17 @@
+import CheckoutButton from "@/components/CheckoutButton/CheckoutButton";
+import usePayStack from "@/components/CheckoutButton/usePaystack";
 import { Button } from "@/components/ui/button";
 import { FixedBooking } from "@/lib/types/booking";
 import moment from "moment";
 import Image from "next/image";
+import useTrips from "./useTrips";
 
 type Props = {
   data: FixedBooking;
 };
 
 function EditFBDetails({ data }: Props) {
+  const { handlePayment } = useTrips();
   return (
     <div className="flex flex-col gap-10 lg:gap-5 h-screen mdax-h-[800px] justify-center">
       <div className="relative aspect-[3/2]  w-full max-w-sm ">
@@ -50,9 +54,7 @@ function EditFBDetails({ data }: Props) {
           </span>
         </p>{" "}
         <div className="w-full flex-col flex items-center gap-5 mt-10">
-          <Button variant={"primary_100"} className="w-full">
-            Pay Now
-          </Button>
+          <CheckoutButton onClick={() => handlePayment()} />
           <div className="flex flex-row w-full gap-5">
             <Button variant={"outline"} className="w-full">
               Change Seats

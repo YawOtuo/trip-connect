@@ -25,12 +25,12 @@ export const pages: any = [
     component: <FlexiTellUsMore />,
     number: 1,
   },
-  {
-    name: "start-here",
-    label: "start-here",
-    component: <GreatProgress />,
-    number: 1,
-  },
+  // {
+  //   name: "start-here",
+  //   label: "start-here",
+  //   component: <GreatProgress />,
+  //   number: 1,
+  // },
   {
     name: "start-here",
     label: "start-here",

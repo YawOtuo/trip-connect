@@ -1,6 +1,7 @@
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
 import { useToast } from "@/components/ui/use-toast";
@@ -12,12 +13,36 @@ function useFirebase() {
   const router = useRouter();
 
   const loginWithEmailAndPassword = (email: string, password: string) => {
-
-    toast({
-        title: `Loading`,
-        description: `Getting you started ${email}`,
-        variant: "success",
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        toast({
+          title: `Welcome`,
+          description: `You have successfully logged in with ${email}`,
+          variant: "success",
+        });
+        router.push("/");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        toast({
+          title: `Error ${errorCode}`,
+          description: errorMessage,
+          variant: "destructive",
+        });
+        console.log({ errorCode, errorMessage });
       });
+  };
+
+  const registerWithEmailAndPassword = (email: string, password: string) => {
+    toast({
+      title: `Loading`,
+      description: `Getting you started ${email}`,
+      variant: "success",
+    });
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -59,7 +84,7 @@ function useFirebase() {
           description: `You have successfully logged in with Google`,
           variant: "success",
         });
-        router.push("/dashboard");
+        router.push("/");
       })
       .catch((error) => {
         // Handle Errors here.
@@ -73,6 +98,7 @@ function useFirebase() {
       });
   }
   return {
+    registerWithEmailAndPassword,
     loginWithEmailAndPassword,
     GoogleSignIn,
   };

@@ -40,7 +40,7 @@ const RideType = ({ label, text, link, icon }: RideTypeProps) => {
 
 function ScheduleARideToday() {
   return (
-    <div className="w-full flex flex-col gap-20 bg-primary-100 text-white px-5 lg:px-20 py-5 lg:py-10 my-2 min-h-[70vh] items-start justify-center">
+    <div className="w-full flex flex-col gap-20 bg-primary-100 text-white px-5 lg:px-20 py-10 lg:py-20 my-2 min-h-[70vh] items-start justify-center">
       <h1 className="text-3xl lg:text-5xl font-semibold">
         Schedule a ride today
       </h1>

@@ -17,8 +17,6 @@ import "swiper/css/effect-flip";
 import "swiper/css/effect-creative";
 import "swiper/css/effect-cards";
 
-
-
 const mont = Nunito({ subsets: ["cyrillic"] });
 
 export const metadata: Metadata = {
@@ -39,9 +37,8 @@ export default function RootLayout({
             <div>
               {children}
               <Toaster />
-              <LoadingIndicator />
-
             </div>
+            <LoadingIndicator />
           </Suspense>
         </Providers>
       </body>
