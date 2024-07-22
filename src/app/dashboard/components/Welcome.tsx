@@ -1,6 +1,7 @@
 "use client"
 import BookNowButton from "@/app/(app)/(booking)/components/BookNowButton";
 import FixedBookingForm from "@/components/FixedBookingForm";
+import { useTellUsMoreStore } from "@/components/FixedBookingForm/components/TellUsMore/useTellUsMoreStore";
 import FlexibleBookingForm from "@/components/FlexibleBookingForm";
 import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/dialog";
@@ -9,6 +10,8 @@ import Link from "next/link";
 
 function Welcome() {
   const { DBDetails } = useAppStore();
+  const { isModalOpen, setIsModalOpen } = useTellUsMoreStore();
+
   return (
     <div className="flex flex-col gap-7 border-b-2 border-b-gray-200 pb-5">
       <div className="flex flex-col gap-2">
@@ -19,6 +22,8 @@ function Welcome() {
       </div>
       <div className="flex w-full flex-col lg:flex-row gap-2 md:gap-5 items-start lg:items-center ">
         <Modal
+           open={isModalOpen}
+           onOpenChange={setIsModalOpen}
           size={"5xl"}
           trigger={<Button className=" md:px-20 w-full md:w-fit" variant={"primary_100"}>Book a Bus Ride</Button>}
           body={

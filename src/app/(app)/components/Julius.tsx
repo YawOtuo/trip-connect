@@ -64,7 +64,7 @@ const Julius = () => {
     <FramerWrapper {...fadeUp} className="w-full lg:max-w-[80%] lg:my-10 flex justify-center flex-col items-start">
       <h1 className="text-3xl lg:text-5xl font-semibold my-8 mb-14 lg:mb-20">
         The journey of a thousand miles begins with a single{" "}
-        <span className="text-primary">step</span>
+        <span className="text-primary">booking</span>
       </h1>
 
       <div className="w-full lg:max-w-[80%] flex flex-col gap-14 lg:pl-10">

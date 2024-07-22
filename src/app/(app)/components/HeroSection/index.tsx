@@ -1,65 +1,56 @@
-import { Button } from "@/components/ui/button";
-import styles from "./index.module.css";
+"use client";
+import { Swiper, SwiperSlide } from "swiper/react";
+import HeroSlide from "./components/HeroSlide";
+import { Autoplay, EffectFade } from "swiper/modules";
 
 function HeroSection() {
-  type SlideProps = {
-    heading: string;
-    subheading: string;
-    button?: string;
-    image: string;
-  };
-  const Slide = ({ heading, subheading, button, image }: SlideProps) => (
-    <div
-      className={`w-full h-full flex flex-col items-start justify-center px-5 lg:px-20 gap-5 ${styles.heroSlide} bg-cover lg:bg-cover bg-no-repeat bg-bottom`}
-      style={{
-        backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${image})`,
-      }}>
-
-      <div
-        className={`text-white lg:max-w-[50vw] flex flex-col gap-2 ${styles.grayText}`}>
-        <h1 className="font-bold text-4xl lg:text-6xl">{heading}</h1>
-        <h3 className="capitalize font-semibold text-base lg:text-xl">
-          {subheading}
-        </h3>
-      </div>
-      <div className="flex items-center justify-center gap-5">
-        <Button
-          className="text-white px-10 lg:px-14 font-semibold"
-          size={"lg"}
-          variant="default"
-          rounded={"default"}>
-          Book
-        </Button>
-        <Button
-          size={"lg"}
-          className="text-white lg:px-10"
-          variant="transparent"
-          rounded={"default"}>
-          Discover
-        </Button>
-      </div>
-    </div>
-  );
+  const content = [
+    {
+      heading: "Embark on Your Adventure",
+      subheading:
+        "Effortlessly Discover, Seamlessly Book, and Travel with Absolute Confidence",
+      image: "/herosection/1.png",
+    },
+    {
+      heading: "Cross Country Travel with Ease",
+      subheading:
+        "Arrange to book from various bus transport companies in your area: VIP, STC, 2M EXPRESS",
+      image: "/herosection/7.jpg",
+    },
+    {
+      heading: "Rent a Vehicle Anytime, Anywhere",
+      subheading: "Your Journey, Your Schedule",
+      image: "/herosection/6.jpg",
+    },
+    {
+      heading: "Comfort with Convenience",
+      subheading: "Select from our range of luxury or regular vehicles. Enjoy a ride with tripConnect TODAY",
+      image: "/herosection/10.jpg",
+    },
+  ];
 
   return (
     <div
-      className={`w-full flex flex-col items-start justify-center gap-5 h-[80vh] lg:h-[100vh] ${styles.heroSlideshowContainer}`}>
-      <Slide
-        heading="Embark on Your Adventure"
-        subheading="Effortlessly Discover, Seamlessly Book, and Travel with Absolute Confidence"
-        image="/herosection/1.png"
-      />
-
-      <Slide
-        heading="Embark on Your Adventure"
-        subheading="Effortlessly Discover, Seamlessly Book, and Travel with Absolute Confidence"
-        image="/herosection/5.png"
-      />
-      <Slide
-        heading="Embark on Your Adventure"
-        subheading="Effortlessly Discover, Seamlessly Book, and Travel with Absolute Confidence"
-        image="/herosection/3.png"
-      />
+      className={`w-full flex flex-col items-start justify-center gap-5 h-[80vh] lg:h-[100vh] `}>
+      <Swiper
+        className="w-full h-full"
+        effect="fade"
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
+        modules={[Autoplay, EffectFade]}>
+        {content.map((r) => (
+          <SwiperSlide key={r.heading} className="w-full h-full">
+            <HeroSlide
+              heading={r?.heading}
+              subheading={r.subheading}
+              image={r.image}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }

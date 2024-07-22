@@ -2,6 +2,7 @@ import FramerWrapper from "@/components/FramerWrapper";
 import "../../globals.css"; // Import the global CSS file for styling
 import Image from "next/image"; // Import the Image component from Next.js
 import { fadeInRight, fadeUp } from "@/lib/animations";
+import ImageSlider from "@/components/ImageSlider";
 
 const Pill = ({ label }: { label: string }) => {
   return (
@@ -22,26 +23,22 @@ function Kwame() {
   ];
   return (
     // Main container with flexbox to center its content
-    <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 ">
+    <div className="grid grid-cols-1 w-full max-w-full lg:grid-cols-2 items-center gap-10 lg:gap-20 pt-10 lg:pt-0 ">
       {/* Image container */}
-      <FramerWrapper
-        {...fadeUp}
-        className="order-2 lg:order-1 w-full flex-shrink-0 lg:basis-[50%] h-full">
-        <div className="relative w-full aspect-[9/7] md:aspect-[4/2] lg:aspect-[9/7] h-full ">
-          <Image
-            src="/buses1.jpg"
-            alt="Buses"
-            fill // Adjust the height as needed
-            className="rounded-lg"
-          />
-        </div>
+      <FramerWrapper {...fadeUp} className="order-2 max-w-full lg:order-1 w-full   h-full">
+        <ImageSlider
+          delay={2000}
+          effect="cards"
+          images={["/buses1.jpg", "/herosection/10.jpg"]}
+          className="w-full aspect-[9/7] md:aspect-[4/2] lg:aspect-[9/7] h-full max-w-full"
+        />
       </FramerWrapper>
 
       {/* Container for the text content and buttons */}
-      <div className="order-1 lg:order-2 flex flex-col gap-5 lg:gap-8">
+      <div className="order-1 lg:order-2 w-full flex flex-col gap-5 lg:gap-8">
         {/* Text content */}
         <div className="text-left  flex flex-col gap-4">
-          <h1 className="text-3xl lg:text-5xl text-primary font-semibold">
+          <h1 className="text-3xl lg:text-5xl text-primary font-bold">
             Choose Your <br />
             Perfect Travel Mode
           </h1>

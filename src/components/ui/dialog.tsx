@@ -133,7 +133,7 @@ interface ModalProps extends VariantProps<typeof modalVariants> {
   footer?: React.ReactNode;
   className?: string;
   open?: boolean;
-  onOpenChange?: (value?: boolean) => void;
+  onOpenChange?: (value: boolean) => void;
 }
 const Modal: React.FC<ModalProps> = ({
   trigger,

@@ -1,4 +1,5 @@
 import FramerWrapper from "@/components/FramerWrapper";
+import ImageSlider from "@/components/ImageSlider";
 import { fadeInLeft, fadeUp } from "@/lib/animations";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa6";
@@ -26,12 +27,11 @@ function Enam() {
         <FramerWrapper
           {...fadeUp}
           className="relative w-full aspect-[9/7] md:aspect-[4/2] lg:aspect-[9/7] h-full overflow-hidden rounded-md lg:rounded-xl">
-          <Image
-            src="/enam3.png"
-            alt="Buses"
-            objectFit="cover"
-            fill // Adjust the height as needed
-            className="rounded-lg"
+          <ImageSlider
+            delay={2000}
+            effect="cards"
+            images={["/enam3.png","/herosection/1.png"]}
+            className="w-full aspect-[9/7] md:aspect-[4/2] lg:aspect-[9/7] h-full "
           />
         </FramerWrapper>
       </div>

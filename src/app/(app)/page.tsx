@@ -23,7 +23,7 @@ export default function Home() {
           <Kwame />
         </FramerWrapper>{" "}
       </div>
-      <FramerWrapper {...fadeUp}>
+      <FramerWrapper {...fadeUp} className="my-10">
         <ScheduleARideToday />
       </FramerWrapper>
       <div className="flex flex-col gap-10 px-5 items-center lg:w-[90%]">

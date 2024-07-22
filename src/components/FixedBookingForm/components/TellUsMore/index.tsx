@@ -49,16 +49,22 @@ function TellUsMore() {
       )}
       <div>
         {!schedulesFromAndTo && isSchedulesFromAndToLoading && (
-          <div className="flex justify-center flex-col items-center">
-            <LottieFileBuilder animationData={animationData} />
-            <p className="text-primary font-bold">
-              Just a sec!! Getting bus schedules ready
-            </p>
-          </div>
-        )}
+        <div className="flex justify-center flex-col items-center h-[50vh]">
+          <LottieFileBuilder
+            animationData={animationData}
+            width={"50%"}
+            height={"100%"}
+          />
+          <p className="text-primary font-bold">
+            Just a sec!! Getting bus schedules ready
+          </p>
+        </div>
+         )} 
       </div>
       {schedulesFromAndTo && <FixedBookingControls showBackButton={false} />}{" "}
-      {!schedulesFromAndTo && !isSchedulesFromAndToLoading && <p>An error occured</p> }{" "}
+      {!schedulesFromAndTo && !isSchedulesFromAndToLoading && (
+        <p>An error occured</p>
+      )}{" "}
     </FramerWrapper>
   );
 }

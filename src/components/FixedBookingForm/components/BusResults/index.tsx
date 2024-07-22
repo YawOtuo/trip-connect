@@ -24,8 +24,8 @@ function BusResults() {
     <FramerWrapper
       {...fadeIn}
       className="relative h-full flex flex-col justify-between  ">
-      {searchTransportBus && searchTransportBus?.length > 1 && (
-        <div className="flex flex-col py-5 my-5 gap-5 custom-scrolvlbar  overflow-y-autof">
+      {searchTransportBus && searchTransportBus?.length > 0 && (
+        <div className="flex flex-col py-5 my-5 gap-5 custom-scrollbar  overflow-y-auto">
           <p className="">
             Search Results for buses going from{" "}
             <span className="text-xl font-bold uppercase text-primary">
@@ -39,7 +39,7 @@ function BusResults() {
           <div className="grid grid-cols-1 md:grid-cols-2  gap-5">
             {searchTransportBus?.map(
               (schedule) =>
-                schedule.transportbusesandschedules_set.length > 1 && (
+                schedule.transportbusesandschedules_set.length > 0 && (
                   <BusResultsCard key={schedule.id} schedule={schedule} />
                 )
             )}

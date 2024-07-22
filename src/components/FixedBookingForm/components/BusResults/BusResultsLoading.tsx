@@ -14,15 +14,15 @@ function BusResultsLoading() {
     travelling_to: selectedTo,
   });
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       {issearchTransportBusLoading && (
-        <div className="flex justify-start flex-col items-center  ">
-          <LottieFileBuilder animationData={animationData} />
+        <div className="flex justify-start flex-col items-center h-full ">
+          <LottieFileBuilder animationData={animationData} width={"60%"} height={"100%"}/>
           <p className="text-primary font-bold">Searching for a bus for you.</p>
         </div>
-      )}
-      {searchTransportBus &&
-        !issearchTransportBusLoading &&
+       )} 
+      {
+        !issearchTransportBusLoading && searchTransportBus &&
         searchTransportBus?.length < 1 && <p>Sorry!! no results found</p>}
     </div>
   );

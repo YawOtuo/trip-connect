@@ -8,6 +8,17 @@ import { Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import LoadingIndicator from "@/components/LoadingIndicator";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/effect-fade";
+import "swiper/css/effect-flip";
+import "swiper/css/effect-creative";
+import "swiper/css/effect-cards";
+
+
+
 const mont = Nunito({ subsets: ["cyrillic"] });
 
 export const metadata: Metadata = {
