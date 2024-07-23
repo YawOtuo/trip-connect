@@ -1,11 +1,17 @@
 import { url } from "../../../weburl";
 import { FixedBooking } from "../types/booking";
+import { updatedFlexibleBookingData } from "./flexiblebookings";
 
 export interface NewFixedBooking {
   user_id: number;
   bus_schedule_id: number | null;
   bus_id: number | null;
   seat_numbers?: Number[];
+}
+
+export interface UpDateFixedBooking {
+  id: number; 
+  is_paid: boolean
 }
 
 export const FetchAllFixedBookings = async (
@@ -52,23 +58,25 @@ export const CreateFixedBooking = async (
   }
   return response.json();
 };
-
-// export const UpdateFixedBooking = async (
-//   id: number,
-//   updatedFixedBooking: UpdatedFixedBooking
-// ): Promise<FixedBooking> => {
-//   const response = await fetch(`${url}api/FixedBookings/${id}/`, {
-//     method: "PUT",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(updatedFixedBooking),
-//   });
-//   if (!response.ok) {
-//     throw new Error("Failed to update FixedBooking");
-//   }
-//   return response.json();
-// };
+export const UpdateFixedBooking = async (
+  booking_id: number,
+  updatedFlexibleBookingData: UpDateFixedBooking
+): Promise<FixedBooking> => {
+  const response = await fetch(
+    `${url}api/fixed-bookings/${booking_id}/`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedFlexibleBookingData),
+    }
+  );
+  if (!response.ok) {
+    throw new Error("Failed to create FlexibleBooking");
+  }
+  return response.json();
+};
 
 export const DeleteFixedBooking = async (id: number): Promise<void> => {
   const response = await fetch(`${url}api/fixed-bookings/${id}/`, {

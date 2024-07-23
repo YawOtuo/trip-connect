@@ -1,11 +1,16 @@
 import { url } from "../../../weburl";
 import { FlexibleBooking } from "../types/flexiblebooking";
-export interface NewFlexibleBooking {
+export interface updatedFlexibleBookingData {
   purpose: string | null;
   start_date: string | null;
   end_date?: string | null;
   vehicle?: number | null
   user: number | null
+}
+
+export interface UpTlexibleBooking {
+  id: number
+  is_paid: boolean
 }
 
 export const FetchAllFlexibleBookings = async (
@@ -40,7 +45,7 @@ export const FetchOneFlexibleBooking = async (
 
 export const CreateFlexibleBooking = async (
   user_id: number,
-  newFlexibleBooking: NewFlexibleBooking
+  updatedFlexibleBookingData: updatedFlexibleBookingData
 ): Promise<FlexibleBooking> => {
   const response = await fetch(
     `${url}api/flexible-bookings/`,
@@ -49,7 +54,27 @@ export const CreateFlexibleBooking = async (
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newFlexibleBooking),
+      body: JSON.stringify(updatedFlexibleBookingData),
+    }
+  );
+  if (!response.ok) {
+    throw new Error("Failed to create FlexibleBooking");
+  }
+  return response.json();
+};
+
+export const UpdateFlexibleBooking = async (
+  booking_id: number,
+  updatedFlexibleBookingData: UpTlexibleBooking
+): Promise<FlexibleBooking> => {
+  const response = await fetch(
+    `${url}api/flexible-bookings/${booking_id}/`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedFlexibleBookingData),
     }
   );
   if (!response.ok) {

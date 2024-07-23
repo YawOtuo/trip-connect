@@ -7,13 +7,16 @@ import {
   FetchAllFlexibleBookings,
   FetchOneFlexibleBooking,
   NewFlexibleBooking,
+  UpTlexibleBooking,
+  UpdateFlexibleBooking,
 } from "../api/flexiblebookings";
 import { FlexibleBooking } from "../types/flexiblebooking";
+import { useToast } from "@/components/ui/use-toast";
 
 const useFlexibleBookings = () => {
   const queryClient = useQueryClient();
   const { DBDetails } = useAppStore();
-
+  const { toast } = useToast();
   // const {
   //   data: flexibleBookings,
   //   isLoading: isflexibleBookingsLoading,
@@ -43,14 +46,33 @@ const useFlexibleBookings = () => {
       //   variant: "success",
       // });
       queryClient.invalidateQueries({ queryKey: ["orders"] });
-      return data
+      return data;
     },
     onError: (error: Error) => {
       // toast({ title: "Error", description: error.message, variant: "destructive" });
     },
   });
 
-  const createFlexibleBookingWithStatus = async (bookingData: NewFlexibleBooking) => {
+  const updateFlexibleBooking = useMutation({
+    mutationFn: (data: UpTlexibleBooking) =>
+      UpdateFlexibleBooking(data.id, data),
+    onSuccess: (data) => {
+      toast({
+        title: "Success",
+        description: "Status updated successfully",
+        variant: "success",
+      });
+      queryClient.invalidateQueries({ queryKey: ["orders"] });
+      return data;
+    },
+    onError: (error: Error) => {
+      // toast({ title: "Error", description: error.message, variant: "destructive" });
+    },
+  });
+
+  const createFlexibleBookingWithStatus = async (
+    bookingData: NewFlexibleBooking
+  ) => {
     try {
       const data = await createFlexibleBooking.mutateAsync(bookingData);
       return { success: true, data }; // Return success status and data
@@ -61,11 +83,12 @@ const useFlexibleBookings = () => {
       }
       return { success: false, error: errorMessage }; // Return error status and message
     }
-  }
+  };
   return {
     // flexibleBookings,
     // isflexibleBookingsLoading,
     // flexibleBookingsError,
+    updateFlexibleBooking: updateFlexibleBooking.mutate,
     fetchFixedBookingById,
     createFlexibleBooking: createFlexibleBookingWithStatus,
   };

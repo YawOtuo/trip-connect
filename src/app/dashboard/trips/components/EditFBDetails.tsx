@@ -54,7 +54,7 @@ function EditFBDetails({ data }: Props) {
           </span>
         </p>{" "}
         <div className="w-full flex-col flex items-center gap-5 mt-10">
-          <CheckoutButton onClick={() => handlePayment()} />
+          <CheckoutButton onClick={() => handlePayment(data.id)} />
           <div className="flex flex-row w-full gap-5">
             <Button variant={"outline"} className="w-full">
               Change Seats
