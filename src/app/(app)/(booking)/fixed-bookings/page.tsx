@@ -40,15 +40,12 @@ function Page() {
 
           <div className="">
             <p>
-              Lorem ipsum dolor sit amet consectetur. Nullam ipsum nisl
-              fermentum nibh sit pellentesque. Ut proin pulvinar eget nulla.
-              Posuere mi commodo fusce nunc posuere justo lorem nullam. Ac
-              condimentum neque consequat curabitur. Egestas ullamcorper
-              malesuada in habitasse in urna sit. Dui proin sodales ac duis sit
-              pellentesque nullam proin nibh. Maecenas tristique sit id cursus
-              ornare et lobortis leo sollicitudin. Euismod tristique urna etiam
-              nullam lorem in mauris arcu vel. Pellentesque et euismod eget
-              velit sagittis iaculis.
+             Our Fixed Booking Service is designed to make your travel planning effortless and convenient. Here's what you need to know:
+              
+              What is Fixed Booking?
+              Fixed Booking allows you to reserve a seat on one of our scheduled buses. Unlike on-demand services, our buses operate on
+              fixed routes and schedules, ensuring you have a reliable and timely travel option.
+             
             </p>
           </div>
 

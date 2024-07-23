@@ -23,7 +23,8 @@ const Pill = ({ label }: { label: string }) => {
   );
 };
 
-const pillOptions = ["LUXURY VEHICLES", "LOREM", "LOREM"];
+const pillOptions = ["LUXURY VEHICLES", "ECONOMY VEHICLES", "SUVs", "SEDANS", "VANS", "ELECTRIC VEHICLES"];
+
 
 function Page() {
   return (
@@ -37,15 +38,10 @@ function Page() {
 
           <div className="">
             <p>
-              Lorem ipsum dolor sit amet consectetur. Nullam ipsum nisl
-              fermentum nibh sit pellentesque. Ut proin pulvinar eget nulla.
-              Posuere mi commodo fusce nunc posuere justo lorem nullam. Ac
-              condimentum neque consequat curabitur. Egestas ullamcorper
-              malesuada in habitasse in urna sit. Dui proin sodales ac duis sit
-              pellentesque nullam proin nibh. Maecenas tristique sit id cursus
-              ornare et lobortis leo sollicitudin. Euismod tristique urna etiam
-              nullam lorem in mauris arcu vel. Pellentesque et euismod eget
-              velit sagittis iaculis.
+            Our Flexible Booking service allows you to rent a vehicle exclusively for your needs at any time and on any day.
+              Whether you need a car for a spontaneous trip or a planned journey, our flexible booking options provide the convenience and freedom to travel on your own schedule.
+              Choose from a variety of vehicles that suit your preferences and enjoy a seamless booking experience tailored to your requirements. 
+              With flexible booking, your travel plans are always in your control.
             </p>
           </div>
 
