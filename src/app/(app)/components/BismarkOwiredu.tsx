@@ -19,10 +19,12 @@ function BismarkOwiredu() {
           </h2>
         </div>
         <p className="text-sm 2xl:text-base text-slate-600">
-          Lorem ipsum dolor sit amet consectetur. Quam lacus purus pharetra
-          habitasse. Pulvinar et nunc arcu venenatis sed porttitor sed
-          vestibulum. Odio lobortis cras amet est malesuada dictum. Facilisis at
-          aliquam a nec semper neque donec massa consectetur.
+           Our Fixed Booking service offers a reliable and convenient way to travel with scheduled bus routes. 
+          Choose from a variety of pre-determined departure times and routes that best fit your itinerary. 
+          With fixed bookings, you can plan your day with confidence, knowing exactly when and where your bus will arrive and depart.
+          Enjoy the peace of mind that comes with structured travel plans, competitive fares, and a seamless booking process. 
+          Travel smarter with our Fixed Booking service.
+
         </p>
 
         <div className="w-full flex justify-end">
