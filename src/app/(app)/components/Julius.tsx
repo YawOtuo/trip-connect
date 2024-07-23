@@ -38,26 +38,28 @@ const Section = ({
 // Define the Julius component
 const Julius = () => {
   // Array of objects representing each section's content
-  const sections = [
-    {
-      id: 1,
-      imgSrc: "/S1.png", // Replace with your image path
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, quam hic in dolor asperiores libero alias aliquid eligendi ipsum consectetur ex, vero voluptatibus omnis ea optio natus harum qui temporibus",
-      header: "Section One", // Add your header text here
-    },
-    {
-      id: 2,
-      imgSrc: "/S2.png", // Replace with your image path
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, quam hic in dolor asperiores libero alias aliquid eligendi ipsum consectetur ex, vero voluptatibus omnis ea optio natus harum qui temporibus",
-      header: "Section Two", // Add your header text here
-    },
-    {
-      id: 3,
-      imgSrc: "/S3.png", // Replace with your image path
-      text: "Lorem ipsum dolor sit amet consectetur. Etiam ullamcorper sed id pharetra felis lacus at. Malesuada in. Id maecenas neque diam suscipit",
-      header: "Section Three", // Add your header text here
-    },
-  ];
+// Array of objects representing each section's content
+const sections = [
+  {
+    id: 1,
+    imgSrc: "/S1.png", // Replace with your image path
+    text: "Experience the ultimate in luxury with our premium vehicles. Whether it's a business trip or a special occasion, our luxury fleet offers the perfect blend of comfort and style.",
+    header: "Luxury Vehicles", // Add your header text here
+  },
+  {
+    id: 2,
+    imgSrc: "/S2.png", // Replace with your image path
+    text: "Our economy vehicles are perfect for everyday use, providing reliable transportation at an affordable price. Ideal for commuting, errands, or casual outings.",
+    header: "Economy Vehicles", // Add your header text here
+  },
+  {
+    id: 3,
+    imgSrc: "/S3.png", // Replace with your image path
+    text: "Planning a family trip or need more space? Our SUVs offer ample room for passengers and luggage, ensuring a comfortable and enjoyable journey for everyone.",
+    header: "SUVs", // Add your header text here
+  },
+];
+
 
   // Render the component
   return (
