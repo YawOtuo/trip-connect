@@ -48,13 +48,13 @@ function ScheduleARideToday() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
         <RideType
           label="Flexible Booking"
-          text="Lorem ipsum dolor sit amet consectetur. Pharetra elementum at quis orci id morbi facilisis facilisi. Sed et dictum id nisl purus odio. Tellus diam nulla risus elementum sapien imperdiet. Et mattis tincidunt tempor at in ridiculus."
+          text="Our Flexible Booking service allows you to rent a vehicle whenever you need it, giving you the freedom to travel on your own schedule. Choose from a variety of vehicles and enjoy the convenience of booking at any time.."
           link="/flexible-bookings"
           icon={<LuLocateFixed size={60} />}
         />
         <RideType
           label="Fixed Booking"
-          text="Lorem ipsum dolor sit amet consectetur. Pharetra elementum at quis orci id morbi facilisis facilisi. Sed et dictum id nisl purus odio. Tellus diam nulla risus elementum sapien imperdiet. Et mattis tincidunt tempor at in ridiculus."
+          text="With our Fixed Booking service, you can reserve a seat on one of our scheduled buses, ensuring reliable and timely travel. Choose from a range of pre-determined departure times and routes to fit your itinerary."
           // link="/fixed-bookings"
           link="/fixed-bookings"
           icon={<GiFlexibleStar size={60} />}
