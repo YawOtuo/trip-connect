@@ -1,8 +1,5 @@
 hide api keys using server functions
 
-signing up with email
-
-
 make every schedule unique
 
 react query names
@@ -19,4 +16,8 @@ when logged in, avatar, drop down menu exceeds window on mobile view
 
 setting the cost when submitting a bookin 
 
-on default set active page to 0 if booking has been completed
+on default set active page to 0 if booking has been completed 
+
+vehicle details page 
+trips details page 
+notifications

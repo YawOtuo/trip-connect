@@ -74,7 +74,7 @@ export default function Navbar() {
                   />
                 )}
                 <AvatarFallback>
-                  {<UserIcon size={24} color="black" />}
+                  {<UserIcon size={20} color="black" />}
                 </AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>

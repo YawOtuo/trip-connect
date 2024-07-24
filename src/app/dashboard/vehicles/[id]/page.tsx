@@ -5,6 +5,8 @@ import useFlexibleBookings from "@/lib/hooks/useFlexibleBookings";
 import useGetFlexibleBookings from "@/lib/hooks/useGetFlexibleBookings";
 import Image from "next/image";
 import useVehicles from "../useVehicles";
+import { TbCoins } from "react-icons/tb";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 type Props = {
   params: { id: number };
@@ -28,7 +30,17 @@ function Page({ params }: Props) {
           )}
 
           <div>
-            {OneFlexibleBookings.cost}
+            <p> Booked on:{OneFlexibleBookings.created_at}</p>
+          </div>
+          <div className="flex items-center gap-5">
+            Booked From :<p>{OneFlexibleBookings.start_date}</p>
+            <FaLongArrowAltRight />
+            <p> {OneFlexibleBookings.end_date}</p>
+          </div>
+          <div className="flex items-center gap-2">
+            {" "}
+            <TbCoins />
+            <p>{OneFlexibleBookings.cost}</p>
             {OneFlexibleBookings.vehicle.name}
           </div>
 

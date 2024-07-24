@@ -10,6 +10,6 @@ export interface User {
   contact_address?: string | null;
   drivers_license_number?: string | null;
   ghana_card_number?: string | null;
-  created_at: string
+  created_at?: string | null
   // Add other user fields as necessary
 }
