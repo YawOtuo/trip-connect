@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { IoMdBus } from "react-icons/io";
+import { LuCar } from "react-icons/lu";
+import { LiaCarSideSolid } from "react-icons/lia";
+
+
+import { IoCarSportOutline, IoSad } from "react-icons/io5";
 
 type SlideProps = {
   heading: string;
@@ -27,7 +33,8 @@ const HeroSlide = ({ heading, subheading, button, image }: SlideProps) => (
           size={"lg"}
           variant="default"
           rounded={"default"}>
-          Book a Bus Trip
+          <IoMdBus className="mr-1" size={20} />
+          Book
         </Button>
       </Link>
       <Link href={"/flexible-bookings"}>
@@ -36,7 +43,8 @@ const HeroSlide = ({ heading, subheading, button, image }: SlideProps) => (
           className="text-white lg:px-10"
           variant="transparent"
           rounded={"default"}>
-          Book a Vehicle
+          <LiaCarSideSolid className="mr-1"  size={20}/>
+          Book
         </Button>
       </Link>
     </div>
