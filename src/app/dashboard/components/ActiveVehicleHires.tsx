@@ -15,7 +15,7 @@ function ActiveVehicleHires() {
           <p className="text-primary font-bold">My Vehicles</p>
           <div className="w-full grid grid-cols-1 md:grid-cols-3  2xl:grid-cols-4 gap-5">
             {flexibleBookings?.slice(0, 3).map((r) => (
-              <FlexibleBookingModal key={r?.id} flexibleBooking={r} />
+              <FlexibleBookingsCard key={r?.id} booking={r} />
             ))}
           </div>
           <Link href={"/dashboard/vehicles"}>

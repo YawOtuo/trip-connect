@@ -2,6 +2,7 @@ import { FixedBooking } from "@/lib/types/booking";
 import { FaE, FaEye } from "react-icons/fa6";
 
 import moment from "moment";
+import Link from "next/link";
 
 type Props = {
   fixedbooking: FixedBooking;
@@ -9,7 +10,9 @@ type Props = {
 
 function TripCard({ fixedbooking }: Props) {
   return (
-    <div className="hover:scale-[1.01] transition-all duration-300 cursor-pointer">
+    <Link
+      href={`/dashboard/trips/${fixedbooking.id}`}
+      className="hover:scale-[1.01] transition-all duration-300 cursor-pointer">
       <div className="hidden lg:grid grid-cols-7 gap-5 p-5 border-2 rounded-md items-center justify-center">
         <p>
           #{fixedbooking.bus_and_schedule.transportbus.vehicle.vehicle_number}
@@ -39,7 +42,7 @@ function TripCard({ fixedbooking }: Props) {
         </div>{" "}
       </div>
 
-      <div className="lg:hidden flex flex-col gap-3 p-5 border-2 rounded-md items-start justify-center">
+      <div className="lg:hidden flex flex-col gap-2 p-5 border-2 rounded-md items-start justify-center">
         <p>
           Vehicle Number: #
           {fixedbooking.bus_and_schedule.transportbus.vehicle.vehicle_number}
@@ -50,7 +53,7 @@ function TripCard({ fixedbooking }: Props) {
             {fixedbooking.bus_and_schedule.transportbus.bus_type}
           </span>
         </p>
-        <p className="text-left md:text-center">
+        <p className="text-left md:text-center ">
           Departure Time:{" "}
           {moment(fixedbooking.bus_and_schedule.schedule.departure_time).format(
             "Do MMMM YYYY hh:mm"
@@ -60,6 +63,15 @@ function TripCard({ fixedbooking }: Props) {
           Date Booked:{" "}
           {moment(fixedbooking.created_at).format("Do MMMM YYYY hh:mm")}
         </p>
+        <p>
+          {" "}
+          Paid: &nbsp;
+          {fixedbooking.is_paid ? (
+            <span className="text-green-800">Yes</span>
+          ) : ( 
+            <span>No</span>
+          )}
+        </p>
         <div className="w-full flex items-center justify-between pr-5">
           <p>
             Status:{" "}
@@ -67,10 +79,11 @@ function TripCard({ fixedbooking }: Props) {
               {fixedbooking.status}
             </span>
           </p>
+
           <FaEye size={20} />
         </div>{" "}
       </div>
-    </div>
+    </Link>
   );
 }
 

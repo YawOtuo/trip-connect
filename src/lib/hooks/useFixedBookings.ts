@@ -4,17 +4,16 @@ import {
   CreateFixedBooking,
   FetchAllFixedBookings,
   NewFixedBooking,
-
   SetFixedBookingAsPaid,
 } from "../api/fixedbookings";
 import { FixedBooking } from "../types/booking";
 import { useAppStore } from "../store/useAppStore";
 import { useToast } from "@/components/ui/use-toast";
 
-const useFixedBooking = () => {
+const useFixedBooking = (id?: number) => {
   const queryClient = useQueryClient();
   const { DBDetails } = useAppStore();
-  const { toast   } = useToast();
+  const { toast } = useToast();
   const {
     data: fixedBookings,
     isLoading: isFixedBookingsLoading,
@@ -25,14 +24,15 @@ const useFixedBooking = () => {
     enabled: !!DBDetails?.id,
   });
 
-  const fetchFixedBookingById = async (id: number) => {
-    try {
-      const data = await FetchOneFixedBooking(id);
-      return data;
-    } catch (error) {
-      throw new Error(`Failed to fetch fixed booking with ID ${id}`);
-    }
-  };
+  const {
+    data: OneFixedBookings,
+    isLoading: isOneFixedBookingsLoading,
+    error: OneFixedBookingsError,
+  } = useQuery<FixedBooking>({
+    queryKey: [`fixedBookings-${id}`],
+    queryFn: () => FetchOneFixedBooking(Number(DBDetails?.id), Number(id)),
+    enabled: !!id,
+  });
 
   const setFixedBookingAsPaid = useMutation({
     mutationFn: (data: any) => SetFixedBookingAsPaid(data.id),
@@ -85,7 +85,7 @@ const useFixedBooking = () => {
     isFixedBookingsLoading,
     fixedBookingsError,
     setFixedBookingAsPaid: setFixedBookingAsPaid.mutate,
-    fetchFixedBookingById,
+    OneFixedBookings,
     createFixedBooking: createFixedBookingWithStatus, // Return the wrapped function
   };
 };

@@ -32,9 +32,12 @@ export const FetchAllFixedBookings = async (
 };
 
 export const FetchOneFixedBooking = async (
-  id: number
+  user_id: number,
+  booking_id: number
 ): Promise<FixedBooking> => {
-  const response = await fetch(`${url}api/fixed-bookings/${id}/`);
+  const response = await fetch(
+    `${url}api/fixed-bookings/${booking_id}/users/${user_id}/`
+  );
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
@@ -59,7 +62,7 @@ export const CreateFixedBooking = async (
 };
 
 export const SetFixedBookingAsPaid = async (
-  booking_id: number,
+  booking_id: number
 ): Promise<FixedBooking> => {
   const response = await fetch(
     `${url}api/fixed-bookings/${booking_id}/set-paid/`,

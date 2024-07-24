@@ -16,7 +16,7 @@ function RecentBusTrips() {
       {fixedBookings && fixedBookings?.length > 1 && (
         <div className="flex flex-col items-start gap-5">
           <p className="text-primary font-bold">My Recent Bus Trips</p>
-          <div className="hidden lg:grid grid-cols-7 gap-3 text-primary font-semibold px-5 w-full text-center">
+          <div className="hidden lg:grid grid-cols-7 gap-3 text-primary font-semibold px-5 w-full text-left text-sm">
             <div>Vehicle Number</div>
 
             <div>Bus Type</div>
@@ -28,7 +28,7 @@ function RecentBusTrips() {
           </div>
           <div className="w-full flex flex-col gap-5">
             {fixedBookings?.slice(0, 3).map((r) => (
-              <TripSheet key={r?.id} fixedbooking={r} />
+              <TripCard key={r?.id} fixedbooking={r} />
             ))}
           </div>
           <Link href={"/dashboard/trips"}>

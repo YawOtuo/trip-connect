@@ -14,3 +14,9 @@ let the animation last at leat a sec
 
 bus loading animation 
 bus pics 2M EXPRESS
+
+when logged in, avatar, drop down menu exceeds window on mobile view
+
+setting the cost when submitting a bookin 
+
+on default set active page to 0 if booking has been completed

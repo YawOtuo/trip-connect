@@ -34,7 +34,7 @@ export const FetchAllFlexibleBookings = async (
 export const FetchOneFlexibleBooking = async (
   id: number
 ): Promise<FlexibleBooking> => {
-  const response = await fetch(`${url}api/flexible-bookings/users/${id}/`);
+  const response = await fetch(`${url}api/flexible-bookings/${id}/`);
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }

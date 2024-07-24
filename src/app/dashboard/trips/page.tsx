@@ -10,7 +10,7 @@ function Page() {
       <p className="text-2xl font-bold text-primary"> My Trips</p>
       {fixedBookings && (
         <div className="flex flex-col gap-4">
-          <div className="hidden lg:grid grid-cols-6 gap-3 text-primary font-semibold px-5 items-center justify-center text-center">
+          <div className="hidden lg:grid grid-cols-7 gap-3 text-primary font-semibold px-5 items-center justify-center text-left text-sm">
             <div>Vehicle Number</div>
 
             <div>Bus Type</div>
@@ -23,7 +23,7 @@ function Page() {
           </div>
           <div className="flex flex-col gap-5">
             {fixedBookings?.map((r) => (
-              <TripSheet key={r?.id} fixedbooking={r} />
+              <TripCard key={r?.id} fixedbooking={r} />
             ))}
           </div>
         </div>

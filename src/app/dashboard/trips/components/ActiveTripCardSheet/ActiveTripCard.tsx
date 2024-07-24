@@ -6,6 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { IoMdBus } from "react-icons/io";
 
 import moment from "moment";
+import Link from "next/link";
 
 type Props = {
   fixedbooking: FixedBooking;
@@ -13,7 +14,9 @@ type Props = {
 
 function ActiveTripCard({ fixedbooking }: Props) {
   return (
-    <div className="hover:scale-[1.01] transition-all duration-300 cursor-pointer text-base">
+    <Link
+      href={`/dashboard/trips/${fixedbooking.id}`}
+      className="hover:scale-[1.01] transition-all duration-300 cursor-pointer text-base">
       <div className="flex flex-col gap-3 p-5 border-2 rounded-md items-start justify-center">
         <div className="flex items-center gap-2">
           <IoMdBus className="text-primary" size={30} />
@@ -66,7 +69,7 @@ function ActiveTripCard({ fixedbooking }: Props) {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 type SlideProps = {
   heading: string;
@@ -19,21 +20,25 @@ const HeroSlide = ({ heading, subheading, button, image }: SlideProps) => (
         {subheading}
       </h3>
     </div>
-    <div className="flex items-center justify-center gap-5">
-      <Button
-        className="text-white px-10 lg:px-14 font-semibold"
-        size={"lg"}
-        variant="default"
-        rounded={"default"}>
-        Book
-      </Button>
-      <Button
-        size={"lg"}
-        className="text-white lg:px-10"
-        variant="transparent"
-        rounded={"default"}>
-        Discover
-      </Button>
+    <div className="flex items-center justify-start gap-5 flex-wrap">
+      <Link href={"/fixed-bookings"}>
+        <Button
+          className="text-white px-10  font-semibold"
+          size={"lg"}
+          variant="default"
+          rounded={"default"}>
+          Book a Bus Trip
+        </Button>
+      </Link>
+      <Link href={"/flexible-bookings"}>
+        <Button
+          size={"lg"}
+          className="text-white lg:px-10"
+          variant="transparent"
+          rounded={"default"}>
+          Book a Vehicle
+        </Button>
+      </Link>
     </div>
   </div>
 );

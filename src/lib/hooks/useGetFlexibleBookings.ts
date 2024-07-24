@@ -9,7 +9,7 @@ import {
 } from "../api/flexiblebookings";
 import { FlexibleBooking } from "../types/flexiblebooking";
 
-const useGetFlexibleBookings = () => {
+const useGetFlexibleBookings = (id? : number) => {
   const queryClient = useQueryClient();
   const { DBDetails } = useAppStore();
 
@@ -32,14 +32,22 @@ const useGetFlexibleBookings = () => {
     }
   };
 
-
+  const {
+    data: OneFlexibleBookings,
+    isLoading: isOneFlexibleBookingsLoading,
+    error: OneFlexibleBookingsError,
+  } = useQuery<FlexibleBooking>({
+    queryKey: [`flexibleBookings-${id}`],
+    queryFn: () => FetchOneFlexibleBooking(Number(id)),
+    enabled: !!id ,
+  });
 
   return {
+    OneFlexibleBookings,
     flexibleBookings,
     isflexibleBookingsLoading,
     flexibleBookingsError,
     fetchFixedBookingById,
-  
   };
 };
 

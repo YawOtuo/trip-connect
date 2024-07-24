@@ -11,7 +11,7 @@ function Vehicles() {
       <p className="text-2xl text-primary font-bold">My Vehicles</p>
       <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-5">
         {flexibleBookings?.map((r) => (
-          <FlexibleBookingModal key={r?.id} flexibleBooking={r} />
+          <FlexibleBookingsCard key={r?.id} booking={r} />
         ))}
       </div>
       {isflexibleBookingsLoading && <p>Loading Vehicles</p>}
