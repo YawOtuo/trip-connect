@@ -6,7 +6,7 @@ function TripsInformation() {
 
   return (
     <div className="flex flex-col gap-1">
-      <div className="text-pink-800 font-bold">Trips Information</div>
+      <div className="text-primary font-bold">Trips Information</div>
 
       <div className="flex flex-col gap-1">
         <DetailItem name="Number of Trips" />

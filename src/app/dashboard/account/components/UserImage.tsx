@@ -6,7 +6,7 @@ function UserImage() {
 
   return (
     <div className="relative">
-      <div className=" bg-gradient-to-tr from-primary to-primary-100 w-full md:h-[200px] relative rounded-3xl">
+      <div className=" bg-gradient-to-tr from-primary to-primary-100 w-full h-[10vh] md:h-[200px] relative rounded-md md:rounded-3xl">
         <div className="relative w-full aspect-[5/2]">
           {/* <Image
             alt="back image"
@@ -18,10 +18,12 @@ function UserImage() {
         </div>
       </div>
 
-      <div className="absolute w-fit md:w-full px-5 md:px-0 py-2 md:py-0   md:aspect-square overflow-hidden border-white text-white bg-primary-100 text-2xl md:text-5xl font-bold uppercase flex items-center justify-center border-[3px] top-[40px] left-[30px] md:top-[90px] md:left-[60px]  md:max-w-[150px] rounded-md md:rounded-full  ">
+      <div className="md:hidden  w-fit  px-5 py-2 overflow-hidden border-white text-white bg-primary-100 text-2xl  font-bold uppercase flex items-center justify-center border-[3px] top-[40px] left-[30px]  rounded-md   ">
         {/* <Image alt="user image" fill src="/myimage.jpeg" objectFit="cover" className="" /> */}
-        <div className="hidden md:flex">{DBDetails?.username?.charAt(0)}</div>
         <div className="md:hidden">{DBDetails?.username}</div>
+      </div>
+      <div className="hidden md:flex absolute rounded-full max-w-[150px] left-[60px] top-[90px] border-4 bg-primary-100 border-white text-5xl w-full font-bold overflow-hidden text-white items-center justify-center aspect-square ">
+        <div className="hidden md:flex">{DBDetails?.username?.charAt(0)}</div>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import { FiMail } from "react-icons/fi";
 import PersonalInformation from "./components/PersonalInformation";
 import TripsInformation from "./components/TripsInformation";
 import UserImage from "./components/UserImage";
+import AccountInformation from "./components/AccountInformation";
 function Page() {
   const { DBDetails } = useAppStore();
   return (
@@ -14,6 +15,7 @@ function Page() {
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 ">
         <PersonalInformation />
         <TripsInformation />
+        <AccountInformation />
       </div>
 
       {/* <div className="flex text-primary font-bold py-8">Reset Password</div> */}

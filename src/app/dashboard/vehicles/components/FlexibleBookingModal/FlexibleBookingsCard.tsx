@@ -28,7 +28,7 @@ function FlexibleBookingsCard({ booking }: Props) {
           <p className="text-xs w-fit px-2 py-1 text-white rounded-md bg-primary-100 font-bold">
             {booking.vehicle.type.name}
           </p>
-          <p className="text-sm text-primary font-bold">
+          <p className=" text-primary font-bold">
             {booking.vehicle.model.name}
           </p>
           <p className="text-xl text-primary font-bold">
@@ -38,9 +38,9 @@ function FlexibleBookingsCard({ booking }: Props) {
 
         <div className="flex flex-col gap-0 mt-1 items-start text-sm">
           <p>
-            From : {moment(booking.start_date).format("dddd MMMM YYYY mm:ss")}
+            From : {moment(booking.start_date).format("Do MMMM YYYY mm:ss")}
           </p>
-          <p>To: {moment(booking.end_date).format("dddd MMMM YYYY mm:ss")}</p>
+          <p>To: {moment(booking.end_date).format("Do MMMM YYYY mm:ss")}</p>
         </div>
       </div>
       <div className="flex w-full justify-between px-5 pb-5">
