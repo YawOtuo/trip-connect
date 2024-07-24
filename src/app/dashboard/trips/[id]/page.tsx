@@ -27,7 +27,7 @@ function Page({ params }: Props) {
           </div>
 
           <div className="flex flex-col gap-1">
-            <p>
+            <p className="text-sm">
               Date Booked:{" "}
               {moment(OneFixedBookings.booking_date).format(
                 "dddd Do MMMM YYYYY"
