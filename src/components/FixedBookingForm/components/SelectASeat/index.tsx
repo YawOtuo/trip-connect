@@ -24,10 +24,10 @@ function SelectASeat() {
         <p className="text-2xl font-semibold text-primary">Select a Seat</p>
         <p>Hover on a seat to view the seat number</p>
         <div className="h-full flex items-center w-full py-10 lg:pb-0">
-          <div className="border-4 border-primary rounded-2xl  flex gap-5 items-center w-fit px-5 py-3 h-fit border-t-[15px] lg:border-l-[10px]">
+          <div className="border-4 border-primary rounded-2xl  flex gap-5 items-center w-fit px-5 py-3 h-fit border-t-[15px] lg:border-t-0 lg:border-l-[10px]">
             {/* <div className="bg-primary w-[50px] rounded-l-lg h-full"></div> */}
 
-            <div className="flex h-full flex-row lg:flex-col gap-4 scale-x-[-1]">
+            <div className="flex h-full flex-row lg:flex-col gap-4 scale-x-[-1] lg:scale-x-[1]">
               {/* First row: Seats 1 to 10 */}
               <div className="flex flex-col lg:flex-row w-full justify-end items-center gap-5">
                 {Array.from({ length: 10 }).map((_, index) => (

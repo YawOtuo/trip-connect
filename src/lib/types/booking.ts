@@ -15,4 +15,6 @@ export interface FixedBooking {
   status: string;
   created_at: string; // Date string representation
   updated_at: string; // Date string representation
+  is_paid: boolean
+  cost: number
 }

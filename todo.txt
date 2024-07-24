@@ -11,3 +11,6 @@ get only types of vehicles with actual vehicles
 
 make sure every schedule returned has a transportbusesandschedules_set 
 let the animation last at leat a sec
+
+bus loading animation 
+bus pics 2M EXPRESS

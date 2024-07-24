@@ -4,14 +4,17 @@ import {
   CreateFixedBooking,
   FetchAllFixedBookings,
   NewFixedBooking,
+
+  SetFixedBookingAsPaid,
 } from "../api/fixedbookings";
 import { FixedBooking } from "../types/booking";
 import { useAppStore } from "../store/useAppStore";
+import { useToast } from "@/components/ui/use-toast";
 
 const useFixedBooking = () => {
   const queryClient = useQueryClient();
   const { DBDetails } = useAppStore();
-
+  const { toast   } = useToast();
   const {
     data: fixedBookings,
     isLoading: isFixedBookingsLoading,
@@ -31,17 +34,21 @@ const useFixedBooking = () => {
     }
   };
 
-  // const createFixedBooking = useMutation(
-  //   async (bookingData: NewFixedBooking) => {
-  //     const response = await CreateFixedBooking(bookingData);
-  //     return response;
-  //   },
-  //   {
-  //     onSuccess: () => {
-  //       queryClient.invalidateQueries(["fixed-booking"]);
-  //     },
-  //   }
-  // );
+  const setFixedBookingAsPaid = useMutation({
+    mutationFn: (data: any) => SetFixedBookingAsPaid(data.id),
+    onSuccess: (data) => {
+      toast({
+        title: "Success",
+        description: "Status updated successfully",
+        variant: "success",
+      });
+      queryClient.invalidateQueries({ queryKey: ["orders"] });
+      return data;
+    },
+    onError: (error: Error) => {
+      // toast({ title: "Error", description: error.message, variant: "destructive" });
+    },
+  });
 
   const createFixedBooking = useMutation({
     mutationFn: (data: NewFixedBooking) =>
@@ -77,6 +84,7 @@ const useFixedBooking = () => {
     fixedBookings,
     isFixedBookingsLoading,
     fixedBookingsError,
+    setFixedBookingAsPaid: setFixedBookingAsPaid.mutate,
     fetchFixedBookingById,
     createFixedBooking: createFixedBookingWithStatus, // Return the wrapped function
   };

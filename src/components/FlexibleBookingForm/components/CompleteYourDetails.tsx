@@ -108,15 +108,16 @@ function CompleteYourDetails() {
         <div className=" w-full md:w-[30%] pb-10">
           <BackAndContinueControls
             showForwardButton={Boolean(
-              user?.username &&
-                user?.contact_address &&
-                user?.country_of_origin &&
-                user?.date_of_birth &&
-                user?.drivers_license_number &&
-                user?.email &&
-                user?.email &&
-                user?.ghana_card_number &&
-                user?.phone_number
+              user?.username 
+              // &&
+              //   user?.contact_address &&
+              //   user?.country_of_origin &&
+              //   user?.date_of_birth &&
+              //   user?.drivers_license_number &&
+              //   user?.email &&
+              //   user?.email &&
+              //   user?.ghana_card_number &&
+              //   user?.phone_number
             )}
           />
         </div>

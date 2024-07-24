@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import BookNowButton from "@/app/(app)/(booking)/components/BookNowButton";
 import FixedBookingForm from "@/components/FixedBookingForm";
 import { useTellUsMoreStore } from "@/components/FixedBookingForm/components/TellUsMore/useTellUsMoreStore";
@@ -21,21 +21,31 @@ function Welcome() {
         <p className="text-gray-700">What would you like to do today?</p>
       </div>
       <div className="flex w-full flex-col lg:flex-row gap-2 md:gap-5 items-start lg:items-center ">
-        <Modal
-           open={isModalOpen}
-           onOpenChange={setIsModalOpen}
-          size={"5xl"}
-          trigger={<Button className=" md:px-20 w-full md:w-fit" variant={"primary_100"}>Book a Bus Ride</Button>}
-          body={
-            <div>
-              <FixedBookingForm />
-            </div>
-          }
-          header={<div></div>}
-        />
+        <div>
+          <Modal
+            open={isModalOpen}
+            onOpenChange={setIsModalOpen}
+            size={"5xl"}
+            trigger={
+              <Button
+                className=" md:px-20 w-full md:w-fit"
+                variant={"primary_100"}>
+                Book a Bus Ride
+              </Button>
+            }
+            body={
+              <div>
+                <FixedBookingForm />
+              </div>
+            }
+            header={<div></div>}
+          />
+        </div>
 
         <Link href={"/flexible-bookings/form"} className="w-full">
-          <Button variant={"outline"} className="md:px-20 w-full md:w-fit">Book a Vehicle </Button>
+          <Button variant={"outline"} className="md:px-20 w-full md:w-fit">
+            Book a Vehicle{" "}
+          </Button>
         </Link>
         {/* <Button variant={"outline"}>Upload a vehicle for booking</Button> */}
       </div>

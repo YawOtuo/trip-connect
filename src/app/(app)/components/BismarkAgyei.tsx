@@ -11,7 +11,7 @@ function BismarkAgyei() {
                         <h4 className='text-xl font-bold'>About Us</h4>
                         <p>  Welcome to our car booking platform! We are dedicated to providing you with the most convenient and reliable transportation solutions.
                             Our mission is to make travel seamless and enjoyable by offering a wide range of vehicles to suit your needs,
-                            whether you're planning a business trip, a family vacation, or a spontaneous adventure. 
+                            whether you&apos;re planning a business trip, a family vacation, or a spontaneous adventure. 
                             With a focus on customer satisfaction, we strive to deliver top-notch service, competitive pricing, and a user-friendly booking experience. 
                             Join us in redefining the way you travel, one ride at a time.
 s.</p>

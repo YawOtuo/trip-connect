@@ -1,16 +1,16 @@
 import { url } from "../../../weburl";
 import { FlexibleBooking } from "../types/flexiblebooking";
-export interface updatedFlexibleBookingData {
+export interface createFlexibleBookingData {
   purpose: string | null;
   start_date: string | null;
   end_date?: string | null;
-  vehicle?: number | null
-  user: number | null
+  vehicle?: number | null;
+  user: number | null;
 }
 
 export interface UpTlexibleBooking {
-  id: number
-  is_paid: boolean
+  id: number;
+  is_paid: boolean;
 }
 
 export const FetchAllFlexibleBookings = async (
@@ -31,8 +31,6 @@ export const FetchAllFlexibleBookings = async (
   return response.json();
 };
 
-
-
 export const FetchOneFlexibleBooking = async (
   id: number
 ): Promise<FlexibleBooking> => {
@@ -42,19 +40,16 @@ export const FetchOneFlexibleBooking = async (
   }
   return response.json();
 };
-
-export const CreateFlexibleBooking = async (
-  user_id: number,
-  updatedFlexibleBookingData: updatedFlexibleBookingData
+export const SetFlexibleBookingAsPaid = async (
+  booking_id: number
 ): Promise<FlexibleBooking> => {
   const response = await fetch(
-    `${url}api/flexible-bookings/`,
+    `${url}api/flexible-bookings/${booking_id}/set-paid/`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(updatedFlexibleBookingData),
     }
   );
   if (!response.ok) {
@@ -63,20 +58,34 @@ export const CreateFlexibleBooking = async (
   return response.json();
 };
 
+export const CreateFlexibleBooking = async (
+  user_id: number,
+  createFlexibleBookingData: createFlexibleBookingData
+): Promise<FlexibleBooking> => {
+  const response = await fetch(`${url}api/flexible-bookings/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(createFlexibleBookingData),
+  });
+  if (!response.ok) {
+    throw new Error("Failed to create FlexibleBooking");
+  }
+  return response.json();
+};
+
 export const UpdateFlexibleBooking = async (
   booking_id: number,
-  updatedFlexibleBookingData: UpTlexibleBooking
+  createFlexibleBookingData: UpTlexibleBooking
 ): Promise<FlexibleBooking> => {
-  const response = await fetch(
-    `${url}api/flexible-bookings/${booking_id}/`,
-    {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedFlexibleBookingData),
-    }
-  );
+  const response = await fetch(`${url}api/flexible-bookings/${booking_id}/`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(createFlexibleBookingData),
+  });
   if (!response.ok) {
     throw new Error("Failed to create FlexibleBooking");
   }

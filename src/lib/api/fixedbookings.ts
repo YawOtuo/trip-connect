@@ -1,6 +1,5 @@
 import { url } from "../../../weburl";
 import { FixedBooking } from "../types/booking";
-import { updatedFlexibleBookingData } from "./flexiblebookings";
 
 export interface NewFixedBooking {
   user_id: number;
@@ -10,8 +9,8 @@ export interface NewFixedBooking {
 }
 
 export interface UpDateFixedBooking {
-  id: number; 
-  is_paid: boolean
+  id: number;
+  is_paid: boolean;
 }
 
 export const FetchAllFixedBookings = async (
@@ -58,12 +57,31 @@ export const CreateFixedBooking = async (
   }
   return response.json();
 };
+
+export const SetFixedBookingAsPaid = async (
+  booking_id: number,
+): Promise<FixedBooking> => {
+  const response = await fetch(
+    `${url}api/fixed-bookings/${booking_id}/set-paid/`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!response.ok) {
+    throw new Error("Failed to create FlexibleBooking");
+  }
+  return response.json();
+};
 export const UpdateFixedBooking = async (
   booking_id: number,
+  user_id: number,
   updatedFlexibleBookingData: UpDateFixedBooking
 ): Promise<FixedBooking> => {
   const response = await fetch(
-    `${url}api/fixed-bookings/${booking_id}/`,
+    `${url}api/fixed-bookings/${booking_id}/users/${user_id}/`,
     {
       method: "PUT",
       headers: {

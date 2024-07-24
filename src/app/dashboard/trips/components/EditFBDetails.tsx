@@ -13,8 +13,8 @@ type Props = {
 function EditFBDetails({ data }: Props) {
   const { handlePayment } = useTrips();
   return (
-    <div className="flex flex-col gap-10 lg:gap-5 h-screen mdax-h-[800px] justify-center">
-      <div className="relative aspect-[3/2]  w-full max-w-sm ">
+    <div className="flex flex-col gap-10 lg:gap-5 h-screen mdax-h-[800px] justify-center ">
+      <div className="relative aspect-[3/2]  w-full max-w-xs ">
         <Image
           src="/Bismarkbus.png" // Ensure this image path is correct
           objectFit="cover"
@@ -23,7 +23,7 @@ function EditFBDetails({ data }: Props) {
           fill
         />
       </div>
-      <div className="flex flex-col gap-2 justify-center items-start">
+      <div className="flex flex-col gap-1 justify-center items-start ">
         <p>
           Date Booked: {moment(data.created_at).format("Do MMMM YYYY hh:mm")}
         </p>{" "}
@@ -53,8 +53,8 @@ function EditFBDetails({ data }: Props) {
             {data.bus_and_schedule.transportbus.bus_type}
           </span>
         </p>{" "}
-        <div className="w-full flex-col flex items-center gap-5 mt-10">
-          <CheckoutButton onClick={() => handlePayment(data.id)} />
+        <div className="w-full flex-col flex items-center gap-5 ">
+          <CheckoutButton onClick={() => handlePayment(data.cost, data.id)} />
           <div className="flex flex-row w-full gap-5">
             <Button variant={"outline"} className="w-full">
               Change Seats

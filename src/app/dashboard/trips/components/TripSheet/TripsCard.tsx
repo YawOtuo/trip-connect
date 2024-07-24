@@ -10,7 +10,7 @@ type Props = {
 function TripCard({ fixedbooking }: Props) {
   return (
     <div className="hover:scale-[1.01] transition-all duration-300 cursor-pointer">
-      <div className="hidden lg:grid grid-cols-6 gap-5 p-5 border-2 rounded-md items-center justify-center">
+      <div className="hidden lg:grid grid-cols-7 gap-5 p-5 border-2 rounded-md items-center justify-center">
         <p>
           #{fixedbooking.bus_and_schedule.transportbus.vehicle.vehicle_number}
         </p>
@@ -27,6 +27,13 @@ function TripCard({ fixedbooking }: Props) {
           </p> */}
         <p>{moment(fixedbooking.created_at).format("Do MMMM YYYY hh:mm")}</p>
         <p>{fixedbooking.status}</p>
+        <p>
+          {fixedbooking.is_paid ? (
+            <span className="text-green-800">Yes</span>
+          ) : (
+            <span>No</span>
+          )}
+        </p>
         <div className="w-full flex items-center justify-end px-5">
           <FaEye size={20} />
         </div>{" "}
@@ -43,7 +50,6 @@ function TripCard({ fixedbooking }: Props) {
             {fixedbooking.bus_and_schedule.transportbus.bus_type}
           </span>
         </p>
-      
         <p className="text-left md:text-center">
           Departure Time:{" "}
           {moment(fixedbooking.bus_and_schedule.schedule.departure_time).format(

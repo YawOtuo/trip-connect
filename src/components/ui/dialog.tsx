@@ -148,7 +148,7 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild className="cursor-pointer">
-        <button className="w-full md:w-fit"> {trigger}</button>
+        <button className="w-full"> {trigger}</button>
       </DialogTrigger>
       <DialogContent className={`${cn(modalVariants({ size }))} ${className} `}>
         {header && <DialogHeader>{header}</DialogHeader>}

@@ -15,6 +15,7 @@ export interface Vehicle {
     name: string;
   };
   images: VehicleImage[];
+  rental_price: number
   driver: number; // Assuming driver is represented by their ID
   created_at: string; // Date string representation
   updated_at: string; // Date string representation

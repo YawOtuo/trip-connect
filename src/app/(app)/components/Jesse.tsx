@@ -31,7 +31,7 @@ function Jesse() {
         </div>
         <p className="text-sm 2xl:text-base text-slate-600">
             Our Flexible Booking service offers you the freedom to rent a vehicle whenever you need it. 
-          Whether it's for a quick errand, a weekend getaway, or an extended trip, our service provides the flexibility to choose the vehicle that best suits your needs. 
+          Whether it&apos;s for a quick errand, a weekend getaway, or an extended trip, our service provides the flexibility to choose the vehicle that best suits your needs. 
           Enjoy the convenience of booking a car at any time, on any day, tailored to fit your schedule.
 
         </p>

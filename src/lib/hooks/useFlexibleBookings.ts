@@ -6,9 +6,10 @@ import {
   CreateFlexibleBooking,
   FetchAllFlexibleBookings,
   FetchOneFlexibleBooking,
-  NewFlexibleBooking,
+  SetFlexibleBookingAsPaid,
   UpTlexibleBooking,
   UpdateFlexibleBooking,
+  createFlexibleBookingData,
 } from "../api/flexiblebookings";
 import { FlexibleBooking } from "../types/flexiblebooking";
 import { useToast } from "@/components/ui/use-toast";
@@ -36,8 +37,24 @@ const useFlexibleBookings = () => {
     }
   };
 
+  const setFlexibleBookingAsPaid = useMutation({
+    mutationFn: (data: any) => SetFlexibleBookingAsPaid(data.id),
+    onSuccess: (data) => {
+      toast({
+        title: "Success",
+        description: "Status updated successfully",
+        variant: "success",
+      });
+      queryClient.invalidateQueries({ queryKey: ["orders"] });
+      return data;
+    },
+    onError: (error: Error) => {
+      // toast({ title: "Error", description: error.message, variant: "destructive" });
+    },
+  });
+
   const createFlexibleBooking = useMutation({
-    mutationFn: (data: NewFlexibleBooking) =>
+    mutationFn: (data: createFlexibleBookingData) =>
       CreateFlexibleBooking(Number(DBDetails?.id), data),
     onSuccess: (data) => {
       // toast({
@@ -71,7 +88,7 @@ const useFlexibleBookings = () => {
   });
 
   const createFlexibleBookingWithStatus = async (
-    bookingData: NewFlexibleBooking
+    bookingData: createFlexibleBookingData
   ) => {
     try {
       const data = await createFlexibleBooking.mutateAsync(bookingData);
@@ -88,6 +105,7 @@ const useFlexibleBookings = () => {
     // flexibleBookings,
     // isflexibleBookingsLoading,
     // flexibleBookingsError,
+    setFlexibleBookingAsPaid: setFlexibleBookingAsPaid.mutate,
     updateFlexibleBooking: updateFlexibleBooking.mutate,
     fetchFixedBookingById,
     createFlexibleBooking: createFlexibleBookingWithStatus,

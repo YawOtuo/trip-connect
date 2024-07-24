@@ -1,6 +1,7 @@
 "use client";
 import useGetFlexibleBookings from "@/lib/hooks/useGetFlexibleBookings";
-import FlexibleBookingsCard from "./components/FlexibleBookingsCard";
+import FlexibleBookingsCard from "./components/FlexibleBookingModal/FlexibleBookingsCard";
+import FlexibleBookingModal from "./components/FlexibleBookingModal";
 
 function Vehicles() {
   const { flexibleBookings, isflexibleBookingsLoading } =
@@ -10,7 +11,7 @@ function Vehicles() {
       <p className="text-2xl text-primary font-bold">My Vehicles</p>
       <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-5">
         {flexibleBookings?.map((r) => (
-          <FlexibleBookingsCard key={r?.id} booking={r} />
+          <FlexibleBookingModal key={r?.id} flexibleBooking={r} />
         ))}
       </div>
       {isflexibleBookingsLoading && <p>Loading Vehicles</p>}

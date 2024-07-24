@@ -40,7 +40,7 @@ function Page() {
 
           <div className="">
             <p>
-             Our Fixed Booking Service is designed to make your travel planning effortless and convenient. Here's what you need to know:
+             Our Fixed Booking Service is designed to make your travel planning effortless and convenient. Here&apos;s what you need to know:
               
               What is Fixed Booking?
               Fixed Booking allows you to reserve a seat on one of our scheduled buses. Unlike on-demand services, our buses operate on

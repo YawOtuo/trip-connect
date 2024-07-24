@@ -12,9 +12,7 @@ type Props = {
 };
 
 function ActiveTripCard({ fixedbooking }: Props) {
-  
   return (
-  
     <div className="hover:scale-[1.01] transition-all duration-300 cursor-pointer text-base">
       <div className="flex flex-col gap-3 p-5 border-2 rounded-md items-start justify-center">
         <div className="flex items-center gap-2">
@@ -44,7 +42,6 @@ function ActiveTripCard({ fixedbooking }: Props) {
           {fixedbooking.bus_and_schedule.schedule.travelling_to}
         </div>
 
-  
         <div className="flex items-start text-left md:items-center gap-1">
           <MdOutlineAccessTime size={25} className="text-primary-100" />
           <p>
@@ -58,7 +55,16 @@ function ActiveTripCard({ fixedbooking }: Props) {
           Booked:{" "}
           {moment(fixedbooking.created_at).format("Do MMMM YYYY hh:mm")}
         </p> */}
-        
+        <div className="flex items-center gap-2">
+          Paid :{" "}
+          <p>
+            {fixedbooking.is_paid ? (
+              <span className="text-green-800">Yes</span>
+            ) : (
+              <span>No</span>
+            )}
+          </p>
+        </div>
       </div>
     </div>
   );

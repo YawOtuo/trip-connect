@@ -9,7 +9,10 @@ export interface FlexibleBooking {
     username: string;
     // Add other user fields as needed
   };
+  is_paid: boolean;
   vehicle: Vehicle;
+  cost: number;
+
   start_date: string; // Assuming date format, adjust as per your needs
   end_date: string; // Assuming date format, adjust as per your needs
   purpose?: string | null;

@@ -6,7 +6,6 @@ import {
   CreateFlexibleBooking,
   FetchAllFlexibleBookings,
   FetchOneFlexibleBooking,
-  NewFlexibleBooking,
 } from "../api/flexiblebookings";
 import { FlexibleBooking } from "../types/flexiblebooking";
 

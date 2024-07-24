@@ -14,7 +14,7 @@ function CheckoutButton({ disabled, onClick }: Props) {
       className={`mt-4 w-full p-4 bg-primary text-white rounded-md hover:scale-[1.02] hover:border-[1px] hover:border-primary transition-all duration-300 ease-in flex justify-center items-center disabled:opacity-75 disabled:pointer-events-none`}
     >
       <IoArrowRedo className="mr-2 text-2xl" />
-      Buy Now
+      Pay Now
     </button>
   );
 }
