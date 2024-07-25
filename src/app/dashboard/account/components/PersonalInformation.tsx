@@ -12,7 +12,7 @@ type DetailItemProps = {
 export const DetailItem = ({ icon, name, value }: DetailItemProps) => {
   return (
     <div className="flex items-center justify-start gap-3">
-      <div className="flex items-center justify-start gap-1 text-sm capitalize">
+      <div className="flex items-center justify-start gap-1 capitalize">
         {icon}
         {name} :
       </div>
