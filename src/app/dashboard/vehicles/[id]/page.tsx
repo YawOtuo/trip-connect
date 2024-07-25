@@ -7,6 +7,8 @@ import Image from "next/image";
 import useVehicles from "../useVehicles";
 import { TbCoins } from "react-icons/tb";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import VehicleDetails from "./components/VehicleDetails";
+import VehicleOrderDetails from "./components/VehicleOrderDetails";
 
 type Props = {
   params: { id: number };
@@ -15,51 +17,25 @@ function Page({ params }: Props) {
   const { OneFlexibleBookings } = useGetFlexibleBookings(params?.id);
   const { handlePayment } = useVehicles();
   return (
-    <div className="flex flex-col gap-1 flex-wrap">
+    <div className="flex flex-col gap-1 justify-center items-center flex-wrap h-full">
       {OneFlexibleBookings ? (
-        <div>
-          {OneFlexibleBookings && (
-            <div className="relative aspect-[3/2] w-full  lg:w-[50vw] overflow-hidden rounded-md">
-              <Image
-                fill
-                objectFit="cover"
-                alt={OneFlexibleBookings.vehicle.name}
-                src={`https://res.cloudinary.com/daurieb51/${OneFlexibleBookings.vehicle.images?.[0]?.image}`}
-              />
+        <div className="flex flex-col gap-5 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 h-full w-full">
+            {OneFlexibleBookings && (
+              <div className="relative aspect-[3/2] w-full overflow-hidden rounded-xl border-2">
+                <Image
+                  fill
+                  objectFit="cover"
+                  alt={OneFlexibleBookings.vehicle.name}
+                  src={`https://res.cloudinary.com/daurieb51/${OneFlexibleBookings.vehicle.images?.[0]?.image}`}
+                />
+              </div>
+            )}
+
+            <div className="flex flex-col gap-1 justify-end">
+              <VehicleDetails vehicle={OneFlexibleBookings.vehicle} />
+              <VehicleOrderDetails data={OneFlexibleBookings} />
             </div>
-          )}
-
-          <div>
-            <p className="text-sm"> Booked on:{OneFlexibleBookings.created_at}</p>
-          </div>
-
-          <div className="flex flex-col items-start gap-1">
-            Booked From :
-            <div className="flex items-center gap-3 flex-wrap">
-              <p>{OneFlexibleBookings.start_date}</p>
-              <FaLongArrowAltRight />
-              <p> {OneFlexibleBookings.end_date}</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            {" "}
-            <TbCoins />
-            <p>{OneFlexibleBookings.cost}</p>
-            {OneFlexibleBookings.vehicle.name}
-          </div>
-
-          <div>
-            <div className="flex flex-col h-fit">
-              <CheckoutButton
-                onClick={() =>
-                  handlePayment(
-                    OneFlexibleBookings.cost,
-                    OneFlexibleBookings.id
-                  )
-                }
-              />
-            </div>{" "}
           </div>
         </div>
       ) : (

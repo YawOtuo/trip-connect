@@ -11,14 +11,14 @@ function DashboardSideMenu() {
   const { setDashboardMobileMenu } = useDashboardMobileStore();
 
   return (
-    <div className="fixed z-10 lg:sticky top-2 right-5">
+    <div className="fixed z-10 lg:sticky top-2 h-screen right-5">
       <div className="w-full flex justify-end  lg:hidden items-center ">
         <button onClick={() => setDashboardMobileMenu(true)}>
           <GiHamburgerMenu size={30} className="text-primary" />
         </button>
       </div>
       <div className="hidden lg:block">
-        <div className="flex flex-col gap-4 min-h-screen  sticky top-0 py-10 transition-all px-3">
+        <div className="flex flex-col gap-4  top-0 py-10 transition-all px-3">
           <div>
             <p className="text-white text-2xl font-bold">tripConnect</p>
           </div>
