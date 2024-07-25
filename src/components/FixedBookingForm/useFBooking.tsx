@@ -3,12 +3,14 @@ import { useFixedBookingFormStore } from "./FixedBookingStore";
 import { pages } from "./pagesData";
 import { useAppStore } from "@/lib/store/useAppStore";
 import { useTellUsMoreStore } from "./components/TellUsMore/useTellUsMoreStore";
+import useNotifications from "@/lib/hooks/useNotifications";
 
 function useFBooking() {
   const { setProgressValue, activePage, setActivePage } =
     useFixedBookingFormStore();
   const { createFixedBooking } = useFixedBooking();
   const { DBDetails } = useAppStore();
+  const { createNotification } = useNotifications();
   const {
     setScheduleSelected,
     scheduleSelected,
@@ -50,6 +52,12 @@ function useFBooking() {
       bus_schedule_id: Number(scheduleSelected?.id),
       bus_id: selectedBus?.id ?? null,
       cost: Number(scheduleSelected?.price) * (selectedSeats.length || 1),
+    });
+    createNotification({
+      subject: `You have an upcoming trip to ${scheduleSelected?.travelling_to} on ${scheduleSelected?.departure_time}`,
+      message: "Way to go! Let's get packing",
+      type: "alert",
+      user: Number(DBDetails?.id),
     });
     if (result) setIsSubmitting(false);
     setSubmissionResult(result);

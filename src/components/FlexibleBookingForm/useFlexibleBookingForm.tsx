@@ -4,6 +4,7 @@ import { pages } from "./pagesData";
 import { useFlexibleBookingFormStore } from "./useFlexibleBookingFormStore";
 import { useAppStore } from "@/lib/store/useAppStore";
 import { calculateDays } from "./components/Summary/components/CostSummary";
+import useNotifications from "@/lib/hooks/useNotifications";
 
 function useFlexibleBookingForm() {
   const { setProgressValue, activePage, setActivePage } =
@@ -14,6 +15,7 @@ function useFlexibleBookingForm() {
   const { DBDetails } = useAppStore();
   const { setIsSubmitting, setSubmissionResult } =
     useFlexibleBookingFormStore();
+  const { createNotification } = useNotifications();
   const handleBack = () => {
     setActivePage((prev) => {
       const newPage = Math.max(prev - 1, 0);
@@ -43,6 +45,13 @@ function useFlexibleBookingForm() {
         ? calculateDays(String(startDate), String(endDate)) *
           selectedVehicle?.rental_price
         : 1,
+    });
+
+    createNotification({
+      subject: `Boss, ${selectedVehicle?.name} is about to be yours`,
+      message: "Ready! Set....",
+      type: "alert",
+      user: Number(DBDetails?.id),
     });
     if (result) setIsSubmitting(false);
     setSubmissionResult(result);

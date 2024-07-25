@@ -29,7 +29,7 @@ function usePayStack() {
     toast({
       title: "Closed",
       description: "Payment window closed",
-      variant: "success",
+      variant: "info",
     });
   };
 
