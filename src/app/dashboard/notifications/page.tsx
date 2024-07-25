@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 function Page() {
   const { notifications, isLoading } = useNotifications();
   return (
-    <div className="p-4">
+    <div className="">
       {/* Title of the page */}
       <h1 className="text-xl font-bold text-primary">My Notifications</h1>
 
