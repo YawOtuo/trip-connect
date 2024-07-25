@@ -6,6 +6,7 @@ export interface createFlexibleBookingData {
   end_date?: string | null;
   vehicle?: number | null;
   user: number | null;
+  cost: number
 }
 
 export interface UpTlexibleBooking {

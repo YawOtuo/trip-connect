@@ -14,13 +14,13 @@ function Summary() {
       <div className="px-5 py-5 font-bold text-primary text-2xl">
         <h1>SUMMARY</h1>
       </div>
-      <VehicleDetailsSummary />
-      <div className="flex flex-col md:flex-row items-start justify-start gap-5">
-        <OrderDetailsSummary />
-
-        <UserDetailsSummary />
+      <div className="flex flex-col gap-1">
+        <VehicleDetailsSummary />
       </div>
-      <CostSummary />
+      <div className="grid grid-cols-1 md:grid-cols-2 items-start justify-start gap-5">
+        <UserDetailsSummary />
+        <CostSummary />
+      </div>
       <div className="px-4 py-4">
         <BackAndContinueControls ready />
       </div>

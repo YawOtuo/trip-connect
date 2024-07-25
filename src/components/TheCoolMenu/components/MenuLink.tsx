@@ -24,7 +24,7 @@ const MenuLink = (props: Props) => {
       }`}
     >
       <div
-        className={`w-full cursor-pointer whitespace-nowrap ${
+        className={`w-full cursor-pointer whitespace-nowrap text-white ${
           props.active ? "text-accent-100" : "text-white"
         }`}
       >
@@ -32,7 +32,7 @@ const MenuLink = (props: Props) => {
           <div className={`w-full flex items-center`}>
             {props.isSubLink ? (
               // <Link href={props.linkObject?.url}>
-                <h4 className={`mr-10 font-normal`}>{props.linkObject?.name}</h4>
+                <h4 className={`mr-10 `}>{props.linkObject?.name}</h4>
               // </Link>
             ) : (
               <h2 className="mr-10">{props.linkObject?.name}</h2>
@@ -44,8 +44,8 @@ const MenuLink = (props: Props) => {
             href={props.linkObject?.url}
             className={`flex ${
               props.isSubLink
-                ? "text-base font-normal"
-                : " text-2xl font-semibold"
+                ? "text-2xl font-normal"
+                : " text-2xl "
             }`}
             onClick={() => setMobileMenuStore(false)}
           >

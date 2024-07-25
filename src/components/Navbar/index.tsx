@@ -61,7 +61,7 @@ export default function Navbar() {
         {Object.keys(FBaseDetails).length > 0 ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild className="">
-              <Avatar>
+              <Avatar >
                 {FBaseDetails?.photoURL ? (
                   <AvatarImage src={FBaseDetails?.photoURL} />
                 ) : (

@@ -3,6 +3,7 @@ import { useFlexibleBookingStore } from "./FlexibleBookingStore";
 import { pages } from "./pagesData";
 import { useFlexibleBookingFormStore } from "./useFlexibleBookingFormStore";
 import { useAppStore } from "@/lib/store/useAppStore";
+import { calculateDays } from "./components/Summary/components/CostSummary";
 
 function useFlexibleBookingForm() {
   const { setProgressValue, activePage, setActivePage } =
@@ -38,6 +39,10 @@ function useFlexibleBookingForm() {
       end_date: endDate,
       vehicle: selectedVehicle?.id,
       user: Number(DBDetails?.id),
+      cost: selectedVehicle
+        ? calculateDays(String(startDate), String(endDate)) *
+          selectedVehicle?.rental_price
+        : 1,
     });
     if (result) setIsSubmitting(false);
     setSubmissionResult(result);

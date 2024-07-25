@@ -8,12 +8,12 @@ function OrderDetailsSummary() {
   return (
     <div>
       <div className="border-[2px] rounded-md w-full p-5">
-        <div className="flex px-0 py-5 text-primary">
+        <div className="flex px-0  text-primary items-center">
           <BsListTask className="text-2xl" />
-          <h1 className="px-4 font-bold text-[22px]">Order Details</h1>
+          <h1 className="px-4 font-bold text-lg">Order Details</h1>
         </div>
         <div className="flex flex-col md:flex-row">
-          <div className="px-8">
+          <div className="">
             <h1 className="font-light flex">
               Start Date: <div className="font-bold px-5">{startDate}</div>
             </h1>
@@ -24,7 +24,7 @@ function OrderDetailsSummary() {
               Purpose: <div className="font-bold px-5">{purposeOfOrder}</div>
             </h1>
           </div>
-          {/* <div className="px-8">
+          {/* <div className="">
             <h1 className="font-light flex">
               Lorem: <div className="font-bold px-5">Lorem Ipsum</div>
             </h1>
@@ -41,7 +41,7 @@ function OrderDetailsSummary() {
               Lorem: <div className="font-bold px-5">Lorem Ipsum</div>
             </h1>
           </div> */}
-          {/* <div className="px-8">
+          {/* <div className="">
             <h1 className="font-light flex">
               Lorem: <div className="font-bold px-5">Lorem Ipsum</div>
             </h1>

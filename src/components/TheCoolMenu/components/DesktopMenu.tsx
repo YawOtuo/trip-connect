@@ -26,14 +26,10 @@ export const DesktopMenu = (props: any) => {
 
   return (
     <div className={`hidden lg:flex flex-row gap-12 px-8 ${props?.className} `}>
-
-      
       <div
         className={
           "flex w-max flex-col gap-7 border-r-[3px] border-r-white pr-10"
         }>
-
-
         {linksBeforeLogin.map(
           (r, idx) =>
             r.name.toLowerCase() !== "more" && (
@@ -42,15 +38,15 @@ export const DesktopMenu = (props: any) => {
                   active={active === idx}
                   linkObject={r}
                   onClick={() => {
-                    // if (r?.sub) {
-                    //   setActive(idx);
-                    //   setActiveSubLink("");
-                    //   setSubId(null);
-                    // } else {
-                    //   setActiveSubLink("");
-                    //   setActive(null);
-                    //   router.push(r?.url);
-                    // }
+                    if (r?.sub) {
+                      setActive(idx);
+                      // setActiveSubLink("");
+                      setSubId(null);
+                    } else {
+                      // setActiveSubLink("");
+                      setActive(null);
+                      router.push(r?.url);
+                    }
                   }}
                 />
               </React.Fragment>
@@ -68,7 +64,6 @@ export const DesktopMenu = (props: any) => {
             variants={FadeInOut}
             initial={"closed"}
             exit={"closed"}>
-            {/* sub links --> view all listings, etc... */}
             {linksBeforeLogin[active]?.sub?.map((l: any, ldx) => (
               <MenuLink
                 key={ldx}
@@ -76,7 +71,8 @@ export const DesktopMenu = (props: any) => {
                 linkObject={l}
                 isSubLink
                 onClick={() => {
-                  // setActiveSubLink(l?.label);
+                  router.push(l.url);
+                  setMobileMenuStore(false)
                 }}
               />
             ))}

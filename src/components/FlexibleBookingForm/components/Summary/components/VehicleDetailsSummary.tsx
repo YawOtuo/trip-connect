@@ -1,9 +1,11 @@
 import { useFlexibleBookingFormStore } from "@/components/FlexibleBookingForm/useFlexibleBookingFormStore";
 import Image from "next/image";
 import { BsCarFront } from "react-icons/bs";
+import OrderDetailsSummary from "./OrderDetailsSummary";
 
 function VehicleDetailsSummary() {
-    const { selectedVehicle, startDate, endDate, purposeOfOrder, user } = useFlexibleBookingFormStore();
+  const { selectedVehicle, startDate, endDate, purposeOfOrder, user } =
+    useFlexibleBookingFormStore();
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-5">
@@ -20,17 +22,17 @@ function VehicleDetailsSummary() {
           />
         </div>
       )}
-      <div className="w-full">
+      <div className="w-full flex flex-col gap-5">
         <h1 className="px-0 md:px-10 text-2xl font-bold">
           {selectedVehicle?.name}
         </h1>
         {/* Vehicle Details */}
-        <div className="border-[2px] rounded-md w-[400px] h-[205px] m-[10px] p-5">
-          <div className="flex px-0 py-5 text-pink-800">
+        <div className="border-[2px] rounded-md w-full md:w-[400px] p-5 ">
+          <div className="flex px-0 items-center text-primary">
             <BsCarFront className="text-[30px]" />
-            <h1 className="px-4 font-bold text-[22px]">Vehicle Details</h1>
+            <h1 className="px-4 font-bold text-lg">Vehicle Details</h1>
           </div>
-          <div className="px-8">
+          <div className="">
             <h1 className="font-light flex">
               Type:{" "}
               <div className="font-bold px-5">
@@ -49,38 +51,10 @@ function VehicleDetailsSummary() {
             </h1>
           </div>
 
-          {/* <div className="flex font-bold px-[10px] justify-end">
-          <BsPencil />
-
-          <h1 className="px-3">Change</h1>
-        </div> */}
+      
         </div>
 
-        {/* Pick Up Details */}
-
-        {/* <div className="border-[2px] rounded-md w-[400px] h-[205px] m-[10px] p-5">
-        <div className="flex px-0 py-5 text-pink-800">
-          <BsList className="text-[30px]" />
-          <h1 className="px-4 font-bold text-[22px]">Pick Up Details</h1>
-        </div>
-        <div className="px-8">
-          <h1 className="font-light flex">
-            Pick Up Location: <div className="font-bold px-5">Accra</div>
-          </h1>
-          <h1 className="font-light flex">
-            Pick Up Location: <div className="font-bold px-5">Accra</div>
-          </h1>
-          <h1 className="font-light flex">
-            Pick Up Location: <div className="font-bold px-5">Accra</div>
-          </h1>
-        </div>
-
-        <div className="flex font-bold px-[7px] justify-end">
-          <BsPencil />
-
-          <h1 className="px-3">Change</h1>
-        </div>
-      </div> */}
+        <OrderDetailsSummary />
       </div>
     </div>
   );

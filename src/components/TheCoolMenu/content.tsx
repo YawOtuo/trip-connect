@@ -1,46 +1,51 @@
- export const linksBeforeLogin = [
-    { id: "#", url: "/login", name: "LOGIN" },
-    { id: "#", url: "/flexible-bookings", name: "FLEXIBLE BOOKINGS" },
-    // {
-    //   id: "#",
-    //   url: "",
-    //   name: "HIRE A PROFESSIONAL",
-    //   sub: [
-    //     { url: "#", name: "Renter" },
-    //     { url: "#", name: "Property Owner" },
-    //     { url: "#", name: "Artisan" },
-    //   ],
-    // },
-    { id: "#", url: "/fixed-bookings", name: "FIXED BOOKINGS" },
-    {
-      id: "#",
-      url: "#",
-      name: "LOREM",
-      sub: [
-        {
-          url: "/properties",
-          name: "View All Listings",
-          id: "#",
-          label: "all-listings",
-        },
+export const linksBeforeLogin = [
+  { id: "#", url: "/login", name: "LOGIN" },
+  { id: "#", url: "/flexible-bookings", name: "FLEXIBLE BOOKINGS" },
 
-        { name: "Self Contained ", id: "#", label: "self-contained" },
-        { name: "Apartments", id: "#", label: "apartments" },
-        { name: "Flats", id: "#", label: "flats" },
-        { name: "Compound Houses", id: "#", label: "compound-houses" },
-      ],
-      //sub2 is only used for mobile view
-      sub2: [
-        // {
-        //   id: "#",
-        //   url: "#",
-        //   name: "stuff goes here",
-        // },
-      ],
-    },
-    { id: "#", url: "/dashboard/trips", name: "MY TRIPS" },
-    { id: "#", url: "/dashboard", name: "DASHBOARD" },
- 
-  ];
+  // },
+  { id: "#", url: "/fixed-bookings", name: "FIXED BOOKINGS" },
 
+  // { id: "#", url: "/dashboard/trips", name: "MY TRIPS" },
 
+  { id: "#", url: "/terms-and-conditions", name: "TERMS AND CONDITIONS" },
+
+  {
+    id: "#",
+    url: "#",
+    name: "DASHBOARD",
+    sub: [
+      {
+        name: "View Dashboard ",
+        id: "/dashboard",
+        label: "dashboard",
+        url: "/dashboard",
+      },
+
+      {
+        url: "/dashboard/trips",
+        name: "My Trips",
+        id: "#",
+        label: "trips",
+      },
+
+      {
+        name: "My Vehicles ",
+        id: "vehicles",
+        label: "vehicles",
+        url: "/dashboard/vehicles",
+      },
+      {
+        name: "My Notifications",
+        id: "#",
+        label: "notifications",
+        url: "/dashboard/notifications",
+      },
+      {
+        name: "My Details",
+        id: "#",
+        label: "details",
+        url: "/dashboard/account",
+      },
+    ],
+  },
+];

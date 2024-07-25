@@ -8,12 +8,12 @@ function UserDetailsSummary() {
   return (
     <div>
       <div className="border-[2px] rounded-md w-full   p-5">
-        <div className="flex px-0 py-5 text-primary">
+        <div className="flex px-0  text-primary">
           <BsPersonFill className="text-[30px]" />
-          <h1 className="px-4 font-bold text-[22px]">My Details</h1>
+          <h1 className="px-4 font-bold text-lg">My Details</h1>
         </div>
         <div className="flex flex-col md:flex-row">
-          <div className="px-8">
+          <div className="">
             <h1 className="font-light flex">
               Name: <div className="font-bold px-5">{user?.username}</div>
             </h1>
@@ -33,7 +33,7 @@ function UserDetailsSummary() {
               <div className="font-bold px-5">{user?.date_of_birth}</div>
             </h1>
           </div>
-          <div className="px-8">
+          <div className="">
             <h1 className="font-light flex">
               Drivers License Number:{" "}
               <div className="font-bold px-5">
