@@ -10,6 +10,7 @@ import moment from "moment";
 import { FaBus, FaLongArrowAltRight } from "react-icons/fa";
 import { TbCoins } from "react-icons/tb";
 import TripOrderDetails from "./components/TripOrderDetails";
+import TripDetails from "./components/TripDetails";
 
 type Props = {
   params: { id: number };
@@ -20,7 +21,7 @@ function Page({ params }: Props) {
   return (
     <div className="h-full">
       {OneFixedBookings ? (
-        <div className="flex flex-col gap-5 w-full items-center justify-center">
+        <div className="flex flex-col gap-10 w-full items-start justify-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 h-full w-full justify-center items-center">
             {OneFixedBookings && (
               <div className="relative aspect-[3/2] w-full overflow-hidden rounded-xl border-2">
@@ -35,9 +36,10 @@ function Page({ params }: Props) {
 
             <div className="flex flex-col gap-1 justify-end">
               {/* <VehicleDetails vehicle={OneFixedBookings.vehicle} /> */}
-              <TripOrderDetails data={OneFixedBookings} />
+              <TripDetails data={OneFixedBookings} />
             </div>
           </div>
+          <TripOrderDetails bus={OneFixedBookings.bus_and_schedule.transportbus} />
         </div>
       ) : (
         <p>Loading Data...</p>

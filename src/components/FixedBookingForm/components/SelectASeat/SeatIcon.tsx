@@ -13,7 +13,7 @@ import { MdEventSeat } from "react-icons/md";
 type Props = {
   isBooked: boolean;
   number: number;
-  isSelected: boolean;
+  isSelected?: boolean;
   toggleSeat: any;
 };
 const SeatIcon = ({ isBooked, number, toggleSeat, isSelected }: Props) => {
