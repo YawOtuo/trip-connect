@@ -24,9 +24,10 @@ const useTransportBuses = (filter?: { [key: string]: any }) => {
     isLoading: issearchTransportBusLoading,
     error: issearchTransportBusError,
   } = useQuery<TransportScheduleWithBuses[]>({
-    queryKey: ["search-transportbuses"],
+    queryKey: [`search-transportbuses-${filter?.travelling_from}-${filter?.travelling_to}`],
     queryFn: () => FetchTransportBusesWithSchedules(filter),
     enabled: !!filter,
+    refetchOnMount: true
   });
 
   return {

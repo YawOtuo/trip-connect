@@ -32,16 +32,16 @@ const SeatIcon = ({ isBooked, number, toggleSeat, isSelected }: Props) => {
           <button
             className="appearance-none"
             onClick={() => !isBooked && toggleSeat(number)}>
-           <div className="hidden lg:flex">
+           <div className="hidden lg:flex scale-x-[-1]">
               <PiSeatDuotone
-                size={"100%"}
+                size={"90%"}
                 className={`${
                   isBooked
                     ? "text-red-500"
                     : isSelected
                     ? "text-green-500"
                     : "text-primary-100"
-                } hover:text-primary hover:scale-[1.02] transition-all duration-300 hover:border-2 hover:border-primary rounded-e-xl`}
+                } hover:text-primary hover:scale-[1.02]  transition-all duration-300 hover:border-2 hover:border-primary rounded-e-xl`}
               />
            </div>
            <div className="lg:hidden">
@@ -53,7 +53,7 @@ const SeatIcon = ({ isBooked, number, toggleSeat, isSelected }: Props) => {
                     : isSelected
                     ? "text-green-500"
                     : "text-primary-100"
-                } hover:text-primary hover:scale-[1.02] transition-all duration-300 hover:border-2 hover:border-primary rounded-e-xl`}
+                } hover:text-primary hover:scale-[1.02]  transition-all duration-300 hover:border-2 hover:border-primary rounded-e-xl`}
               />
            </div>
           </button>

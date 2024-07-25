@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import FixedBookingForm from "@/components/FixedBookingForm";
 import FramerWrapper from "@/components/FramerWrapper";
 import { Button } from "@/components/ui/button";
@@ -40,12 +40,12 @@ function Page() {
 
           <div className="">
             <p>
-             Our Fixed Booking Service is designed to make your travel planning effortless and convenient. Here&apos;s what you need to know:
-              
-              What is Fixed Booking?
-              Fixed Booking allows you to reserve a seat on one of our scheduled buses. Unlike on-demand services, our buses operate on
-              fixed routes and schedules, ensuring you have a reliable and timely travel option.
-             
+              Our Fixed Booking Service is designed to make your travel planning
+              effortless and convenient. Here&apos;s what you need to know: What
+              is Fixed Booking? Fixed Booking allows you to reserve a seat on
+              one of our scheduled buses. Unlike on-demand services, our buses
+              operate on fixed routes and schedules, ensuring you have a
+              reliable and timely travel option.
             </p>
           </div>
 
@@ -55,19 +55,21 @@ function Page() {
             ))}
           </FramerWrapper>
 
-          <div className="w-full flex justify-end mt-5">
-            <Modal
-              open={isModalOpen}
-              onOpenChange={setIsModalOpen}
-              size={"5xl"}
-              trigger={<BookNowButton />}
-              body={
-                <div>
-                  <FixedBookingForm />
-                </div>
-              }
-              header={<div></div>}
-            />
+          <div className="flex justify-end">
+            <div className="w-2/5 flex justify-end mt-5">
+              <Modal
+                open={isModalOpen}
+                onOpenChange={setIsModalOpen}
+                size={"5xl"}
+                trigger={<BookNowButton />}
+                body={
+                  <div>
+                    <FixedBookingForm />
+                  </div>
+                }
+                header={<div></div>}
+              />
+            </div>
           </div>
         </div>
       </div>

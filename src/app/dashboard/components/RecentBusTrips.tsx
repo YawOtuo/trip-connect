@@ -16,7 +16,7 @@ function RecentBusTrips() {
       {fixedBookings && fixedBookings?.length > 1 && (
         <div className="flex flex-col items-start gap-5">
           <p className="text-primary font-bold">My Recent Bus Trips</p>
-          <div className="hidden lg:grid grid-cols-7 gap-3 text-primary font-semibold px-5 w-full text-left text-sm">
+          <div className="hidden lg:grid grid-cols-8 gap-3 text-primary font-semibold px-5 w-full text-left text-sm">
             <div>Vehicle Number</div>
 
             <div>Bus Type</div>
@@ -24,6 +24,7 @@ function RecentBusTrips() {
 
             <div>Date Created</div>
             <div>Status</div>
+            <div>Cost</div>
             <div>Paid</div>
           </div>
           <div className="w-full flex flex-col gap-5">

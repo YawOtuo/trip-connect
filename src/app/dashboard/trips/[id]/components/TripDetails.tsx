@@ -37,6 +37,7 @@ function TripDetails({ data }: Props) {
           )}
         </p>
 
+        <p>Booked Seats: {data.bus_and_schedule.transportbus.booked_seats.length}</p>
         <div className="flex items-center gap-1">
           <TbCoins />
           <p>{data.cost}</p>

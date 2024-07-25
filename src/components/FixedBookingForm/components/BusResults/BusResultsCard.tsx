@@ -46,12 +46,12 @@ function BusResultsCard({ schedule }: Props) {
 
                 <Button
                   onClick={() => {
-                    setScheduleSelected(schedule.id);
+                    setScheduleSelected(schedule);
                     setSelectedBus(r?.transportbus);
                   }}
                   variant={`${
                     selectedBus?.id === r?.transportbus?.id &&
-                    scheduleSelected == schedule.id
+                    scheduleSelected?.id == schedule.id
                       ? "default"
                       : "outline"
                   }`}

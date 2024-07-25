@@ -7,6 +7,7 @@ import { useTellUsMoreStore } from "./TellUsMore/useTellUsMoreStore";
 import { useAppStore } from "@/lib/store/useAppStore";
 import FixedBookingControls from "./FixedBookingControls";
 import { Button } from "@/components/ui/button";
+import { busPics } from "@/lib/utils";
 
 function BusDetails() {
   const {
@@ -23,16 +24,14 @@ function BusDetails() {
         <div className="grid grid-cols-1 md:grid-cols-2 items-start md:items-center justify-center gap-5 w-full h-full ">
           <div className="relative aspect-[3/2] w-full max-w-[200px] md:max-w-full">
             <Image
-              src="/Bismarkbus.png" // Ensure this image path is correct
+              src={busPics[selectedBus?.bus_type ?? "VIP"]} // Ensure this image path is correct
               alt="Bus"
               fill
               objectFit="cover"
             />
           </div>
           <div className="flex flex-col gap-5 w-full md:w-fit  ">
-            <div
-              className="group  border  rounded-md p-4 flex flex-col justify-between"
-              >
+            <div className="group  border  rounded-md p-4 flex flex-col justify-between">
               <p>Your Bus is:</p>
               <p className="text-primary text-3xl font-bold">
                 #{selectedBus?.vehicle.vehicle_number}
@@ -53,7 +52,7 @@ function BusDetails() {
                   <FaCheck />
                   <p>Yes</p>
                 </Button>
-                
+
                 <Button
                   onClick={() => setCustomSeat(false)}
                   size={"sm"}

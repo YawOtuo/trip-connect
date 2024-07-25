@@ -1,10 +1,11 @@
 import create from "zustand";
 import { TransportBus } from "@/lib/types/vehicles";
+import { TransportScheduleWithBuses } from "@/lib/types/transportschedule";
 
 interface TellUsMoreState {
   selectedTo: string | null;
   selectedFrom: string | null;
-  scheduleSelected: number | null;
+  scheduleSelected: TransportScheduleWithBuses | null;
   busFound: boolean | null;
   customSeat: boolean | null;
   selectedBus: TransportBus | null;
@@ -14,7 +15,7 @@ interface TellUsMoreState {
   selectedSeats: number[]; // New field for selected seats
 
   setSelectedTo: (value: string) => void;
-  setScheduleSelected: (value: number) => void;
+  setScheduleSelected: (value: TransportScheduleWithBuses) => void;
   setCustomSeat: (value: boolean) => void;
   setSelectedFrom: (value: string) => void;
   setBusFound: (value: boolean) => void;
@@ -47,6 +48,10 @@ export const useTellUsMoreStore = create<TellUsMoreState>((set) => ({
   setIsSubmitting: (value) => set({ isSubmitting: value }),
   setSubmissionResult: (value) => set({ submissionResult: value }),
   setIsModalOpen: (value) => set({ isModalOpen: value }),
-  addSelectedSeat: (seat) => set((state) => ({ selectedSeats: [...state.selectedSeats, seat] })),
-  removeSelectedSeat: (seat) => set((state) => ({ selectedSeats: state.selectedSeats.filter(s => s !== seat) }))
+  addSelectedSeat: (seat) =>
+    set((state) => ({ selectedSeats: [...state.selectedSeats, seat] })),
+  removeSelectedSeat: (seat) =>
+    set((state) => ({
+      selectedSeats: state.selectedSeats.filter((s) => s !== seat),
+    })),
 }));

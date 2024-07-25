@@ -6,6 +6,7 @@ export interface NewFixedBooking {
   bus_schedule_id: number | null;
   bus_id: number | null;
   seat_numbers?: Number[];
+  cost: number
 }
 
 export interface UpDateFixedBooking {

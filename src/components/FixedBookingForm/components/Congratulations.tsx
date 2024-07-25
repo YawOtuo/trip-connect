@@ -1,12 +1,20 @@
+"use client";
 import FramerWrapper from "@/components/FramerWrapper";
 import { fadeIn } from "@/lib/animations";
 import { useTellUsMoreStore } from "./TellUsMore/useTellUsMoreStore";
 import Submitting from "./Congratulations/Submitting";
 import FixedBookingControls from "./FixedBookingControls";
 import Image from "next/image";
+import { useFixedBookingFormStore } from "../FixedBookingStore";
+import { useEffect } from "react";
 
 function Congrutalations() {
   const { isSubmitting, submissionResult } = useTellUsMoreStore();
+  const { setActivePage } = useFixedBookingFormStore();
+
+  // useEffect(() => {
+  //   return setActivePage(0);
+  // }, [setActivePage]);
 
   return (
     <FramerWrapper {...fadeIn}>

@@ -8,6 +8,7 @@ export interface TransportSchedule {
   travelling_to: string;
   departure_time: string;
   estimated_arrival_time: string;
+  price: number
   created_at: string;
   updated_at: string;
 }
@@ -25,4 +26,5 @@ export interface TransportScheduleWithBuses {
   }[];
   created_at: string;
   updated_at: string;
+  price: number
 }

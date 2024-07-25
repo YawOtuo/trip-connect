@@ -7,7 +7,7 @@ import useTransportBuses from "@/lib/hooks/useTransportBuses";
 
 import FixedBookingControls from "../FixedBookingControls";
 import BusResultsLoading from "./BusResultsLoading";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 function BusResults() {
   const { selectedFrom, selectedTo, busFound, selectedBus, setSelectedBus } =
     useTellUsMoreStore();
@@ -19,12 +19,21 @@ function BusResults() {
     travelling_from: selectedFrom,
     travelling_to: selectedTo,
   });
+  const [showResults, setShowResults] = useState(false);
+  useEffect(() => {
+    if (!issearchTransportBusLoading) {
+      const timer = setTimeout(() => {
+        setShowResults(true);
+      }, 2000); // Ensure loading animation shows for at least 2 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [issearchTransportBusLoading]);
 
   return (
     <FramerWrapper
       {...fadeIn}
       className="relative h-full flex flex-col justify-between  ">
-      {searchTransportBus && searchTransportBus?.length > 0 && (
+      {showResults && searchTransportBus && searchTransportBus?.length > 0 && (
         <div className="flex flex-col py-5 my-5 gap-5 custom-scrollbar  overflow-y-auto">
           <p className="">
             Search Results for buses going from{" "}
@@ -51,7 +60,10 @@ function BusResults() {
           searchTransportBus && searchTransportBus?.length < 1 && "h-full"
         } justify-between flex flex-col`}>
         <BusResultsLoading />
-        <FixedBookingControls showBackButton={!issearchTransportBusLoading} showForwardButton={Boolean(selectedBus)} />
+        <FixedBookingControls
+          showBackButton={!issearchTransportBusLoading}
+          showForwardButton={Boolean(selectedBus)}
+        />
       </div>
     </FramerWrapper>
   );

@@ -17,6 +17,7 @@ function useFBooking() {
     setSubmissionResult,
     setIsSubmitting,
     setIsModalOpen,
+    selectedSeats,
   } = useTellUsMoreStore();
 
   const handleBack = () => {
@@ -46,8 +47,9 @@ function useFBooking() {
     handleContinue();
     const result = await createFixedBooking({
       user_id: Number(DBDetails?.id),
-      bus_schedule_id: scheduleSelected,
+      bus_schedule_id: Number(scheduleSelected?.id),
       bus_id: selectedBus?.id ?? null,
+      cost: Number(scheduleSelected?.price) * (selectedSeats.length || 1),
     });
     if (result) setIsSubmitting(false);
     setSubmissionResult(result);

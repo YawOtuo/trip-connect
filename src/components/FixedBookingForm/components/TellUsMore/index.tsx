@@ -1,3 +1,4 @@
+"use client";
 import FramerWrapper from "@/components/FramerWrapper";
 import CustomSelect from "@/components/ui/select";
 import { fadeIn } from "@/lib/animations";
@@ -15,11 +16,11 @@ function TellUsMore() {
   const { schedulesFromAndTo, isSchedulesFromAndToLoading } =
     useTransportSchedules();
 
-  // const {setBusFound} = useTellUsMoreStore();
+  const { setSelectedBus } = useTellUsMoreStore();
 
-  // useEffect(() => {
-  //   setBusFound(true)
-  // }, []);
+  useEffect(() => {
+    setSelectedBus(null);
+  }, [schedulesFromAndTo, setSelectedBus]);
 
   return (
     <FramerWrapper {...fadeIn} className="h-full flex flex-col justify-between">
@@ -49,17 +50,26 @@ function TellUsMore() {
       )}
       <div>
         {!schedulesFromAndTo && isSchedulesFromAndToLoading && (
-        <div className="flex justify-center flex-col items-center h-[50vh]">
-          <LottieFileBuilder
-            animationData={animationData}
-            width={"50%"}
-            height={"100%"}
-          />
-          <p className="text-primary font-bold">
-            Just a sec!! Getting bus schedules ready
-          </p>
-        </div>
-         )} 
+          <div className="flex justify-center flex-col items-center h-[50vh]">
+            <div className="hidden lg:flex">
+              <LottieFileBuilder
+                animationData={animationData}
+                width={"40%"}
+                height={"100%"}
+              />
+            </div>
+            <div className=" lg:hidden">
+              <LottieFileBuilder
+                animationData={animationData}
+                width={"50%"}
+                height={"100%"}
+              />
+            </div>
+            <p className="text-primary font-bold">
+              Just a sec!! Getting bus schedules ready
+            </p>
+          </div>
+        )}
       </div>
       {schedulesFromAndTo && <FixedBookingControls showBackButton={false} />}{" "}
       {!schedulesFromAndTo && !isSchedulesFromAndToLoading && (

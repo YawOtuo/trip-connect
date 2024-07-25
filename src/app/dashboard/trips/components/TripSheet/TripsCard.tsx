@@ -3,6 +3,7 @@ import { FaE, FaEye } from "react-icons/fa6";
 
 import moment from "moment";
 import Link from "next/link";
+import { TbCoins } from "react-icons/tb";
 
 type Props = {
   fixedbooking: FixedBooking;
@@ -13,7 +14,7 @@ function TripCard({ fixedbooking }: Props) {
     <Link
       href={`/dashboard/trips/${fixedbooking.id}`}
       className="hover:scale-[1.01] transition-all duration-300 cursor-pointer">
-      <div className="hidden lg:grid grid-cols-7 gap-5 p-5 border-2 rounded-md items-center justify-center">
+      <div className="hidden lg:grid grid-cols-8 gap-5 p-5 border-2 rounded-md items-center justify-center">
         <p>
           #{fixedbooking.bus_and_schedule.transportbus.vehicle.vehicle_number}
         </p>
@@ -30,6 +31,7 @@ function TripCard({ fixedbooking }: Props) {
           </p> */}
         <p>{moment(fixedbooking.created_at).format("Do MMMM YYYY hh:mm")}</p>
         <p>{fixedbooking.status}</p>
+        <p>{fixedbooking.cost}</p>
         <p>
           {fixedbooking.is_paid ? (
             <span className="text-green-800">Yes</span>
@@ -63,12 +65,16 @@ function TripCard({ fixedbooking }: Props) {
           Date Booked:{" "}
           {moment(fixedbooking.created_at).format("Do MMMM YYYY hh:mm")}
         </p>
+        <div className="flex items-center gap-2">
+          <TbCoins />
+          <p>{fixedbooking.cost}</p>
+        </div>
         <p>
           {" "}
           Paid: &nbsp;
           {fixedbooking.is_paid ? (
             <span className="text-green-800">Yes</span>
-          ) : ( 
+          ) : (
             <span>No</span>
           )}
         </p>

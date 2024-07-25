@@ -22,14 +22,14 @@ function Bus({
     }
   };
   return (
-    <div className="border-4 border-primary rounded-2xl  flex gap-5 items-center w-fit px-5 py-3 h-fit border-t-[15px] lg:border-t-4 lg:border-l-[10px]">
-      {/* <div className="bg-primary w-[50px] rounded-l-lg h-full"></div> */}
+    <div className="border-4 border-primary rounded-2xl  flex gap-5 items-center w-fit px-5 py-3 h-fit border-t-[15px] md:border-t-4 md:border-l-[10px]">
+      {/* <div className="bg-primary w-[50px] rounded-l-md h-full"></div> */}
 
-      <div className="flex h-full flex-row lg:flex-col gap-4 scale-x-[-1] lg:scale-x-[1]">
+      <div className="flex h-full flex-row md:flex-col gap-4 scale-x-[-1] md:scale-x-[1]">
         {/* First row: Seats 1 to 10 */}
-        <div className="flex flex-col lg:flex-row w-full justify-end items-center gap-5">
+        <div className="flex flex-col md:flex-row w-full justify-end items-center gap-5">
           {Array.from({ length: 10 }).map((_, index) => (
-            <div className="w-[30px] lg:w-[60px]" key={index + 30}>
+            <div className="w-[30px] md:w-[60px]" key={index + 30}>
               <SeatIcon
                 isBooked={bookedSeats.some(
                   (seat) => seat.seat_number === index + 31
@@ -42,9 +42,9 @@ function Bus({
           ))}
         </div>
         {/* Second row: Seats 11 to 20 */}
-        <div className="flex  flex-col lg:flex-row w-full items-center justify-end gap-5">
+        <div className="flex  flex-col md:flex-row w-full items-center justify-end gap-5">
           {Array.from({ length: 1 }).map((_, index) => (
-            <div className="w-[30px] lg:w-[60px]" key={index + 20}>
+            <div className="w-[30px] md:w-[60px]" key={index + 20}>
               <SeatIcon
                 isBooked={bookedSeats.some((seat) => seat.seat_number === 31)}
                 number={31}
@@ -55,9 +55,9 @@ function Bus({
           ))}
         </div>
         {/* Third row: Seats 21 to 30 */}
-        <div className="flex w-full flex-col lg:flex-row justify-end items-center gap-5">
+        <div className="flex w-full flex-col md:flex-row justify-end items-center gap-5">
           {Array.from({ length: 10 }).map((_, index) => (
-            <div className="w-[30px] lg:w-[60px]" key={index + 10}>
+            <div className="w-[30px] md:w-[60px]" key={index + 10}>
               <SeatIcon
                 isBooked={bookedSeats.some(
                   (seat) => seat.seat_number === index + 11
@@ -70,9 +70,9 @@ function Bus({
           ))}
         </div>
         {/* Fourth row: Seats 31 to 40 */}
-        <div className="flex w-full flex-col lg:flex-row justify-end items-center gap-5">
+        <div className="flex w-full flex-col md:flex-row justify-end items-center gap-5">
           {Array.from({ length: 10 }).map((_, index) => (
-            <div className="w-[30px] lg:w-[60px]" key={index}>
+            <div className="w-[30px] md:w-[60px]" key={index}>
               <SeatIcon
                 isBooked={bookedSeats.some(
                   (seat) => seat.seat_number === index + 1
