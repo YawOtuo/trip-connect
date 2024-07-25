@@ -1,119 +1,64 @@
-// import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-// import {
-//   CreateNotification,
-//   DeleteNotification,
-//   GetShopNotificatoins,
-//   GetUnreadNotificationsCount,
-//   MarkAllNotificationAsRead,
-//   MarkNotificationAsRead,
-// } from "../api/notifications";
-// import { useSelector } from "react-redux";
-
-// type notificationData = {
-//   subject: string;
-//   message?: string;
-//   shopId: number
-// };
-
-// const useNotifications = () => {
-//   const queryClient = useQueryClient();
-//   const userSqlData = useSelector((state) => state.users.userSqlData);
-
-//   const {
-//     data: notifications,
-//     isLoading,
-//     error,
-//   } = useQuery(
-//     ["notifications"],
-//     async () => {
-//       console.log("first");
-//       const response = await GetShopNotificatoins(userSqlData?.shopId);
-//       return response;
-//     },
-//     {
-//       enabled: !!userSqlData, // Enable the query only if userSqlData is defined
-//     }
-//   );
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useAppStore } from "../store/useAppStore";
+import {
+  getNotificationsByUser,
+  createNotification,
+  markNotificationAsRead,
+  deleteNotification,
+  // deleteNotification
+} from "../api/notifications"; // Assume these are the correct imports
+import { Notification } from "../types/notification";
 
 
-//   const {
-//     data: unread_notifications_count,
-//     isLoading: unread_loading,
-//     error : unread_error,
-//   } = useQuery(
-//     ["unread_notifications_count"],
-//     async () => {
-//       console.log("first");
-//       const response = await GetUnreadNotificationsCount(userSqlData?.shopId);
-//       return response;
-//     },
-//     {
-//       enabled: !!userSqlData, // Enable the query only if userSqlData is defined
-//     }
-//   );
+const useNotifications = () => {
+  const queryClient = useQueryClient();
+  const { DBDetails } = useAppStore();
 
+  const {
+    data: notifications,
+    isLoading,
+    error,
+  } = useQuery<Notification[]>({
+    queryKey: ["notifications"],
+    queryFn: () => getNotificationsByUser(Number(DBDetails?.id)),
+    enabled: !!DBDetails?.id,
+  });
 
+  const createNotificationMutation = useMutation({
+    mutationFn: async (notificationData: Notification) => {
+      const response = await createNotification(notificationData);
+      return response;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["notifications"] });
+      queryClient.invalidateQueries({ queryKey: ["unread_notifications_count"] });
+    },
+  });
 
-//   const createNotificationMutation = useMutation(
-//     async (notificationData: notificationData) => {
-//       const response = await CreateNotification(notificationData);
-//       return response;
-//     },
-//     {
-//       onSuccess: () => {
-//         queryClient.invalidateQueries(["notifications"]);
-//       },
-//     }
-//   );
+  const markAsReadMutation = useMutation({
+    mutationFn: (notificationId: number) => markNotificationAsRead(notificationId, Number(DBDetails?.id)),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["notifications"] });
+      queryClient.invalidateQueries({ queryKey: ["unread_notifications_count"] });
+    },
+  });
 
-//   const markAsReadMutation = useMutation(
-//     async (notificationId) => {
-//       const response = await MarkNotificationAsRead(notificationId);
-//       return response;
-//     },
-//     {
-//       onSuccess: () => {
-//         queryClient.invalidateQueries(["notifications"]);
-//       },
-//     }
-//   );
+  const deleteNotificationMutation = useMutation({
+    mutationFn: (notificationId: number) => deleteNotification(notificationId, Number(DBDetails?.id)),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["notifications"] });
+      queryClient.invalidateQueries({ queryKey: ["unread_notifications_count"] });
+    },
+  });
 
-//   const markAllAsReadMutation = useMutation(
-//     async (notificationId) => {
-//       const response = await MarkAllNotificationAsRead(userSqlData?.shopId);
-//       return response;
-//     },
-//     {
-//       onSuccess: () => {
-//         queryClient.invalidateQueries(["notifications"]);
-//       },
-//     }
-//   );
+  return {
+    notifications,
+    isLoading,
+    error,
+    createNotification: createNotificationMutation.mutate,
+    markAsRead: markAsReadMutation.mutate,
+    deleteNotification: deleteNotificationMutation.mutate,
+  };
+};
 
-//   const deleteNotificationMutation = useMutation(
-//     async (notificationId) => {
-//       const response = await DeleteNotification(notificationId);
-//       return response;
-//     },
-//     {
-//       onSuccess: () => {
-//         queryClient.invalidateQueries(["notifications"]);
-//       },
-//     }
-//   );
-
-
-
-//   return {
-//     notifications,
-//     isLoading,
-//     error,
-//     createNotification: createNotificationMutation.mutate,
-//     markAsRead: markAsReadMutation.mutate,
-//     markAllAsRead: markAllAsReadMutation.mutate,
-//     unread_notifications_count,
-//     deleteNotification: deleteNotificationMutation.mutate,
-//   };
-// };
-
-// export default useNotifications;
+export default useNotifications;

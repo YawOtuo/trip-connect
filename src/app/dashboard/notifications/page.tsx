@@ -1,83 +1,58 @@
-import React from 'react';
-import { FaClock, FaRegStar } from 'react-icons/fa'; // Importing timer and star icons
+"use client";
+import useNotifications from "@/lib/hooks/useNotifications";
+import React from "react";
+import { FaClock, FaRegStar } from "react-icons/fa"; // Importing timer and star icons
+import NotificationCard from "./components/NotificationCard";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 function Page() {
-    return (
-        <div className="p-4">
-            {/* Title of the page */}
-            <h1 className="text-xl font-bold text-[#6B184E]">My Notifications</h1>
-            
-            {/* Container for the ovals */}
-            <div className="flex space-x-4 mt-4">
-                {/* First oval container */}
-                <div className="relative group" style={{ width: '150px' }}>
-                    {/* Oval with placeholder text "All" */}
-                    <span className="block px-6 py-1 border-2 border-[#6B184E] text-black rounded-full cursor-pointer relative overflow-hidden w-full text-center">
-                        {/* Background span for hover effect */}
-                        <span className="absolute inset-0 bg-[#6B184E] transition-transform transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
-                        {/* Text inside the oval */}
-                        <span className="relative z-10 group-hover:text-white">All</span>
-                    </span>
-                </div>
-                
-                {/* Second oval container */}
-                <div className="relative group" style={{ width: '150px' }}>
-                    {/* Oval with placeholder text "Unread" */}
-                    <span className="block px-6 py-1 border-2 border-[#6B184E] text-black rounded-full cursor-pointer relative overflow-hidden w-full text-center">
-                        {/* Background span for hover effect */}
-                        <span className="absolute inset-0 bg-[#6B184E] transition-transform transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
-                        {/* Text inside the oval */}
-                        <span className="relative z-10 group-hover:text-white">Unread</span>
-                    </span>
-                </div>
-            </div>
+  const { notifications, isLoading } = useNotifications();
+  return (
+    <div className="p-4">
+      {/* Title of the page */}
+      <h1 className="text-xl font-bold text-primary">My Notifications</h1>
 
-            {/* Additional content under the ovals */}
-            <div className="mt-8 flex items-center space-x-12 pl-6">
-                <span className="text-[#6B184E] text-xl font-bold">tC</span>
-                <div className="flex flex-col">
-                    <p className="text-black font-bold">Welcome to Trip Connect</p>
-                    <p className="text-black">Glad to have you</p>
-                </div>
-            </div>
+      {/* Additional content under the ovals */}
 
-            {/* First notification */}
-            <div className="mt-8 flex items-center space-x-12 pl-6">
-                <FaClock className="text-[#6B184E]" />
-                <div className="flex flex-col">
-                    <p className="text-black font-bold">Reminder: You have an upcoming trip with VIP on Tuesday</p>
-                    <p className="text-black">Ready. Set</p>
-                </div>
-            </div>
-
-            {/* Second notification */}
-            <div className="mt-8 flex items-center space-x-12 pl-6">
-                <FaRegStar className="text-[#6B184E]" />
-                <div className="flex flex-col">
-                    <p className="text-black font-bold">Rate your last trip to Kumasi with VIP</p>
-                    <p className="text-black">Let&apos;s hear from you</p>
-                </div>
-            </div>
-
-            {/* Third notification */}
-            <div className="mt-8 flex items-center space-x-12 pl-6">
-                <FaRegStar className="text-[#6B184E]" />
-                <div className="flex flex-col">
-                    <p className="text-black font-bold">Rate your driver: Kwame Daniels</p>
-                    <p className="text-black">Help us get better</p>
-                </div>
-            </div>
-
-            {/* Fourth notification */}
-            <div className="mt-8 flex items-center space-x-12 pl-6">
-                <FaClock className="text-[#6B184E]" />
-                <div className="flex flex-col">
-                    <p className="text-black font-bold">Reminder: You have an upcoming trip with VIP on Tuesday</p>
-                    <p className="text-black">Ready. Set</p>
-                </div>
-            </div>
-        </div>
-    );
+      <Tabs defaultValue="read" className="w-full md:w-[400px]">
+        <TabsList>
+          <TabsTrigger value="read">Read</TabsTrigger>
+          <TabsTrigger value="unread">Unread</TabsTrigger>
+        </TabsList>
+        <TabsContent value="read">
+          <div className="flex flex-col gap-4">
+            {notifications?.map((notification) => (
+              <NotificationCard
+                notification={notification}
+                key={notification.id}
+              />
+            ))}
+            {notifications && notifications?.length < 1 && (
+              <NotificationCard
+                notification={{
+                  subject: "Welcome",
+                  message: "Glad to have you",
+                  type: "alert",
+                }}
+                key={5}
+              />
+            )}
+            {isLoading && <p>Loading your notifications...</p>}
+          </div>
+        </TabsContent>
+        <TabsContent value="unread">
+          {notifications
+            ?.filter((notification) => !notification.read)
+            .map((notification) => (
+              <NotificationCard
+                notification={notification}
+                key={notification.id}
+              />
+            ))}
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
 }
 
 export default Page;
