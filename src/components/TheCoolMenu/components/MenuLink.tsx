@@ -29,13 +29,13 @@ const MenuLink = (props: Props) => {
         }`}
       >
         {(props.isSubLink && props.linkObject.id) || props.linkObject?.sub ? (
-          <div className={`w-full flex items-center`}>
+          <div className={`w-full flex items-center `}>
             {props.isSubLink ? (
               // <Link href={props.linkObject?.url}>
-                <h4 className={`mr-10 `}>{props.linkObject?.name}</h4>
+                <h2 className={`mr-10 `}>{props.linkObject?.name}</h2>
               // </Link>
             ) : (
-              <h2 className="mr-10">{props.linkObject?.name}</h2>
+              <h2 className="mr-10 text-2xl">{props.linkObject?.name}</h2>
             )}
           <CaArrowRight />
           </div>

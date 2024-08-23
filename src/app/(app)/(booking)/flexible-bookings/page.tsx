@@ -1,3 +1,4 @@
+"use client"
 import FixedBookingForm from "@/components/FixedBookingForm";
 import FramerWrapper from "@/components/FramerWrapper";
 import { Button } from "@/components/ui/button";

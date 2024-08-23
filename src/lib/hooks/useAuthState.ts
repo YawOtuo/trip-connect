@@ -3,9 +3,12 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useAppStore } from "../store/useAppStore";
 import { useToast } from "@/components/ui/use-toast";
 import { fetchOrCreateUserByUid } from "../api/users";
+import useSignUpStore from "@/app/(app)/(auth)/useSignUpStore";
 
 export default function useAuthState(auth: any) {
   const { toast } = useToast();
+  const { username, setUsername } = useSignUpStore();
+
   const { setDBDetails, setFBaseDetails, error, setError, setIsLoading } =
     useAppStore();
 
@@ -20,8 +23,8 @@ export default function useAuthState(auth: any) {
             setFBaseDetails(userAuth);
 
             // Fetch or create user by UID
-            const userData :any = await fetchOrCreateUserByUid({
-              username: userAuth?.displayName || "User",
+            const userData: any = await fetchOrCreateUserByUid({
+              username: userAuth?.displayName || username || "User",
               email: userAuth?.email || userAuth?.providerData?.[0]?.email,
               uid: userAuth?.uid,
             });
@@ -56,5 +59,4 @@ export default function useAuthState(auth: any) {
       });
     }
   }, [error, toast]);
-
 }

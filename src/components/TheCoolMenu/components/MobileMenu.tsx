@@ -34,13 +34,13 @@ export const MobileMenu = (props: any) => {
 
   return (
     <div className={`lg:hidden flex flex-col justify-center h-[55vh] gap-10 px-5  ${props?.className}`}>
-      <Link href={"/fixed-bookings"}>
+      {/* <Link href={"/fixed-bookings"}>
         {" "}
         <button
           className="w-fit text-xl font-bold px-8 bg-primary py-2 text-white rounded-sm border-primary border-2">
           Book a ride
         </button>
-      </Link>
+      </Link> */}
 
       <div className="flex flex-col gap-2">
         {links?.map((link: any, index: number) => (

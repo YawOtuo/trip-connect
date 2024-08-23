@@ -37,7 +37,9 @@ function TripDetails({ data }: Props) {
           )}
         </p>
 
-        <p>Booked Seats: {data.bus_and_schedule.transportbus.booked_seats.length}</p>
+        <p>
+          Booked Seats: {data.bus_and_schedule.transportbus.booked_seats.length}
+        </p>
         <div className="flex items-center gap-1">
           <TbCoins />
           <p>{data.cost}</p>
@@ -49,9 +51,16 @@ function TripDetails({ data }: Props) {
       </div>
 
       <div>
-        <div className="flex flex-col h-fit">
-          <CheckoutButton onClick={() => handlePayment(data.cost, data.id)} />
-        </div>{" "}
+        {!data.is_paid && (
+          <div className="flex flex-col h-fit">
+            <CheckoutButton onClick={() => handlePayment(data.cost, data.id)} />
+          </div>
+        )}
+        {data.is_paid && (
+          <div className="flex items-center justify-center font-bold border-2 rounded-lg py-3 w-full uppercase bg-green-700 text-white">
+            Booked
+          </div>
+        )}
       </div>
     </div>
   );

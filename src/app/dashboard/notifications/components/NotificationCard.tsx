@@ -6,10 +6,10 @@ type Props = {
 };
 
 const notificationTypes: any = {
-  alert: <FaClock className="text-[#6B184E]" />,
-  message: <FaClock className="text-[#6B184E]" />,
-  update: <FaClock className="text-[#6B184E]" />,
-  reminder: <FaClock className="text-[#6B184E]" />,
+  alert: <FaClock className="text-primary" />,
+  message: <FaClock className="text-primary" />,
+  update: <FaClock className="text-primary" />,
+  reminder: <FaClock className="text-primary" />,
 };
 function NotificationCard({ notification }: Props) {
   return (

@@ -1,4 +1,6 @@
 export const linksBeforeLogin = [
+  { id: "#", url: "/", name: "HOME" },
+
   { id: "#", url: "/login", name: "LOGIN" },
   { id: "#", url: "/flexible-bookings", name: "FLEXIBLE BOOKINGS" },
 
@@ -7,7 +9,7 @@ export const linksBeforeLogin = [
 
   // { id: "#", url: "/dashboard/trips", name: "MY TRIPS" },
 
-  { id: "#", url: "/terms-and-conditions", name: "TERMS AND CONDITIONS" },
+  // { id: "#", url: "/terms-and-conditions", name: "TERMS AND CONDITIONS" },
 
   {
     id: "#",

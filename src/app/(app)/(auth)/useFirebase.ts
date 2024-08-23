@@ -7,6 +7,7 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import { auth } from "@/app/firebase";
+import { fetchOrCreateUserByUid } from "@/lib/api/users";
 
 function useFirebase() {
   const { toast } = useToast();
@@ -23,7 +24,7 @@ function useFirebase() {
           description: `You have successfully logged in with ${email}`,
           variant: "success",
         });
-        router.push("/");
+        router.push("/dashboard");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -37,23 +38,34 @@ function useFirebase() {
       });
   };
 
-  const registerWithEmailAndPassword = (email: string, password: string) => {
+  const registerWithEmailAndPassword = (
+    email: string,
+    password: string,
+    username?: string
+  ) => {
     toast({
       title: `Loading`,
       description: `Getting you started ${email}`,
-      variant: "success",
+      variant: "info",
     });
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+
+        const userData = await fetchOrCreateUserByUid({
+          username: user?.displayName || username || "User",
+          email: String(user?.email || user?.providerData?.[0]?.email),
+          uid: user?.uid,
+        });
+
         toast({
-          title: `Welcome`,
+          title: `Welcome ${username}`,
           description: `You have successfully registered with ${email}`,
           variant: "success",
         });
-        router.push("/");
+     
+        router.push("/dashboard");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -84,7 +96,7 @@ function useFirebase() {
           description: `You have successfully logged in with Google`,
           variant: "success",
         });
-        router.push("/");
+        router.push("/dashboard");
       })
       .catch((error) => {
         // Handle Errors here.

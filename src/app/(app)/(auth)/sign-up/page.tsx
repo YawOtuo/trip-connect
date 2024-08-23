@@ -20,17 +20,26 @@ function Page() {
       <Formik
         cl
         initialValues={{
+          username: "",
           email: "",
           password: "",
         }}
         onSubmit={(values, { resetForm }) => {
-          registerWithEmailAndPassword(values.email, values.password);
+          registerWithEmailAndPassword(values.email, values.password, values.username);
           resetForm();
         }}>
         {({ handleChange, values }) => (
           <Form className="w-full flex flex-col gap-5">
             {/* <TextInput label="Name" placeholder="Enter your name" name="name" /> */}
 
+            <TextInput
+              label="Username"
+              value={values.username}
+              onChange={handleChange}
+              placeholder="Enter your username"
+              name="username"
+              required
+            />
             <TextInput
               label="Email"
               value={values.email}
@@ -49,7 +58,7 @@ function Page() {
               type="password"
               required
             />
-            <Button className="font-semibold">Login</Button>
+            <Button className="font-semibold">Register</Button>
           </Form>
         )}
       </Formik>
@@ -58,7 +67,7 @@ function Page() {
       <div className="flex flex-col gap-4">
         <Button variant={"outline"} className="font-semibold">
           <FaGoogle className="mr-3" />
-          Login with Google
+          Register with Google
         </Button>
         {/* <Button variant={"outline"} className="font-semibold">
           <FaFacebook className="mr-3" />

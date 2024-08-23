@@ -27,13 +27,21 @@ function VehicleOrderDetails({ data }: Props) {
 
       <div className="flex items-center gap-2">
         {" "}
-        <TbCoins className="text-primary-100" size={25}/>
+        <TbCoins className="text-primary-100" size={25} />
         <p className="text-primary text-2xl font-bold">GHS {data.cost}</p>
       </div>
       <div>
-        <div className="flex flex-col h-fit">
-          <CheckoutButton onClick={() => handlePayment(data.cost, data.id)} />
-        </div>{" "}
+        {!data.is_paid && (
+          <div className="flex flex-col h-fit">
+            <CheckoutButton onClick={() => handlePayment(data.cost, data.id)} />
+          </div>
+        )}
+
+        {data.is_paid && (
+          <div className="flex items-center justify-center font-bold border-2 rounded-lg py-3 w-full uppercase bg-green-700 text-white">
+            Booked
+          </div>
+        )}
       </div>
     </div>
   );
