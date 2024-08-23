@@ -22,9 +22,13 @@ function Congrutalations() {
         <div className="flex flex-col gap-5 items-start justify-center ">
           <p className=" text-primary font-bold text-3xl">Congratulations</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur. Aliquam tincidunt fringilla
-            pellentesque risus erat quisque posuere ullamcorper cursus. Mi
-            interdum est sed pharetra..
+            We&apos;re thrilled to have you on board. Your journey is just a step
+            away, and we&apos;re here to ensure everything goes smoothly. Get ready
+            for a comfortable and enjoyable trip.
+          </p>
+          <p>
+            Thank you for choosing us for your travel needs! Safe travels and
+            see you on the bus!
           </p>
         </div>
         <div className="flex relative w-full aspect-[3/2]">
