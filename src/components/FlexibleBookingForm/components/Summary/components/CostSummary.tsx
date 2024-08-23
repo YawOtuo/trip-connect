@@ -12,15 +12,13 @@ function CostSummary() {
   const { selectedVehicle, startDate, endDate, purposeOfOrder, user } =
     useFlexibleBookingFormStore();
 
-  // Function to calculate the number of days between two dates
-
   // Calculate the number of days
   const numberOfDays = calculateDays(String(startDate), String(endDate));
 
-  // Calculate the total cost
+  // Calculate the total cost and format to 2 decimal places
   const totalCost = selectedVehicle
-    ? numberOfDays * selectedVehicle.rental_price
-    : 0;
+    ? (numberOfDays * selectedVehicle.rental_price).toFixed(2)
+    : "0.00";
 
   return (
     <div className="flex flex-col items-start justify-center w-full py-5 border-2 px-5 rounded-md h-full">
