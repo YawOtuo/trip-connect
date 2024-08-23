@@ -12,13 +12,15 @@ const MenuArea = (props: any) => {
       <div className="flex flex-col lg:gap-14">
         <div className={"flex-flex-col px-8"}>
           <div
-            className={"flex w-full flex-row items-center justify-between  "}>
+            className={
+              "flex w-full flex-row items-center justify-between  pr-10"
+            }>
             <div
               className="relative 
           ">
-                <p className="text-3xl font-bold text-white">tripConnect</p>
+              <p className="text-3xl font-bold text-white">tripConnect</p>
             </div>
-            <button className="relative  lg:right-10">
+            <button className="">
               <AiFillCloseCircle
                 onClick={() => setMobileMenuStore(false)}
                 color="white"
