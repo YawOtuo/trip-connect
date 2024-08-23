@@ -23,6 +23,10 @@ export const MobileMenu = (props: any) => {
       name: "dashboard",
       url: "/dashboard",
     },
+    {
+      name: "terms and conditions",
+      url: "/terms-and-conditions",
+    },
 
     // {
     //   name: "lorem",
@@ -33,7 +37,8 @@ export const MobileMenu = (props: any) => {
   const { setMobileMenuStore } = useMobileNavStore();
 
   return (
-    <div className={`lg:hidden flex flex-col justify-center h-[45vh] gap-10 px-5  ${props?.className}`}>
+    <div
+      className={`lg:hidden flex flex-col justify-center h-[45vh] gap-10 px-5  ${props?.className}`}>
       {/* <Link href={"/fixed-bookings"}>
         {" "}
         <button
