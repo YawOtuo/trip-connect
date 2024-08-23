@@ -92,17 +92,15 @@ function FlexiTellUsMore() {
                 className="h-full w-full p-4 rounded-lg"
                 style={{ backgroundColor: "transparent" }}>
                 <p className="mb-1">
-                  Lorem ipsum dolor sit amet consectetur. Lacus blandit aliquet
-                  nibh cras. Sed tempus senectus tellus interdum pellentesque
-                  amet. Ut sem mauris tellus interdum tincidunt mattis ut morbi
-                  quam. Scelerisque est euismod commodo semper nam risus montes.
+                  By booking a vehicle, you agree to our terms and conditions.
+                  Please ensure that the start and return dates are accurate.
+                  Any changes to the booking must be communicated at least 24
+                  hours in advance. Late returns may incur additional charges.
                 </p>
                 <p>
-                  Accumsan luctus convallis ipsum velit mi vestibulum fames
-                  eleifend. Urna congue urna cras consequat. Tempor aliquam
-                  adipiscing facilisi tempor arcu suspendisse. Aliquet donec sit
-                  nibh morbi semper. Tellus tincidunt ullamcorper non adipiscing
-                  mus.
+                  The vehicle must be returned in the same condition as it was
+                  provided. For more details, please refer to our full terms and
+                  conditions.
                 </p>
               </div>
             </div>
@@ -116,12 +114,11 @@ function FlexiTellUsMore() {
           <p className="text-2xl text-primary fonr-bold">
             Please log in before proceeding
           </p>
-         <div className="flex items-center justify-center gap-5">
+          <div className="flex items-center justify-center gap-5">
             <Link href="/login">Login</Link>
             <Link href="/sign-up">Sign Up</Link>
             <Link href="/flexible-bookings">Go Back</Link>
-
-         </div>
+          </div>
         </div>
       )}
     </>
