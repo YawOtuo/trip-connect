@@ -16,9 +16,9 @@ const MenuArea = (props: any) => {
             <div
               className="relative 
           ">
-                <p className="text-3xl font-bold text-white">tripconnect</p>
+                <p className="text-3xl font-bold text-white">tripConnect</p>
             </div>
-            <button className="relative transition-transform duration-300 hover:rotate-[360deg] lg:right-10">
+            <button className="relative  lg:right-10">
               <AiFillCloseCircle
                 onClick={() => setMobileMenuStore(false)}
                 color="white"

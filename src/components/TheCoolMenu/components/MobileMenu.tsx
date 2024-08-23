@@ -33,7 +33,7 @@ export const MobileMenu = (props: any) => {
   const { setMobileMenuStore } = useMobileNavStore();
 
   return (
-    <div className={`lg:hidden flex flex-col justify-center h-[55vh] gap-10 px-5  ${props?.className}`}>
+    <div className={`lg:hidden flex flex-col justify-center h-[45vh] gap-10 px-5  ${props?.className}`}>
       {/* <Link href={"/fixed-bookings"}>
         {" "}
         <button
